@@ -1,0 +1,191 @@
+body{
+  margin: 0;
+  padding: 0;
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+  background: #f9f9f9;
+}
+.button {
+  padding: 0.5rem 1rem;
+  background-color: #c5e6e1;
+  color: #333E4F;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: inline-block;
+  border-radius: 3px;
+  transition: background-color 200ms ease;
+}
+img:hover {
+  opacity: 0.4;
+}
+
+
+/* BARRA NAVEGACIÃ“N */ 
+
+/*Fondo menu navegacion*/
+.navbar-inverse {
+	background-color: #C5E6E1;
+	border-color:#C5E6E1;
+}
+/*Color textos menuNav*/
+.navbar-inverse .navbar-nav > li > a {
+	color: #333E4F;
+}
+/*Logotipo menuNavegacion*/
+.logo {
+  background-image: url(../img/LOGO_COMPLETO.png);
+  background-position: left;
+  background-size: 20rem;
+  background-repeat: no-repeat;
+  height: 6vh;
+  display: flex;
+  align-items: left;
+}
+.navbar-brand {
+  padding-left: 22rem;
+  font-size: 3rem;
+}
+
+/* BOTONES PERFIL Y BUSCADOR */
+.navbar-nav > li {
+	border-radius: 15px;
+	padding: 0vh;
+	margin-top: 1vh;
+	margin: 1vh 1vh;
+	background-color: #333e4f;
+}
+.navbar-nav > li > a {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	
+}
+.navbar-inverse .navbar-nav >li > a {
+	color: #c5e6e1;
+	font-size: 1.8rem;
+}
+
+/*botones con hover*/
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+	
+	border-radius: 15px;
+	background-color: #333e4f;
+}
+
+.dropdown-menu {
+	background-color: rgba(197,230,224,0.9);
+	border: 1px solid #333e4f;
+	border-top-left-radius: 15px;
+	border-radius: 15px;
+}
+.dropdown-menu > li > a {
+	color: #333e4f;
+}
+.dropdown-menu > li > a:hover {
+	background-color: #333e4f;
+	color: #c5e6e1;
+}
+
+
+/* barra menu más centrada --  POR SI HACE FALTA CENTRARLA, SINO BORRAR*/ 
+
+.container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
+margin-left: 0rem;
+margin-right: 0rem;
+}
+.navbar-right {
+	margin-right: -15px;
+}
+@media (max-width: 1100px) {
+	.container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	.navbar-right {
+		margin-right: -15px;
+	}
+}
+
+
+
+/* -- FOOTER - PIE DE PAGINA -- */
+
+/*pie de pagina*/
+#footer {
+  background-color: #333e4f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 400px) {
+  #footer {
+    display: block;
+  }
+}
+@media (min-width: 400px) {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    justify-items: center;
+    max-width: 1000px;
+    margin: auto;
+  }
+}
+@media (min-width: 768px) {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    justify-items: center;
+    max-width: 1000px;
+    margin: auto;
+  }
+}
+@media (min-width: 1000px) {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    justify-items: center;
+    max-width: 1000px;
+    margin: auto;
+  }
+}
+.footer-heading h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+@media (min-width: 1170px) {
+  .footer-group {
+    width: 200px;
+  }
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  padding: 0.5rem 0;
+}
+.footer-links ul li a {
+  color: white;
+  transition: color 200ms ease;
+}
+.footer-links ul li a:hover {
+  color: #c5e6e1;
+  
+}
+.callout,
+#blog,
+#footer {
+  grid-column: 1/-1;
+}
+

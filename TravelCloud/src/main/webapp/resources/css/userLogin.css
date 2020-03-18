@@ -1,0 +1,47 @@
+.callout-inner {
+	margin-top: 7rem;
+}
+.callout-inner > h3 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333E4F;
+}
+
+.form {
+	border-top: 0.2vh solid #333E4F;
+}
+
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.well {
+	background-color: rgba(197,230,224,0.5);
+	margin-top: 1.5rem;
+	width: 60vh;
+	justify-content: center;
+}
+
+/*boton envio formulario*/
+#botons {
+	margin-top:2rem;
+}
+#botons input {
+	display: block;
+	font-size: 1.5rem;
+	text-align: center;
+	margin: auto;
+	background-color: #333E4F;
+	color:#c5e6e1;
+	border-radius: 3px;
+	transition: background-color 200ms ease, color 200ms ease;
+}
+#botons input:hover {
+	background-color: rgba(197,230,224,0.5);
+	color: #333e4f;
+	border: 0.2rem solid #333e4f;
+	
+}

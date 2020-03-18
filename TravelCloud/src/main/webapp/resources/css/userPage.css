@@ -1,0 +1,107 @@
+/* ESTILOS MIS VIAJES */ 
+
+/* FotoUsuario */
+.userProfile {
+	margin-top: 6vh;
+}
+.userFoto {
+  border-radius: 50%;
+}
+#userProfile {
+	margin-top: 10vh;
+}
+.container-photo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.imgUser img {
+	width: 20vh;
+	height: 20vh;
+	border-radius: 50%;
+}
+.infoUser {
+	padding-left: 4vh;
+}
+
+/* Botones gestion perfil usuario */ 
+.user-buttons {
+	display: flex;
+	justify-content: center;
+	margin: 5vh 0vh;
+}
+.button-user {
+	margin: 0vh 3vh;
+	font-size: 1.8rem;
+	padding: 1vh 2vh;
+	background-color: #333e4f;
+	color: #c5e6e1;
+	text-align: center;
+	transition: background-color 200ms ease;
+}
+.button-user:hover {
+	text-decoration: none;
+	background-color: #c5e6e1;
+	color: #333e4f;;
+}
+@media (max-width: 600px) {
+	.button-user {
+		font-size: 1.5rem;
+		padding: 1vh 1vh;
+		text-align: center;
+	}
+}
+
+/*Titulo MisViajes*/
+.travUs {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(197,230,224,0.6);
+	height: 5.5vh;
+}
+
+/* Viajes Usuario */
+.container-viaje {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.img-viaje img {
+	width: 35vh;
+}
+.content-viaje {
+	padding-left: 4vh;
+	margin: 4vh 0vh;
+}
+.blog-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.blog-user {
+	font-size: 1rem;
+	font-style: italic;
+}
+/*etilos botones viajes*/
+.button-blog {
+	font-size: 1.2rem;
+}
+.button-blog:hover {
+	background-color: #333E4F;
+	color: #C5E6E1;
+	text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

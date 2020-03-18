@@ -1,0 +1,109 @@
+/* FILTRO BUSQUEDA VIAJE */
+
+.formViaje {
+	margin-top: 6vh;
+	position: fixed;
+	z-index: 1;
+	width: 105%;
+}
+.forms {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	background-color: #333E4F;
+	height: auto;
+	padding: 1.5vh 0vh;
+	border-top: 0.5vh solid #333E4F;
+	border-bottom: 0.5vh solid #333E4F;
+}
+/*estilos listas desplegables*/
+.selectpicker {
+	height: 4vh;
+	padding: 1vh 1vh;
+	margin: 0vh 3vh;
+	font-size: 1.3rem;
+	width: auto;
+	color: #555;
+}
+@media (max-width: 1050px) {
+	.selectpicker {
+		margin: 0vh 0vh;
+	}
+}
+
+/* VIAJES LISTADOS */
+
+.travels-section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 20vh;
+	margin-bottom: 5vh;
+}
+.travelContainer {
+	margin: 1.5vh 0vh;
+	padding: 2vh 5vh;
+	width: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(197,230,224,0.6);
+	border: 0.3vh solid #333E4F;
+	border-radius: 15px;
+}
+.travel-img {
+	margin-right: 2vh;
+}
+.travel-img img {
+	width: 20vh;
+}
+.travel {
+	margin-left: 2vh;
+	
+}
+.blog-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.descrip-travel{
+	width: 60vh;
+	font-size: 1.2rem;
+}
+.blog-user {
+	font-size: 1rem;
+	font-style: italic;
+}
+/*botones viajes*/
+.button-blog {
+	font-size: 1.2rem;
+	margin-top: 1.5vh;
+	margin-right: 2vh;
+    background-color: #333E4F;
+    color: #C5E6E1;
+    border: 0.1vh solid #333E4F;
+	
+}
+.button-blog:hover {
+	background-color: rgba(197,230,224,0.6);
+	color: #333E4F;
+	text-decoration: none;
+    border: 0.1vh solid #333E4F;
+}
+
+@media (max-width: 800px) {
+	.descrip-travel {
+		width: 40vh;
+		
+	}
+}
+@media (max-width: 600px) {
+	.descrip-travel {
+		width: 25vh;
+		font-size: 1.1rem;
+	}
+	.button-blog {
+		margin-right: 0vh;
+	}	
+}

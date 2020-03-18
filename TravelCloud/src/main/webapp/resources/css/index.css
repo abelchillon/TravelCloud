@@ -1,0 +1,282 @@
+/* -- BUSQUEDA DESTINO -- */
+
+/*Imagen de fondo*/
+.hero {
+  background-image: url(../img/pral/img7.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../img/pral/img7.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hero-inner {
+  margin: auto;
+  padding-left: 2rem;
+}
+/*Texto interior*/
+.hero-inner h2 {
+  font-size: 3.5rem;
+  color: #333E4F;
+  line-height: 1.2;
+  padding-bottom: 2rem;
+}
+/*estilos listas desplegables*/
+.selectpicker {
+	height: 4vh;
+	padding: 1vh 1vh;
+	font-size: 1.3rem;
+	width: auto;
+	color: #555;
+}
+.forms {
+	display: flex;
+	text-align: center;
+	padding-bottom: 2rem;
+	padding-left: 2rem;
+}
+.content {
+	margin-left: 2em;
+	width: 60vh;
+	background-color: rgba(197,230,224,0.8);
+    border-radius: 15px;
+}
+.button-search {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2vh;
+}
+
+/*Si la pantalla ocupa menos de 600px centramos los contenidos*/
+@media (max-width: 600px) {
+	.hero-inner h2 {
+		text-align: center;
+	}
+	.forms {
+		justify-content: center;
+		padding-bottom: 0rem;
+		padding-left: 0rem;
+	}
+	.button-search > .log-button {
+		padding: 0.6vh;
+		margin-top: 1.5vh;
+	}
+	.features h3 {
+		text-align: center;
+	}
+	.blog-cta a{
+		justify-content: center;
+		font-size: 1.5rem;
+	}
+
+}
+
+
+/* -- DESCUBRE LUGARES -- */
+
+.features {
+  padding: 1rem 2rem 2rem 2rem;
+  align-content: center;
+}
+.features .row > .col-sm-3 {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+}
+@media (min-width: 500px) {
+	.features {
+		padding: 1rem 2rem 2rem 2rem;
+	}
+}
+.features h3 {
+	font-size: 2.5rem;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+/*boton descubrirmás*/
+.ghost-button {
+  background-color: #c5e6e1;
+  border: 3px solid #333E4F;
+  color: #333E4F;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: background-color 200ms ease, color 200ms ease;
+  padding: 1rem;
+}
+.ghost-button:hover {
+  background: #333E4F;
+  border-color: #c5e6e1;
+  color: #c5e6e1;
+}
+.blog-cta {
+	margin: 1rem 0 1rem;
+	display: flex;
+	justify-content: center;
+}
+.blog-cta a {
+  font-size: 1.2rem;
+}
+@media (min-width: 700px) {
+  .blog-cta {
+    margin: 1rem 0 1rem;
+    text-align: center;
+  }
+  .blog-cta a {
+    font-size: 1.5rem;
+  }
+  
+}
+
+
+/* -- INICIASESION/REGISTRARSE -- */
+
+.hero-log {
+  background-color: #C5E6E1;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-inner-log {
+	width: 60vh;
+}
+/*texto "guarda tus viajes"*/
+.hero-inner-log h3 {
+  font-size: 3.5rem;
+  color: #333E4F;
+  line-height: 1.2;
+  padding-bottom: 2rem;
+  padding-left: 4rem;
+}
+/*enlaces inicio sesion*/
+.hero-logins {
+	display: flex;
+}
+.log-cta {
+	margin: 6rem;
+}
+.log-cta a {
+	padding: 1em 2em;
+	font-size: 1.5rem;
+	margin: 1rem;
+}
+/*botones inicio sesion*/
+.log-button {
+	padding: 0.5rem 1rem;
+	background-color: #333E4F;
+	border: 3px solid #333E4F;
+	color: #c5e6e1;
+	text-transform: uppercase;
+	font-weight: 700;
+	transition: background-color 200ms ease, color 200ms ease;
+	display: inline-block;
+	padding: 1rem;
+	border-radius: 3px;
+	transition: background-color 200ms ease;
+}
+.log-button:hover {
+  background: #c5e6e1;
+  border-color: #333E4F;
+  color: #333E4F;
+}
+
+@media (max-width: 600px){
+	.hero-log {
+		display: flex;	
+	}
+	.hero-inner-log h3 {
+		font-size: 2.5rem;
+	}
+	.log-cta a {
+		padding: 0.2em 0.5em;
+		text-align: center;
+	}
+	.log-button {
+		padding: 0rem;
+	}
+}
+@media (max-width: 800px){
+	.log-cta a{
+		padding: 0.2em 0.5em;
+	}
+	.hero-inner-log h3 {
+		font-size: 2.5rem;
+	}
+}
+
+/* -- LUGARES MÁS VISITADOS -- */
+
+#blog {
+  padding: 2rem 0;
+}
+@media (min-width: 700px) {
+  #blog {
+    padding: 3rem 0;
+  }
+}
+.blog-inner {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 1rem;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-row-gap: 1rem;
+}
+@media (min-width: 700px) {
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 30px;
+    grid-row-gap: 3rem;
+  }
+}
+.blog-image img {
+  width: 100%;
+}
+.blog-text {
+  margin-bottom: 2rem;
+}
+/*estilos contenidos*/
+.blog-inner h3 {
+	font-size: 2.5rem;
+	color: #333E4F;
+	padding-bottom: 2rem;
+	margin-bottom: 3rem;
+}
+.blog-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.blog-summary {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+.blog-user {
+	font-size: 1rem;
+	font-style: italic;
+}
+/*etilos botones*/
+.button-blog {
+	font-size: 1.2rem;
+}
+.button-blog:hover {
+	background-color: #333E4F;
+	color: #C5E6E1;
+	text-decoration: none;
+}
+.blog-cta-button {
+	margin-top: 2rem;
+}
+

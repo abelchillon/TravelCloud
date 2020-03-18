@@ -1,1 +1,6 @@
+com\travelcloud\service\impl\UsuariServiceImpl.class
+com\travelcloud\model\Usuari.class
 com\travelcloud\controllers\HomeController.class
+com\travelcloud\repository\impl\DAOUsuariImpl.class
+com\travelcloud\service\IUsuariService.class
+com\travelcloud\repository\DAOUsuari.class

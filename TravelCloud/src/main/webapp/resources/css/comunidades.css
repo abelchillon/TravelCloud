@@ -1,0 +1,23 @@
+.features {
+	margin-top: 8vh;
+}
+.col-md-12 > h3 {
+	padding-bottom: 1.5vh;
+}
+.row-aux {
+	margin: 3vh 15vh;
+}
+.card-1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.card-body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.card-body > a {
+	margin-top: 1vh;
+	font-size: 2rem;
+}
