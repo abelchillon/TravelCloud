@@ -15,12 +15,12 @@
             </div>
             <div class="footer-group">
                 <div class="footer-heading">
-                    <h4>InformaciÃ³n</h4>
+                    <h4>Información</h4>
                 </div>
                 <div class="footer-links">
                     <ul>
                         <li> <a href="html/content.html">Sobre nosotros</a></li>
-                        <li> <a href="html/content.html">Condiciones uso pÃ¡gina</a></li>
+                        <li> <a href="html/content.html">Condiciones uso página</a></li>
                         <li> <a href="html/content.html">Tratamiento datos</a></li>
                     </ul>
                 </div>
@@ -32,8 +32,8 @@
                 <div class="footer-links">
                     <ul>
                         <li> <a href="html/travel/travelSearch.html">Buscar viaje</a></li>
-                        <li> <a href="html/comunidades.html">Comunidades AutÃ³nomas</a></li>
-                        <li> <a href="html/content.html">Condiciones publicaciÃ³n viajes</a></li>
+                        <li> <a href="html/comunidades.html">Comunidades Autónomas</a></li>
+                        <li> <a href="html/content.html">Condiciones publicación viajes</a></li>
                     </ul>
                 </div>
             </div>

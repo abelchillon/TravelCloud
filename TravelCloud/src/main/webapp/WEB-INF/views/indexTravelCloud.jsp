@@ -17,14 +17,13 @@
         <!--Full estils propi-->
         <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
         <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
-     
         <!--Icono ico-->
         <link href="<c:url value="/resources/img/favicon.ico" />" rel="shortcut icon">
     </head>
     
     <body>
-        <!-- NavegaciÃ³/Header-->
-        <?php require 'html/headerLogin.html'; ?>
+        <!-- Navegació/Header-->
+        <%@include file="headerLogin.jsp" %>
         
         <!-- ACABADO - CREACION APARTADO BUSQUEDA DESTINO-->
         <section>
@@ -142,7 +141,7 @@
                 </div>
             </div>
             <!--Boton para ir a la pagina de busqueda de viages-->
-            <div class="blog-cta"><a class="button ghost-button" href="html/comunidades.php">Descubre mas lugares</a></div>
+            <div class="blog-cta"><a class="button ghost-button" href="comunidades.jsp">Descubre mas lugares</a></div>
         </section>
         
 
@@ -154,8 +153,8 @@
                 </div>
                 <div class="col-sm-6 hero-logins">
                     <div class="log-cta">
-                        <a class="log-button" href="html/user/userLogin.php">Iniciar Sesión</a>
-                        <a class="log-button" href="html/user/userRegister.php">Registrarse</a>
+                        <a class="log-button" href="html/user/userLogin.jsp">Iniciar Sesión</a>
+                        <a class="log-button" href="html/user/userRegister.jsp">Registrarse</a>
                     </div>    
                 </div>
             </div>
@@ -202,13 +201,13 @@
                     </div>
                 </div>
                 <div class="blog-cta blog-cta-button">
-                    <a class="button ghost-button" href="html/travel/travelSearch.php">Ver mas</a>
+                    <a class="button ghost-button" href="travelSearch.jsp">Ver mas</a>
                 </div>
             </div>
         </section>
         
-        <!--PIE DE PAGINA-->
-        <?php require 'html/footer.html'; ?>
+        <!--PIE DE PAGINA-->        
+        <%@include file="footer.jsp" %>
 
     </body>
 </html>

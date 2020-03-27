@@ -1,3 +1,6 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>s
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -12,15 +15,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <!--Full estils propi-->
-        <link rel="stylesheet" href="../../css/style.css">
-        <link rel="stylesheet" href="../../css/travelSearch.css">
+        <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+        <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
         <!--Icono ico-->
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <link href="<c:url value="/resources/img/favicon.ico" />" rel="shortcut icon">
     </head>
     
     <body>
-        <!-- NavegaciÃ³/Header-->
-        <?php require '../headerLogin.html'; ?>
+        <!-- Navegació/Header-->
+        <%@include file="headerLogin.jsp" %>
         
         <!-- FILTROS BUSQUEDA VIAJE -->
         <section>
@@ -29,7 +32,7 @@
                     <form name="busquedaDestino" method="post" action="">
                         <div class="forms">
                             <select name="caDespl" class="selectpicker">
-                                <option value="noValid" disabled selected>Comunidad AutÃ³noma...</option>
+                                <option value="noValid" disabled selected>Comunidad Autónoma...</option>
                                 <option value="Andalucia">Andalucia</option>
                                 <option value="Catalunya">Catalunya</option>
                                 <option value="PaisVasco">Pais Vaco</option>    
@@ -50,21 +53,21 @@
                                 <option value="Trabajo">Trabajo</option>
                             </select>
                             <select name="ubicacion" class="selectpicker">
-                                <option value="noValid" disabled selected>UbicaciÃ³n...</option>
+                                <option value="noValid" disabled selected>Ubicación...</option>
                                 <option value="Mar">Mar</option>
-                                <option value="MontaÃ±a">MontaÃ±a</option>
+                                <option value="MontaÃ±a">Montaña</option>
                                 <option value="Ciudad">Ciudad</option>
                                 <option value="Naturaleza">Naturaleza</option>
                             </select>
                             <select name="duracion" class="selectpicker">
-                                <option value="noValid" disabled selected>DuraciÃ³n...</option>
+                                <option value="noValid" disabled selected>Duración...</option>
                                 <option value="1">1-3 dias</option>
                                 <option value="2">3-5 dias</option>
                                 <option value="3">5-7 dias</option>
                                 <option value="4">+7 dias</option>
                             </select>
                             <select name="valoracion" class="selectpicker">
-                                <option name="noValid" disabled selected>ValoraciÃ³n...</option>
+                                <option name="noValid" disabled selected>Valoración...</option>
                                 <option name="val1">1</option>
                                 <option name="val2">2</option>
                                 <option name="val3">3</option>
@@ -96,7 +99,7 @@
                         </div>
                         <div class="col-sm-6">
                             <a class="button button-blog" href="travelView.php">Ver viaje</a>  
-                            <a class="button button-blog" href="#">AÃ±adir Lista Deseos</a>
+                            <a class="button button-blog" href="#">Añadir Lista Deseos</a>
                         </div>
                     
                     </div>
@@ -119,7 +122,7 @@
                         </div>
                         <div class="col-sm-6">
                             <a class="button button-blog" href="travelView.php">Ver viaje</a>  
-                            <a class="button button-blog" href="#">AÃ±adir Lista Deseos</a>
+                            <a class="button button-blog" href="#">Añadir Lista Deseos</a>
                         </div>
                     
                     </div>
@@ -142,7 +145,7 @@
                         </div>
                         <div class="col-sm-6">
                             <a class="button button-blog" href="travelView.php">Ver viaje</a>  
-                            <a class="button button-blog" href="#">AÃ±adir Lista Deseos</a>
+                            <a class="button button-blog" href="#">Añadir Lista Deseos</a>
                         </div>
                     
                     </div>
@@ -151,8 +154,7 @@
         </section>
   
         <!-- Footer-->
-        <?php require '../footer.html'; ?>
-        
+        <%@include file="footer.jsp" %>        
     </body>
 </html>
       
