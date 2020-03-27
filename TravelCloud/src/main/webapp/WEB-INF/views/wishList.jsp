@@ -20,7 +20,7 @@
     
     <body>
         <!-- Navegació/Header-->
-        <?php include 'headerLogin.html'; ?>
+        <%@include file="headerLogin.jsp" %>
         
         <!-- Contacta con asesor-->
         <section class="contactarAsesor">
@@ -113,7 +113,7 @@
         </section>
         
         <!-- Footer-->
-        <?php require 'footer.html'; ?>
+        <%@include file="footer.jsp" %>
         
     </body>
 </html>

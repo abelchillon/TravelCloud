@@ -20,7 +20,7 @@
     
     <body>
         <!-- Navegació/Header-->
-        <?php include 'headerLogin.html'; ?>
+        <%@include file="headerLogin.jsp" %>
         
        <!-- CONTENIDO --> 
        <section class="travels-section title-content">
@@ -42,7 +42,7 @@
         </section>
  
         <!--PIE DE PAGINA-->
-        <?php require 'footer.html'; ?>
+        <%@include file="footer.jsp" %>
           
     </body>
 </html>

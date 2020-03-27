@@ -21,7 +21,7 @@
     
     <body>
         <!-- Navegació/Header-->
-        <?php include 'headerLogin.html'; ?>
+        <%@include file="headerLogin.jsp" %>
 
         <!-- LISTADO COMUNIDADES AUTONOMAS -->
         <section class="features">

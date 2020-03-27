@@ -21,7 +21,7 @@
     
     <body>
         <!-- Navegació/Header-->
-        <?php include 'headerLogin.html'; ?>
+        <%@include file="headerLogin.jsp" %>
         
         <!-- CONTACTAR ASESOR -->
         <section>
@@ -79,7 +79,7 @@
         
         
         <!--PIE DE PAGINA-->
-        <?php require 'footer.html'; ?>
+        <%@include file="footer.jsp" %>
         
     </body>
 </html>
