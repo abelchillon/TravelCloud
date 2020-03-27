@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>
+<p>hola
 	<c:forEach items="${users}" var="u">
    		<row>EMAIL: ${u.email}</row>
    		<row>USUARI: ${u.nomUsuari}</row> 
