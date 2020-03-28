@@ -22,10 +22,10 @@
     </head>
     
     <body>
-        <!-- Navegació/Header-->
+        <!-- Navegació/Header--> 
         <%@include file="headerLogin.jsp" %>
         
-        <!-- ACABADO - CREACION APARTADO BUSQUEDA DESTINO-->
+        <!-- CREACION APARTADO BUSQUEDA DESTINO-->
         <section>
             <div class="hero"> 
                 <div class="content">
@@ -91,7 +91,7 @@
             </div>
         </section>
         
-        <!-- ACABADO - Seccion descubre lugares-->
+        <!-- Seccion descubre lugares-->
         <section class="features">
             <div class="row">
                 <div class="col-md-12">
@@ -141,11 +141,11 @@
                 </div>
             </div>
             <!--Boton para ir a la pagina de busqueda de viages-->
-            <div class="blog-cta"><a class="button ghost-button" href="comunidades.jsp">Descubre mas lugares</a></div>
+            <div class="blog-cta"><a class="button ghost-button" href="/TravelCloud/comunidades">Descubre mas lugares</a></div>
         </section>
         
 
-        <!-- ACABADO - SECCION INICIO SESION-->
+        <!-- SECCION INICIO SESION-->
         <section>
             <div class="row hero-log">
                 <div class="col-sm-6 hero-inner-log">
@@ -153,8 +153,8 @@
                 </div>
                 <div class="col-sm-6 hero-logins">
                     <div class="log-cta">
-                        <a class="log-button" href="html/user/userLogin.jsp">Iniciar Sesión</a>
-                        <a class="log-button" href="html/user/userRegister.jsp">Registrarse</a>
+                        <a class="log-button" href="/TravelCloud/userLogin">Iniciar Sesión</a>
+                        <a class="log-button" href="/TravelCloud/userRegister">Registrarse</a>
                     </div>    
                 </div>
             </div>
@@ -162,47 +162,31 @@
         
         
         
-        <!-- ACABADO - SECCION DESCUBRE SITIOS MÃS VISITADOS-->
+        <!-- SECCION DESCUBRE SITIOS MÃS VISITADOS-->
         <section id="blog">
             <div class="blog-inner">
                 <div>
                     <h3>Descubre los lugares más visitados</h3>
                 </div>
+                
                 <div class="blog-grid">
-                    <div class="blog-image">
-                        <img src="https://unsplash.it/600/300?image=122"/>
-                    </div>
-                    <div class="blog-text">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="blog-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                        <p class="blog-user">nomUsuari</p>
-                        <a class="button button-blog" href="html/travel/travelView.php">Ver viaje</a>
-                        <a class="button button-blog" href="#">Añadir a la lista deseos</a>
-                    </div>
-                    <div class="blog-image">
-                        <img src="https://unsplash.it/600/300?image=350"/>
-                    </div>
-                    <div class="blog-text">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="blog-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                        <p class="blog-user">nomUsuari</p>
-                        <a class="button button-blog" href="html/travel/travelView.php">Ver viaje</a>
-                        <a class="button button-blog" href="#">Añadir a la lista deseos</a>
-                    </div>
-                    <div class="blog-image">
-                            <img src="https://unsplash.it/600/300?image=320"/>
-                    </div>
-                    <div class="blog-text">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="blog-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                        <p class="blog-user">nomUsuari</p>
-                        <a class="button button-blog" href="html/travel/travelView.php">Ver viaje</a>
-                        <a class="button button-blog" href="#">Añadir a la lista deseos</a>
-                    </div>
-                </div>
-                <div class="blog-cta blog-cta-button">
-                    <a class="button ghost-button" href="travelSearch.jsp">Ver mas</a>
-                </div>
+                	<c:forEach var="viaje" items="${viajesDestacados}" varStatus="status">
+	                    <div class="blog-image">
+	                        <img src="https://unsplash.it/600/300?image=122"/>
+	                    </div>
+	                    <div class="blog-text">
+	                        <p class="blog-title">${viaje.titulo}</p>
+	                        <p class="blog-summary">${viaje.descripcion}</p>
+	                        <a class="button button-blog" href="/TravelCloud/travelView">Ver viaje</a>
+	                        <a class="button button-blog" href="#">Añadir a la lista deseos</a>
+	                    </div>  
+	                </c:forEach>
+	            </div>
+	                
+	            <div class="blog-cta blog-cta-button">
+	            	<a class="button ghost-button" href="/TravelCloud/travelSearch">Ver mas</a>
+	        	</div>
+                
             </div>
         </section>
         

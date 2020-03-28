@@ -1,3 +1,6 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -12,80 +15,96 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <!--Full estils propi-->
-        <link rel="stylesheet" href="../../css/style.css">
-        <link rel="stylesheet" href="../../css/travelView.css">
+        <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />">
+        <link rel="stylesheet" href="<c:url value="/resources/css/travelView.css" />">
         <!--Icono ico-->
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico" />">
     </head>
     
     <body>
         <!-- Navegaci贸/Header-->
-        <?php require '../headerLogin.html'; ?>
+        <%@include file="headerLogin.jsp" %>
  
         <!-- VISTA VIAJE -->
         <section>
             <div class="title-travel">
-                <h2>Nombre del Viaje</h2>
+                <h2><c:out value="${nomViatge}"/></h2>
             </div>
             <div class="filters-travel">
                 <div>
-                    <p>Catalu帽a</p>
-                    <p>Barcelona</p>
-                    <p>Pareja</p>
-                    <p>Interior</p>
-                    <p>Duraci贸n</p>
-                    <p>Valoraci贸n</p>  
+                    <p><c:out value="${comunidadAutonoma}"/></p>
+                    <p><c:out value="${Provincia}"/></p>
+                    <p><c:out value="${TipoViaje}"/></p>
+                    <p><c:out value="${ubicacion}"/></p>
+                    <p><c:out value="${duracion}"/></p>
+                    <p><c:out value="${valoracion}"/></p>  
                 </div>
             </div>
-            
+        
             <div class="row info-travel">
                 <div class="col-sm-6">
                     <div class="descrip-travel">
-                        <p class="blog-title">Descripci贸n</p>
-                        <p class="descrip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
+                        <p class="blog-title">Descripci髇</p>
+                        <p class="descrip"><c:out value="${descripcionViaje}"/></p>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="descrip-travel">
                         <p class="blog-title">Lugares i monumentos visitados</p>
-                        <p class="descrip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
+                        <p class="descrip"><c:out value="${lugaresViaje}"/></p>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="descrip-travel">
                         <p class="blog-title">Restaurantes y bares</p>
-                        <p class="descrip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
+                        <p class="descrip"><c:out value="${restaurantesViaje}"/></p>
                     </div>
                 </div>
             </div>
             
             <div class="imgs-travel">
-                <div>
-                    <img alt="imagen viaje 1" src="https://picsum.photos/300/300?random=1" />
-                </div>
-                <div>
-                    <img alt="imagen viaje 2" src="https://picsum.photos/300/300?random=2" />
-                </div>
-                <div>
-                    <img alt="imagen viaje 3" src="https://picsum.photos/300/300?random=3" />
-                </div>
-                <div>
-                    <img alt="imagen viaje 4" src="https://picsum.photos/300/300?random=4" />
-                </div>
+                <c:forEach var="imagen" items="${travelImgs}" varStatus="status">
+                    <div>
+                        <img alt="imagen viaje 1" src="${imagen}" />
+                    </div>
+                </c:forEach>
             </div>
             
             <div class="opinions">
-                <div class="opinions-button">
-                    <a class="button button-blog" href="opiniones.php">VALORAR Y COMENTAR</a>   
-                </div>
-                <div class="opinions-button">
-                    <a class="button button-blog" href="#">A脩ADIR A LA LISTA DE DESEOS</a>   
-                </div> 
-                <div class="opinions-button">
-                    <a class="button button-blog" href="travelSearch.php">VOLVER A LA B脷SQUEDA</a>   
-                </div> 
+                <c:choose>
+                    <!-- USUARIO QUE VISITA UN VIAJE DE OTRO USUARIO -->
+                    <c:when test="${tipusUser == 'USER'}">
+                        <div class="opinions-button">
+                            <a class="button button-blog" href="/TravelCloud/opiniones">VALORAR Y COMENTAR</a>   
+                        </div>
+                        <div class="opinions-button">
+                            <a class="button button-blog" href="#">A袮DIR A LA LISTA DE DESEOS</a>   
+                        </div>
+                        <div class="opinions-button">
+                            <a class="button button-blog" href="/TravelCloud/travelSearch">VOLVER A LA B赟QUEDA</a>   
+                        </div>
+                    </c:when>
+                    <!-- PARA CUANDO UN USUARIO VISITA SU PROPIO VIAJE   (hay que comparar si el id del usuario coincide con el id de usuario guardado en el viaje) -->
+                    <c:when test="${tipusUser == 'USER-PROPIO VIAJE'}">
+                        <div class="opinions-button">
+                            <a class="button button-blog" href="/TravelCloud/travelPush">MODIFICAR VIAJE</a>   
+                        </div>
+                        <div class="opinions-button">
+                            <a class="button button-blog" href="#">ELIMINAR VIAJE</a>   
+                        </div>
+                        <div class="opinions-button">
+                            <a class="button button-blog" href="">VOLVER</a>   
+                        </div>
+                    </c:when>
+                    
+                    <!--Si es ADMIN o ASESOR -->
+                    <c:otherwise>
+                        <div class="opinions-button">
+                            <a class="button button-blog" href="/TravelCloud/travelSearch">VOLVER A LA B赟QUEDA</a>   
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </div>
-            
         </section>  
         
         <!-- COMENTARIOS Y VALORACIONES -->
@@ -93,37 +112,30 @@
             <div class="title-opinions">
                 <h3>Comentarios y Valoraciones</h3>    
             </div>
-            <div class="row opinion-travel">
-                <div class="col-sm-6 opinion">
-                    <div class="blog-image">
-                        <img src="https://picsum.photos/300/300?random=5"/>
-                    </div>
-                    <div class="blog-text">
-                        <p class="blog-title">Valoraci贸n</p>
-                        <p class="blog-summary">Comentario: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                        <p class="blog-user">nomUsuari</p>
-                        <p class="blog-user">fechaValoracion</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row opinion-travel">
-                <div class="col-sm-6 opinion">
-                    <div class="blog-image">
-                        <img src="https://picsum.photos/300/300?random=6"/>
-                    </div>
-                    <div class="blog-text">
-                        <p class="blog-title">Valoraci贸n</p>
-                        <p class="blog-summary">Comentario: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                        <p class="blog-user">nomUsuari</p>
-                        <p class="blog-user">fechaValoracion</p>
+            
+            <c:forEach var="valoracion" items="${travelValoracion}" varStatus="status">
+                <div class="row opinion-travel">
+                    <div class="col-sm-6 opinion">
+                        <div class="blog-image">
+                            <img src="${userImg}"/>
+                        </div>
+                        <div class="blog-text">
+                            <p class="blog-title">Valoraci髇</p>
+                            <p class="blog-summary">Comentario: ${valoracion.comentario}</p>
+                            <p class="blog-user">${valoracion.nomUsuari}</p>
+                            <p class="blog-user">${valoracion.dataValoracio}</p>
+                            <c:if test="${tipusUser = 'ADMIN'}">
+                                <a class="button" href="#">Eliminar valoraci髇</a>
+                            </c:if>
+                        </div>
                     </div>
                 </div>
-            </div> 
+            </c:forEach> 
         </section>
         
         
         <!-- Footer-->
-        <?php require '../footer.html'; ?>
+        <%@include file="footer.jsp" %>
 
     </body>
 </html>

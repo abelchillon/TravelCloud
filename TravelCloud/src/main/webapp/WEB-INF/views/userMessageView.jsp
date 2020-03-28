@@ -1,3 +1,6 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -12,34 +15,34 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <!--Full estils propi-->
-        <link rel="stylesheet" href="../../css/style.css">
-        <link rel="stylesheet" href="../../css/wishList.css">
-        <script type="text/javascript" src="../../jquery/jquery.js"></script>
+        <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />">
+        <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />">
+        <script type="text/javascript" src="<c:url value="/resources/js/showMessage.js" />"></script>
         <!--Icono ico-->
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico" />">
     </head>
     
     <body>
     <!-- Navegació/Header-->
-        <?php include '../headerLogin.html'; ?>
+        <%@include file="headerLogin.jsp" %>
         
     <!--MENSAJES USUARIO -->
         <section id="section-message" class="travels-section">
             <div class="wishList">
                 <div class="title-message">
-                    <h2>Título mensaje</h2>
+                    <h2><c:out value="${tituloMensaje}"/></h2>
                 </div>
             </div>
             
             <div class="travelContainer">
                 <div class="travel">
                     <div class="travel-info">
-                        <p class="descrip-travel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
+                        <p class="descrip-travel"><c:out value="${descripcionMensaje}"/></p>
                     </div>
                     <div class="row">
                         <div class="col-sm-5">
-                            <p class="blog-user">FechaMensaje</p>
-                            <p class="blog-user">nombreUsuario</p>
+                            <p class="blog-user"><c:out value="${fechaMensaje}"/></p>
+                            <p class="blog-user"><c:out value="${nombreUsuario}"/></p>
                         </div>
                         <div class="col-sm-6">
                             <a class="button button-blog" id="response-button">Responder</a>  
@@ -78,44 +81,28 @@
                 </div>
             </div>
             
-            <div class="travelContainer">
-                <div class="travel">
-                    <div class="travel-info">
-                        <p class="descrip-travel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <p class="blog-user">FechaRespuesta</p>
-                            <p class="blog-user">nombreUsuario</p>
+            <c:forEach var="mensaje" items="${mensajeUsuario}" varStatus="status">
+                <div class="travelContainer">
+                    <div class="travel">
+                        <div class="travel-info">
+                            <p class="descrip-travel">${mensaje.descripcion}</p>
                         </div>
-                        <div class="col-sm-6">  
-                            <a class="button button-blog" href="#">Eliminar</a>  
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-             <div class="travelContainer">
-                <div class="travel">
-                    <div class="travel-info">
-                        <p class="descrip-travel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <p class="blog-user">FechaRespuesta</p>
-                            <p class="blog-user">nombreUsuario</p>
-                        </div>
-                        <div class="col-sm-6">  
-                            <a class="button button-blog" href="#">Eliminar</a>  
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <p class="blog-user">${mensaje.fechaRespuesta}</p>
+                                <p class="blog-user">${mensaje.nombreUsuario}</p>
+                            </div>
+                            <div class="col-sm-6">  
+                                <a class="button button-blog" href="#">Eliminar</a>  
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-            </div>
+            </c:forEach>
         </section>
         
     <!--pie de pagina -->
-        <?php require '../footer.html'; ?>
+        <%@include file="footer.jsp" %>
         
     </body>
 </html>

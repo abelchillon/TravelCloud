@@ -1,6 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>s
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -82,75 +82,38 @@
         
         <!--VISTAS VIAJES-->
         <section class="travels-section">
-            <div class="travelContainer">
-                <div class="travel-img">
-                    <img alt="imagenViage" src="https://picsum.photos/300/300?random=1" />
-                </div>
-                <div class="travel">
-                    <div class="travel-info">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="descrip-travel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
+            <!--- FALTARIA MODIFICAR LOS NOMBRES, YA QUE NOSE CUALES HAS PUESTO ---->
+            <c:forEach var="travel" items="${travelList}" varStatus="status">
+                <div class="travelContainer">
+                    <div class="travel-img">
+                        <img alt="imagenViage" src="${travel.travelFoto}" />
                     </div>
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <p class="blog-user">nomUsuari</p>
-                            <p class="blog-user">Valoracions</p>
-                        
+                    <div class="travel">
+                        <div class="travel-info">
+                            <p class="blog-title">${travel.nomViatge}</p>
+                            <p class="descrip-travel">${travel.descripcioViatge}</p>
                         </div>
-                        <div class="col-sm-6">
-                            <a class="button button-blog" href="travelView.php">Ver viaje</a>  
-                            <a class="button button-blog" href="#">Añadir Lista Deseos</a>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <p class="blog-user"><c:out value="${travel.userName}"/></p>
+                                <p class="blog-user"><c:out value="${travel.valoracio}"/></p>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <a class="button button-blog" href="/TravelCloud/travelView">Ver viaje</a>
+                                <c:choose>
+                                    <c:when test="${tipusUser = 'ADMIN'}">
+                                        <a class="button button-blog" href="#">Eliminar</a>
+                                    </c:when>
+                                    <c:when test="${tipusUser = 'USER'}">
+                                        <a class="button button-blog" href="#">Añadir Lista Deseos</a>
+                                    </c:when>
+                                </c:choose>
+                            </div>
                         </div>
-                    
                     </div>
-                </div>
-            </div>
-            <div class="travelContainer">
-                <div class="travel-img">
-                    <img alt="imagenViage" src="https://picsum.photos/300/300?random=2" />
-                </div>
-                <div class="travel">
-                    <div class="travel-info">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="descrip-travel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <p class="blog-user">nomUsuari</p>
-                            <p class="blog-user">Valoracions</p>
-                        
-                        </div>
-                        <div class="col-sm-6">
-                            <a class="button button-blog" href="travelView.php">Ver viaje</a>  
-                            <a class="button button-blog" href="#">Añadir Lista Deseos</a>
-                        </div>
-                    
-                    </div>
-                </div>
-            </div>
-            <div class="travelContainer">
-                <div class="travel-img">
-                    <img alt="imagenViage" src="https://picsum.photos/300/300?random=3" />
-                </div>
-                <div class="travel">
-                    <div class="travel-info">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="descrip-travel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <p class="blog-user">nomUsuari</p>
-                            <p class="blog-user">Valoracions</p>
-                        
-                        </div>
-                        <div class="col-sm-6">
-                            <a class="button button-blog" href="travelView.php">Ver viaje</a>  
-                            <a class="button button-blog" href="#">Añadir Lista Deseos</a>
-                        </div>
-                    
-                    </div>
-                </div>
-            </div>
+                </div>    
+            </c:forEach>
         </section>
   
         <!-- Footer-->
