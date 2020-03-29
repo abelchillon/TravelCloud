@@ -47,4 +47,32 @@ public class DAOUsuariImpl implements DAOUsuari{
 		
 	}
 	
+	
+	@Override
+	public void modificarUsuari(Usuari usuari) throws Exception {
+		String sql = "UPDATE usuari SET NomUsuari = ?, Contrasenya = ?, Telefon = ?, Descripcio = ? WHERE idUSUARI = ?";
+		
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setString(1, usuari.getNomUsuari());
+			pStatement.setString(2, usuari.getContrasenya());
+			pStatement.setString(3, usuari.getTelefon());
+			pStatement.setString(4, usuari.getDescripcio());
+			pStatement.setInt(5, usuari.getIdUSUARI());
+			pStatement.executeUpdate();
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		
+	}
+	
+	
+	
 }

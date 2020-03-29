@@ -33,9 +33,9 @@
                     <img src="https://picsum.photos/200/300?random=1" />
                 </div>
                 <div class="infoUser">
-                    <p class="blog-title"><c:out value="${nomUsuari}"/></p>
+                    <p class="blog-title"><c:out value="${usuari.NomUsuari}"/></p>
                     <c:if test="${tipusUser == 'USER'}">
-                        <p class="blog-user">Numero de viages realizados: <c:out value="${totalViajes}"/></p>
+                        <p class="blog-user">Numero de viages realizados: <c:out value="${usuari.totalViatges}"/></p>
                     </c:if>
                 </div>
             </div>

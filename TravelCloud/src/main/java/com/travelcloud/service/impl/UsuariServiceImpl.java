@@ -22,5 +22,16 @@ public class UsuariServiceImpl implements IUsuariService{
 		}
 		
 	}
+	
+	@Override
+	public void modificarUsuari(Usuari usuari) throws Exception {
+		try {
+			daoUsuari.modificarUsuari(usuari);
+		} catch (Exception e) {
+			throw e;
+		}
+		
+	}
+	
 
 }

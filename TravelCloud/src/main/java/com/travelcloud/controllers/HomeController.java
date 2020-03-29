@@ -45,6 +45,19 @@ public class HomeController {
 		return "travelSearch";
 	}
 	
+	
+	@RequestMapping(value = "userLogin", method = RequestMethod.GET)
+	public String userLogin() {
+		return "userLogin";
+	}
+	
+	@RequestMapping(value = "userRegister", method = RequestMethod.GET)
+	public String userRegister() {
+		return "userRegister";
+	}
+	
+	
+	
 //	@RequestMapping(value="index", method=RequestMethod.GET)	
 //	public String index(Model model) {
 //		System.out.println("prueb");
