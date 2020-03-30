@@ -11,6 +11,8 @@ public class Assessorament {
 	public Assessorament() {
 		super();
 	}
+	
+	//aqui tambien faltaria el id del asesor que gestiona el asesoramiento no?
 
 	public Assessorament(int idASSESSORAMENT, Usuari idUSUARI, Double preu, Date data) {
 		super();

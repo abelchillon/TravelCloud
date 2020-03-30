@@ -12,7 +12,9 @@ public class Valoracio {
 	public Valoracio() {
 		super();
 	}
-
+	
+	
+// Holaa, aqui faltaria un idValoracio tambien para que identifique a la valoracion, no he tocado nada porque supongo que maria tendra que cambiarlo en base de datos...
 	public Valoracio(Usuari idUSUARI, Viatge idVIATGE, String comentari, int puntuacio, Date data) {
 		super();
 		this.idUSUARI = idUSUARI;

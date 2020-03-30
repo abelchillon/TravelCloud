@@ -2,7 +2,10 @@ package com.travelcloud.repository.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.List;
 import java.sql.Date;
 
 import javax.sql.DataSource;
@@ -15,6 +18,8 @@ import com.travelcloud.repository.DAOUsuari;
 
 @Repository
 public class DAOUsuariImpl implements DAOUsuari{
+	
+	List<Usuari> llistatUsuaris;
 
 	@Autowired
 	private DataSource dataSource;
@@ -70,6 +75,65 @@ public class DAOUsuariImpl implements DAOUsuari{
 				connection.close();				
 			}
 		}
+		
+	}
+	
+	@Override
+	public void eliminarUsuari(Usuari usuari) throws Exception{
+		String sql = "DELETE FROM usuari  WHERE idUsuari = ?";
+		
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, usuari.getIdUSUARI());
+			pStatement.executeUpdate();
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+	}
+	
+	@Override
+	public List<Usuari> llistarUsuaris() throws Exception{
+		String sql = "SELECT * FROM usuari";
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			ResultSet rs = pStatement.executeQuery();
+			while(rs.next()) {
+				Usuari usuari = makeUser(rs);
+				llistatUsuaris.add(usuari);
+			}
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		
+		return llistatUsuaris;
+	}
+	
+	private Usuari makeUser(ResultSet rs) throws SQLException {
+		int idUsuari = rs.getInt("idUsuari");
+		String nomUsuari = rs.getString("NomUsuari");
+		String cognomUsuari = rs.getString("CognomUsuari");   //pensaba que lo guardabamos por separado, sino quitar
+		String contrasenyaUsuari = rs.getString("contrasenya");
+		String emailUsuari = rs.getString("email");
+		String telefonUsuari = rs.getString("telefon");
+		String descripcioUsuari = rs.getString("descripcio");
+		Date dataRegistre = rs.getDate("DataRegistre");
+		
+		Usuari usuari = new Usuari(idUsuari, nomUsuari, contrasenyaUsuari, emailUsuari, telefonUsuari, descripcioUsuari, dataRegistre);
+		return usuari;
 		
 	}
 	

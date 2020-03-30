@@ -11,6 +11,8 @@ public class Desitjos {
 		super();
 	}
 	
+	// LA FECHA PARA QUE ES? OSEA PARA QUE QUEREMOS SABER CUANDO UN USUARIO GUARDA ALGO A SU LISTA DE DESEOS? 
+	
 	public Desitjos(Viatge idVIATGE, Usuari idUSUARI, Date data) {
 		super();
 		this.idVIATGE = idVIATGE;
