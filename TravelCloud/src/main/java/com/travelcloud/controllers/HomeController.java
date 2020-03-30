@@ -57,6 +57,32 @@ public class HomeController {
 	}
 	
 	
+	//PONGO ESTO AQUI PARA REVISAR SI ESTA BIEN HECHO, LUEGO YA LO UBICAREMOS DONDE TOQUE
+	
+	// PROCESAR FORMULARIO REGISTRO USUARIO
+	@RequestMapping(value="/addUser", method= RequestMethod.POST)
+	public String processFormUserRegister(@ModelAttribute("newUser") Usuari usuari) throws Exception {
+		usuariService.insertarUsuari(usuari);
+		return "redirect:/userPage";
+	}
+	
+	//PROCESAR FORMULARIO MODIFICACION USUARIOS
+	@RequestMapping(value="/updateUser", method= RequestMethod.POST)
+	public String processFormUserUpdate(@ModelAttribute("newUser") Usuari usuari) throws Exception {
+		usuariService.modificarUsuari(usuari);   //SE TENDRIA QUE HACER ALGUNA VERIFICACION PARA NO DUPLICAR O NO ES NECESARIO?
+		return "redirect:/userPage";
+	}
+	
+	public String processFormAddValoracio(@ModelAttribute("newValoracio") Valoracio valoracio) throws Exception {
+		valoracioService.afegirValoracio(valoracio);
+		return "redirect:/  ";
+	}
+	
+	//en el apartado opiniones habia hecho que se pudiera puntuar o dejar valoracion, pero no ambas incluidas xD entonces, para simplificar sera mejor que lo modifique y que todo sea un mismo form
+	//dejo esto ya creado para cuando lo modifique
+	
+	
+	
 	
 //	@RequestMapping(value="index", method=RequestMethod.GET)	
 //	public String index(Model model) {

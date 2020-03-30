@@ -39,7 +39,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal">
+                            <form class="well form-horizontal" action="/addValoracio" method="POST">
                                 <fieldset>
                                     <div class="form-group">
                                         <label class="col-md-4 control-label">¿Qué te ha parecido este viaje?</label>

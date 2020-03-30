@@ -33,5 +33,15 @@ public class UsuariServiceImpl implements IUsuariService{
 		
 	}
 	
+	@Override
+	public void eliminarUsuari(Usuari usuari) throws Exception {
+		try {
+			daoUsuari.eliminarUsuari(usuari);
+		} catch (Exception e) {
+			throw e;
+		}
+		
+	}
+	
 
 }

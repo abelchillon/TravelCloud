@@ -37,7 +37,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal">
+                            <form class="well form-horizontal" action="/addTravel" method="POST">
                                 <fieldset>
                                     
                                     <div class="td-head">
