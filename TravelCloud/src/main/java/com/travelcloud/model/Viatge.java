@@ -2,7 +2,7 @@ package com.travelcloud.model;
 
 import java.sql.Date;
 
-public class Viatge {
+public class Viatge {   // FALTARIA AÑADIR EL NOMBRE O TITULO DEL VIAJE NO?
 	private int idVIATGE;
 	private String Comunitat;
 	private String Provincia;
