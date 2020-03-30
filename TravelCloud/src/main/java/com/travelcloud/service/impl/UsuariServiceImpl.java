@@ -1,9 +1,12 @@
 package com.travelcloud.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.travelcloud.model.Usuari;
+import com.travelcloud.model.Valoracio;
 import com.travelcloud.repository.DAOUsuari;
 import com.travelcloud.service.IUsuariService;
 
@@ -41,6 +44,16 @@ public class UsuariServiceImpl implements IUsuariService{
 			throw e;
 		}
 		
+	}
+	
+	public List<Usuari> llistarUsuaris() throws Exception {
+		List<Usuari> usauris;
+		try {
+			usauris = daoUsuari.llistarUsuaris();
+		} catch (Exception e) {
+			throw e;
+		}
+		return usauris;
 	}
 	
 
