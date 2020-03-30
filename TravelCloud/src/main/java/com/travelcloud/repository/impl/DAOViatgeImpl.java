@@ -41,7 +41,7 @@ public class DAOViatgeImpl implements DAOViatge{
 			pStatement.setString(6, viatge.getDurada());
 			pStatement.setString(7, viatge.getTipusViatger());
 			pStatement.setString(8, viatge.getDescripcio());
-			pStatement.setInt(9, viatge.getIdUSUARI());  //sale fallo porque devuelve un objeto usuari y nose como hacerlo xd
+			pStatement.setInt(9, viatge.getIdUSUARI().getIdUSUARI());
 			pStatement.setDate(10, new Date(Calendar.getInstance().getTime().getTime()));
 			pStatement.executeUpdate();
 			pStatement.close();
@@ -95,7 +95,7 @@ public class DAOViatgeImpl implements DAOViatge{
 			PreparedStatement pStatement = connection.prepareStatement(sql);
 			ResultSet rs = pStatement.executeQuery();
 			while(rs.next()) {
-				Viatge viatge = makeUser(rs);
+				Viatge viatge = makeViatge(rs);
 				llistatViatges.add(viatge);
 			}
 			pStatement.close();
@@ -111,7 +111,7 @@ public class DAOViatgeImpl implements DAOViatge{
 	}
 	
 	
-	private Usuari makeUser(ResultSet rs) throws SQLException {
+	private Usuari makeViatge(ResultSet rs) throws SQLException {
 		int IdViatge = rs.getInt("IdViatge");
 		String Comunitat = rs.getString("Comunitat");
 		String Provincia = rs.getString("Provincia");   

@@ -40,10 +40,14 @@ public class Valoracio {
 		this.idVIATGE = idVIATGE;
 	}
 
-	public String getComentari() {
+	public String Puntuacio() {
 		return Comentari;
 	}
 
+	public String getComentari() {
+		return Comentari;
+	}
+	
 	public void setComentari(String comentari) {
 		Comentari = comentari;
 	}
