@@ -48,7 +48,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal">
+                            <form class="well form-horizontal" action="/sendMessage" method="POST">
                                 <fieldset>
                                     
                                     <div class="form-group">

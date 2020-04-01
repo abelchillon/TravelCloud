@@ -11,6 +11,7 @@ public interface IViatgeService {
 	public void eliminarViatge(Viatge viatge) throws Exception;
 	
 	public List<Viatge> llistarViatges() throws Exception;
+	public List<Viatge> llistarViatgesUsuari(int idUsuari) throws Exception;
 	
 
 }

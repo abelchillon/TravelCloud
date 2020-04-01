@@ -24,6 +24,7 @@ public class ViatgeServiceImpl implements IViatgeService{
 			throw e;
 		}
 	}
+	
 	@Override
 	public void modificarViatge(Viatge viatge) throws Exception{
 		try {
@@ -32,6 +33,7 @@ public class ViatgeServiceImpl implements IViatgeService{
 			throw e;
 		}
 	}
+	
 	@Override
 	public void eliminarViatge(Viatge viatge) throws Exception{
 		try {
@@ -41,6 +43,7 @@ public class ViatgeServiceImpl implements IViatgeService{
 		}
 	}
 	
+	@Override
 	public List<Viatge> llistarViatges() throws Exception {
 		List<Viatge> viatges;
 		try {
@@ -49,6 +52,17 @@ public class ViatgeServiceImpl implements IViatgeService{
 			throw e;
 		}
 		return viatges;
+	}
+	
+	@Override
+	public List<Viatge> llistarViatgesUsuari(int idUsuari) throws Exception {
+		List<Viatge> viatgesUsuari;
+		try {
+			viatgesUsuari = daoViatge.llistarViatgesUsuari(idUsuari);
+		} catch (Exception e) {
+			throw e;
+		}
+		return viatgesUsuari;
 	}
 
 }

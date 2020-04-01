@@ -21,6 +21,7 @@ import com.travelcloud.repository.DAOViatge;
 public class DAOViatgeImpl implements DAOViatge{
 	
 	List<Viatge> llistatViatges;
+	List<Viatge> llistatViatgesUsuari;
 
 	@Autowired
 	private DataSource dataSource;
@@ -86,6 +87,7 @@ public class DAOViatgeImpl implements DAOViatge{
 		
 	}
 	
+	//LISTAR TODOS LOS VIAJES
 	@Override
 	public List<Viatge> llistarViatges() throws Exception{
 		String sql = "SELECT * FROM viatge";
@@ -110,7 +112,34 @@ public class DAOViatgeImpl implements DAOViatge{
 		return llistatViatges;
 	}
 	
+	//LISTAR VIAJES POR ID USUARI
+	@Override
+	public List<Viatge> llistarViatgesUsuari(int idUsuari) throws Exception{
+		String sql = "SELECT * FROM viatge WHERE idUSUARI = ?";
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, idUsuari);
+			ResultSet rs = pStatement.executeQuery();
+			while(rs.next()) {
+				Viatge viatge = makeViatge(rs);
+				llistatViatgesUsuari.add(viatge);
+			}
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		
+		return llistatViatgesUsuari;
+	}
 	
+	//METODO AUXILIAR PARA CREAR VIAJE
+	@Override
 	private Usuari makeViatge(ResultSet rs) throws SQLException {
 		int IdViatge = rs.getInt("IdViatge");
 		String Comunitat = rs.getString("Comunitat");
@@ -127,5 +156,6 @@ public class DAOViatgeImpl implements DAOViatge{
 		return viatge; 
 		
 	}
-	
 }
+
+	

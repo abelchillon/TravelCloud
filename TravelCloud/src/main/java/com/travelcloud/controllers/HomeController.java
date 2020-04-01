@@ -73,17 +73,21 @@ public class HomeController {
 		return "redirect:/userPage";
 	}
 	
+	//PROCESAR FORMULARIO VALORACIONES
+	@RequestMapping(value="/addValoracio", method= RequestMethod.POST)
 	public String processFormAddValoracio(@ModelAttribute("newValoracio") Valoracio valoracio) throws Exception {
 		valoracioService.afegirValoracio(valoracio);
 		return "redirect:/  ";
 	}
 	
-	//en el apartado opiniones habia hecho que se pudiera puntuar o dejar valoracion, pero no ambas incluidas xD entonces, para simplificar sera mejor que lo modifique y que todo sea un mismo form
-	//dejo esto ya creado para cuando lo modifique
+	//PROCESAR FORMULARIO ENVIAR MENSAJE
+		@RequestMapping(value="/sendMessage", method= RequestMethod.POST)
+		public String processFormAddValoracio(@ModelAttribute("newMessage") Missatge missatge) throws Exception {
+			missatgeService.afegirMissatge(missatge);
+			return "redirect:/  ";
+		}
 	
-	
-	
-	
+
 //	@RequestMapping(value="index", method=RequestMethod.GET)	
 //	public String index(Model model) {
 //		System.out.println("prueb");

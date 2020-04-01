@@ -42,7 +42,7 @@
                             <form class="well form-horizontal" action="/addValoracio" method="POST">
                                 <fieldset>
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label">Â¿QuÃ© te ha parecido este viaje?</label>
+                                        <label class="col-md-4 control-label">¿Qué te ha parecido este viaje?</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
                                                 <span class="input-group-addon" style="max-width: 100%;">
@@ -59,38 +59,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Guardar">
-                                        <input type="submit" class="btn btn-secondary" value="Cancelar">
-                                    </div>
-                                </fieldset>
-                            </form>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-        
-        <!-- COMENTARIO -->
-        <section>
-            <div class="comentario">
-                <div>
-                    <h3>Deja tu comentario</h3>
-                </div>   
-            </div>
-            <div class="container">
-                <table class="table table-striped">
-                    <tbody>
-                        <tr>
-                            <td colspan="1">
-                            <form class="well form-horizontal">
-                                <fieldset>
-                                    <div class="form-group">
+									<div class="form-group">
                                         <label class="col-md-4 control-label">Explicanos que opinas de este viaje</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
-                                                <textarea placeholder="Deja aquÃ­ tu comentario..." class="form-control" required="true" value=""></textarea>
+                                                <textarea placeholder="Deja aquí tu comentario..." class="form-control" required="true" value=""></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -105,10 +78,10 @@
                     </tbody>
                 </table>
             </div>
-        </section>    
+        </section>
+        
             
-        <!--PIE DE PAGINA-->
-        <%@include file="footer.jsp" %>
+  
            
     </body>
 </html>
