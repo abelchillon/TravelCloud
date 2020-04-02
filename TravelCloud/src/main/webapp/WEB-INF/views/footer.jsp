@@ -1,3 +1,6 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <footer id="footer">
     <div class="container">
         <div class="footer-grid">
@@ -7,9 +10,9 @@
                 </div>
                 <div class="footer-links">
                     <ul>
-                        <li> <a href="html/travel/travelPush.html">Subir viaje</a></li>
-                        <li> <a href="html/wishList.html">Lista de deseos</a></li>
-                        <li> <a href="html/user/userMessages.html">Mensajes</a></li>
+                        <li> <a href="/TravelCloud/travelPush">Subir viaje</a></li>
+                        <li> <a href="/TravelCloud/wishList">Lista de deseos</a></li>
+                        <li> <a href="/TravelCloud/userMessages">Mensajes</a></li>
                     </ul>
                 </div>
             </div>
@@ -19,9 +22,9 @@
                 </div>
                 <div class="footer-links">
                     <ul>
-                        <li> <a href="html/content.html">Sobre nosotros</a></li>
-                        <li> <a href="html/content.html">Condiciones uso página</a></li>
-                        <li> <a href="html/content.html">Tratamiento datos</a></li>
+                        <li> <a href="/TravelCloud/content">Sobre nosotros</a></li>
+                        <li> <a href="/TravelCloud/content">Condiciones uso página</a></li>
+                        <li> <a href="/TravelCloud/content">Tratamiento datos</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,9 +34,9 @@
                 </div>
                 <div class="footer-links">
                     <ul>
-                        <li> <a href="html/travel/travelSearch.html">Buscar viaje</a></li>
-                        <li> <a href="html/comunidades.html">Comunidades Autónomas</a></li>
-                        <li> <a href="html/content.html">Condiciones publicación viajes</a></li>
+                        <li> <a href="/TravelCloud/travelSearch">Buscar viaje</a></li>
+                        <li> <a href="/TravelCloud/comunidades">Comunidades Autónomas</a></li>
+                        <li> <a href="/TravelCloud/content">Condiciones publicación viajes</a></li>
                     </ul>
                 </div>
             </div>

@@ -1,3 +1,6 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -12,10 +15,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <!--Full estils propi-->
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/wishList.css">
+        <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />">
+        <link rel="stylesheet" href="<c:url value="/resources/css/wishList.css" />">
         <!--Icono ico-->
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico" />">
     </head>
     
     <body>
@@ -23,18 +26,20 @@
         <%@include file="headerLogin.jsp" %>
         
         <!-- Contacta con asesor-->
-        <section class="contactarAsesor">
-            <div class="hero"> 
-                <div class="content">
-                    <div class="hero-inner">
-                        <h2>Â¿Necesitas ayuda con tu lista de deseos? Contacta con nuestro asesor</h2>
+        <c:if test="${tipusUser == 'USER'}">
+            <section class="contactarAsesor">
+                <div class="hero"> 
+                    <div class="content">
+                        <div class="hero-inner">
+                            <h2>¿Necesitas ayuda con tu lista de deseos? Contacta con nuestro asesor</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="asesor">
-                    <a class="button button-asesor" href="contactAsesor.php">CONTACTA CON NUESTRO ASESOR</a>   
-                </div>
-            </div>   
-        </section>
+                    <div class="asesor">
+                        <a class="button button-asesor" href="/TravelCloud/sendMessage">CONTACTA CON NUESTRO ASESOR</a>   
+                    </div>
+                </div>   
+            </section>
+        </c:if>
         
         <!-- LISTA DE DESEOS -->
         <section class="travels-section">
@@ -44,72 +49,32 @@
                 </div>
             </div>
             
-            <div class="travelContainer">
-                <div class="travel-img">
-                    <img alt="imagenViage" src="https://picsum.photos/300/300?random=1" />
-                </div>
-                <div class="travel">
-                    <div class="travel-info">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="descrip-travel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
+            <c:forEach var="travel" items="${travelWishList}" varStatus="status">
+                <div class="travelContainer">
+                    <div class="travel-img">
+                        <img alt="imagenViage" src="https://picsum.photos/300/300?random=1" />
                     </div>
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <p class="blog-user">FechaViaje</p>
-                            <p class="blog-user">Valoracions</p>
-                        
+                    <div class="travel">
+                        <div class="travel-info">
+                            <p class="blog-title">${travel.nomViatge}</p>
+                            <p class="descrip-travel">${travel.descripcio}</p>
                         </div>
-                        <div class="col-sm-6">
-                            <a class="button button-blog" href="travel/travelView.php">Ver viaje</a>  
-                            <a class="button button-blog" href="#">Elimintar de la lista</a>  
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="travelContainer">
-                <div class="travel-img">
-                    <img alt="imagenViage" src="https://picsum.photos/300/300?random=2" />
-                </div>
-                <div class="travel">
-                    <div class="travel-info">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="descrip-travel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <p class="blog-user">FechaViaje</p>
-                            <p class="blog-user">Valoracions</p>
-                        
-                        </div>
-                        <div class="col-sm-6">
-                            <a class="button button-blog" href="travel/travelView.php">Ver viaje</a>  
-                            <a class="button button-blog" href="#">Elimintar de la lista</a>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <p class="blog-user">${travel.fechaViaje}</p>
+                                <p class="blog-user">${travel.Valoracion}</p>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <a class="button button-blog" href="/TravelCloud/travelView">Ver viaje</a>  
+                                <c:if test="${tipusUser == 'USER'}">
+                                    <a class="button button-blog" href="#">Elimintar de la lista</a>
+                                </c:if>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="travelContainer">
-                <div class="travel-img">
-                    <img alt="imagenViage" src="https://picsum.photos/300/300?random=3" />
-                </div>
-                <div class="travel">
-                    <div class="travel-info">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="descrip-travel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <p class="blog-user">FechaViaje</p>
-                            <p class="blog-user">Valoracions</p>
-                        
-                        </div>
-                        <div class="col-sm-6">
-                            <a class="button button-blog" href="travel/travelView.php">Ver viaje</a>  
-                            <a class="button button-blog" href="#">Elimintar de la lista</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </section>
         
         <!-- Footer-->

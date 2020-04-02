@@ -22,10 +22,10 @@
     </head>
     
     <body>
-        <!-- Navegació/Header-->
+        <!-- Navegació/Header--> 
         <%@include file="headerLogin.jsp" %>
         
-        <!-- ACABADO - CREACION APARTADO BUSQUEDA DESTINO-->
+        <!-- CREACION APARTADO BUSQUEDA DESTINO-->
         <section>
             <div class="hero"> 
                 <div class="content">
@@ -36,52 +36,44 @@
                     <!--FILTRO DE DESTINOS-->
                     <form name="busquedaDestino" method="post" action="">
                         <div class="forms">
-                            <select name="caDespl" class="selectpicker">
-                                <option value="noValid" disabled selected>Comunidad Autónoma...</option>
-                                <option value="Andalucia">Andalucia</option>
-                                <option value="Catalunya">Catalunya</option>
-                                <option value="PaisVasco">Pais Vaco</option>    
-                            </select>
-
-                            <select name="provincia" class="selectpicker">
+                        	<select name="caDespl" class="selectpicker">  
+                        		<option value="noValid" disabled selected>Comunidad Autónoma...</option>                        		                      
+	                        	<c:forEach items="${viatges}" var="v">
+	                        			<option value="${v.comunitat}">${v.comunitat}</option>
+								</c:forEach>	
+							</select>
+							<select name="provincia" class="selectpicker">  
                                 <option value="noValid" disabled selected>Provincia...</option>
-                                <option value="ejemplo1">Ejemplo1</option>
-                                <option value="ejemplo2">Ejemplo2</option>
-                                <option value="ejemplo2">Ejemplo3</option>
-                            </select>
-                            <select name="tipoViaje" class="selectpicker">
+	                        	<c:forEach items="${viatges}" var="v">
+	                        			<option value="${v.provincia}">${v.provincia}</option>
+								</c:forEach>	
+							</select>
+							<select name="tipoViaje" class="selectpicker">  
                                 <option value="noValid" disabled selected>Tipo viaje...</option>
-                                <option value="pareja">Pareja</option>
-                                <option value="Familia">Familia</option>
-                                <option value="Amigos">Amigos</option>
-                                <option value="Solitario">Solitario</option>
-                                <option value="Animales">Animales</option>
-                                <option value="Trabajo">Trabajo</option>
-                            </select>
+	                        	<c:forEach items="${viatges}" var="v">
+	                        			<option value="${v.tipusViatger}">${v.tipusViatger}</option>
+								</c:forEach>	
+							</select>
                         </div>
                         <div class="forms">
-                            <select name="ubicacion" class="selectpicker">
+                        	<select name="ubicacion" class="selectpicker">  
                                 <option value="noValid" disabled selected>Ubicación...</option>
-                                <option value="Mar">Mar</option>
-                                <option value="Montaña">Montaña</option>
-                                <option value="Ciudad">Ciudad</option>
-                                <option value="Naturaleza">Naturaleza</option>
-                            </select>
-                            <select name="duracion" class="selectpicker">
-                                <option value="noValid" disabled selected>Duración...</option>
-                                <option value="1">1-3 dias</option>
-                                <option value="2">3-5 dias</option>
-                                <option value="3">5-7 dias</option>
-                                <option value="4">+7 dias</option>
-                            </select>
-                            <select name="valoracion" class="selectpicker">
-                                <option name="noValid" disabled selected>Valoracion...</option>
-                                <option name="val1">1</option>
-                                <option name="val2">2</option>
-                                <option name="val3">3</option>
-                                <option name="val4">4</option>
-                                <option name="val5">5</option>
-                            </select>
+	                        	<c:forEach items="${viatges}" var="v">
+	                        			<option value="${v.entorn}">${v.entorn}</option>
+								</c:forEach>	
+							</select>
+							<select name="duracion" class="selectpicker">  
+                                <option value="noValid" disabled selected>Duracion...</option>
+	                        	<c:forEach items="${viatges}" var="v">
+	                        			<option value="${v.durada}">${v.durada}</option>
+								</c:forEach>	
+							</select>
+							<select name="valoracion" class="selectpicker">  
+                                <option value="noValid" disabled selected>Valoracion...</option>
+	                        	<c:forEach items="${valoracions}" var="val">
+	                        			<option value="${val.puntuacio}">${val.puntuacio}</option>
+								</c:forEach>	
+							</select>
                         </div>
                         <div class="button-search">
                             <input type="submit" class="button log-button" value="Buscar" />
@@ -91,7 +83,7 @@
             </div>
         </section>
         
-        <!-- ACABADO - Seccion descubre lugares-->
+        <!-- Seccion descubre lugares-->
         <section class="features">
             <div class="row">
                 <div class="col-md-12">
@@ -141,11 +133,11 @@
                 </div>
             </div>
             <!--Boton para ir a la pagina de busqueda de viages-->
-            <div class="blog-cta"><a class="button ghost-button" href="comunidades.jsp">Descubre mas lugares</a></div>
+            <div class="blog-cta"><a class="button ghost-button" href="/TravelCloud/comunidades">Descubre mas lugares</a></div>
         </section>
         
 
-        <!-- ACABADO - SECCION INICIO SESION-->
+        <!-- SECCION INICIO SESION-->
         <section>
             <div class="row hero-log">
                 <div class="col-sm-6 hero-inner-log">
@@ -153,8 +145,8 @@
                 </div>
                 <div class="col-sm-6 hero-logins">
                     <div class="log-cta">
-                        <a class="log-button" href="html/user/userLogin.jsp">Iniciar Sesión</a>
-                        <a class="log-button" href="html/user/userRegister.jsp">Registrarse</a>
+                        <a class="log-button" href="/TravelCloud/userLogin">Iniciar Sesión</a>
+                        <a class="log-button" href="/TravelCloud/userRegister">Registrarse</a>
                     </div>    
                 </div>
             </div>
@@ -162,47 +154,31 @@
         
         
         
-        <!-- ACABADO - SECCION DESCUBRE SITIOS MÃS VISITADOS-->
+        <!-- SECCION DESCUBRE SITIOS MÃS VISITADOS-->
         <section id="blog">
             <div class="blog-inner">
                 <div>
                     <h3>Descubre los lugares más visitados</h3>
                 </div>
+                
                 <div class="blog-grid">
-                    <div class="blog-image">
-                        <img src="https://unsplash.it/600/300?image=122"/>
-                    </div>
-                    <div class="blog-text">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="blog-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                        <p class="blog-user">nomUsuari</p>
-                        <a class="button button-blog" href="html/travel/travelView.php">Ver viaje</a>
-                        <a class="button button-blog" href="#">Añadir a la lista deseos</a>
-                    </div>
-                    <div class="blog-image">
-                        <img src="https://unsplash.it/600/300?image=350"/>
-                    </div>
-                    <div class="blog-text">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="blog-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                        <p class="blog-user">nomUsuari</p>
-                        <a class="button button-blog" href="html/travel/travelView.php">Ver viaje</a>
-                        <a class="button button-blog" href="#">Añadir a la lista deseos</a>
-                    </div>
-                    <div class="blog-image">
-                            <img src="https://unsplash.it/600/300?image=320"/>
-                    </div>
-                    <div class="blog-text">
-                        <p class="blog-title">NomCiutat</p>
-                        <p class="blog-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae provident obcaecati quos culpa cum tenetur similique, ex accusantium veniam! quos culpa cum tenetur similique, ex accusantium veniam!</p>
-                        <p class="blog-user">nomUsuari</p>
-                        <a class="button button-blog" href="html/travel/travelView.php">Ver viaje</a>
-                        <a class="button button-blog" href="#">Añadir a la lista deseos</a>
-                    </div>
-                </div>
-                <div class="blog-cta blog-cta-button">
-                    <a class="button ghost-button" href="travelSearch.jsp">Ver mas</a>
-                </div>
+                	<c:forEach var="viaje" items="${viajesDestacados}" varStatus="status">
+	                    <div class="blog-image">
+	                        <img src="https://unsplash.it/600/300?image=122"/>
+	                    </div>
+	                    <div class="blog-text">
+	                        <p class="blog-title">${viaje.titulo}</p>
+	                        <p class="blog-summary">${viaje.descripcion}</p>
+	                        <a class="button button-blog" href="/TravelCloud/travelView">Ver viaje</a>
+	                        <a class="button button-blog" href="#">Añadir a la lista deseos</a>
+	                    </div>  
+	                </c:forEach>
+	            </div>
+	                
+	            <div class="blog-cta blog-cta-button">
+	            	<a class="button ghost-button" href="/TravelCloud/travelSearch">Ver mas</a>
+	        	</div>
+                
             </div>
         </section>
         

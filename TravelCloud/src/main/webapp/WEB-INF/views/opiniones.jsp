@@ -1,3 +1,6 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -12,17 +15,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <!--Full estils propi-->
-        <link rel="stylesheet" href="../../css/style.css">
-        <link rel="stylesheet" href="../../css/travelView.css">
-        <link rel="stylesheet" href="../../css/userRegister.css">
+        <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />">
+        <link rel="stylesheet" href="<c:url value="/resources/css/travelView.css" />">
+        <link rel="stylesheet" href="<c:url value="/resources/css/userRegister.css" />">
         <!--Icono ico-->
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico" />">
         
     </head>
     
     <body>
         <!-- NavegaciÃ³/Header-->
-        <?php require '../headerLogin.html'; ?>
+        <%@include file="headerLogin.jsp" %>
 
         <!-- VALORACION -->
         <section>
@@ -36,10 +39,10 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal">
+                            <form class="well form-horizontal" action="/addValoracio" method="POST">
                                 <fieldset>
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label">Â¿QuÃ© te ha parecido este viaje?</label>
+                                        <label class="col-md-4 control-label">¿Qué te ha parecido este viaje?</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
                                                 <span class="input-group-addon" style="max-width: 100%;">
@@ -56,38 +59,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Guardar">
-                                        <input type="submit" class="btn btn-secondary" value="Cancelar">
-                                    </div>
-                                </fieldset>
-                            </form>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-        
-        <!-- COMENTARIO -->
-        <section>
-            <div class="comentario">
-                <div>
-                    <h3>Deja tu comentario</h3>
-                </div>   
-            </div>
-            <div class="container">
-                <table class="table table-striped">
-                    <tbody>
-                        <tr>
-                            <td colspan="1">
-                            <form class="well form-horizontal">
-                                <fieldset>
-                                    <div class="form-group">
+									<div class="form-group">
                                         <label class="col-md-4 control-label">Explicanos que opinas de este viaje</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
-                                                <textarea placeholder="Deja aquÃ­ tu comentario..." class="form-control" required="true" value=""></textarea>
+                                                <textarea placeholder="Deja aquí tu comentario..." class="form-control" required="true" value=""></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -102,10 +78,10 @@
                     </tbody>
                 </table>
             </div>
-        </section>    
+        </section>
+        
             
-        <!--PIE DE PAGINA-->
-        <?php require '../footer.html'; ?>
+  
            
     </body>
 </html>

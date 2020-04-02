@@ -8,21 +8,20 @@ public class Usuari {
 	private String Contrasenya;
 	private String email;
 	private String Telefon;
-	private String Descripcio;
 	private Date DataRegistre;
+	private String Rol;
 	
 	public Usuari() {
 		super();
 	}
-	public Usuari(int idUSUARI, String nomUsuari, String contrasenya, String email, String telefon, String descripcio,
-			Date dataRegistre) {
+	public Usuari(int idUSUARI, String nomUsuari, String contrasenya, String email, String telefon,
+			String Rol,Date dataRegistre) {
 		super();
 		this.idUSUARI = idUSUARI;
 		NomUsuari = nomUsuari;
 		Contrasenya = contrasenya;
 		this.email = email;
 		Telefon = telefon;
-		Descripcio = descripcio;
 		DataRegistre = dataRegistre;
 	}
 	
@@ -56,25 +55,23 @@ public class Usuari {
 	public void setTelefon(String telefon) {
 		Telefon = telefon;
 	}
-	public String getDescripcio() {
-		return Descripcio;
-	}
-	public void setDescripcio(String descripcio) {
-		Descripcio = descripcio;
-	}
 	public Date getDataRegistre() {
 		return DataRegistre;
 	}
 	public void setDataRegistre(Date dataRegistre) {
 		DataRegistre = dataRegistre;
 	}
+	public String getRol() {
+		return Rol;
+	}
+	public void setRol(String rol) {
+		Rol = rol;
+	}
 	@Override
 	public String toString() {
-		return "Usuari [idUsuari=" + idUSUARI + ", NomUsuari=" + NomUsuari + ", Contrasenya=" + Contrasenya + ", email="
-				+ email + ", Telefon=" + Telefon + ", Descripcio=" + Descripcio + ", DataRegistre=" + DataRegistre
-				+ "]";
+		return "Usuari [idUSUARI=" + idUSUARI + ", NomUsuari=" + NomUsuari + ", Contrasenya=" + Contrasenya + ", email="
+				+ email + ", Telefon=" + Telefon + ", DataRegistre=" + DataRegistre + ", Rol=" + Rol + "]";
 	}
-	
 	
 
 	

@@ -5,19 +5,19 @@ import java.sql.Date;
 public class Assessorament {
 	private int idASSESSORAMENT;
 	private Usuari idUSUARI;	
-	private Double Preu;
 	private Date Data;
+	private int idAssessor;
 
 	public Assessorament() {
 		super();
 	}
-
-	public Assessorament(int idASSESSORAMENT, Usuari idUSUARI, Double preu, Date data) {
+	
+	public Assessorament(int idASSESSORAMENT, Usuari idUSUARI, Date data, int idAssessor) {
 		super();
 		this.idASSESSORAMENT = idASSESSORAMENT;
 		this.idUSUARI = idUSUARI;
-		Preu = preu;
-		Data = data;
+		this.Data = data;
+		this.idAssessor = idAssessor;
 	}
 
 	public int getIdASSESSORAMENT() {
@@ -35,15 +35,7 @@ public class Assessorament {
 	public void setIdUSUARI(Usuari idUSUARI) {
 		this.idUSUARI = idUSUARI;
 	}
-
-	public Double getPreu() {
-		return Preu;
-	}
-
-	public void setPreu(Double preu) {
-		Preu = preu;
-	}
-
+	
 	public Date getData() {
 		return Data;
 	}
@@ -52,10 +44,19 @@ public class Assessorament {
 		Data = data;
 	}
 
+	public int getIdAssessor() {
+		return idAssessor;
+	}
+
+	public void setIdAssessor(int idAssessor) {
+		this.idAssessor = idAssessor;
+	}
+
 	@Override
 	public String toString() {
-		return "Assessorament [idASSESSORAMENT=" + idASSESSORAMENT + ", idUSUARI=" + idUSUARI + ", Preu=" + Preu
-				+ ", Data=" + Data + "]";
+		return "Assessorament [idASSESSORAMENT=" + idASSESSORAMENT + ", idUSUARI=" + idUSUARI + ", Data=" + Data
+				+ ", idAssessor=" + idAssessor + "]";
 	}
+
 	
 }

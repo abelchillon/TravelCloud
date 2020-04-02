@@ -2,7 +2,7 @@ package com.travelcloud.model;
 
 import java.sql.Date;
 
-public class Viatge {
+public class Viatge {   // FALTARIA AÑADIR EL NOMBRE O TITULO DEL VIAJE NO?
 	private int idVIATGE;
 	private String Comunitat;
 	private String Provincia;
@@ -11,15 +11,29 @@ public class Viatge {
 	private String Durada;
 	private String TipusViatger;
 	private String Descripcio;
-	private Usuari idUSUARI;	
+	private int idUSUARI;	
 	private Date Data;
 	
 	public Viatge() {
 		super();
 	}
 
+	public Viatge(String comunitat, String provincia, String localitat, String entorn, String durada,
+			String tipusViatger, String descripcio, int idUSUARI, Date data) {
+		super();
+		Comunitat = comunitat;
+		Provincia = provincia;
+		Localitat = localitat;
+		Entorn = entorn;
+		Durada = durada;
+		TipusViatger = tipusViatger;
+		Descripcio = descripcio;
+		this.idUSUARI = idUSUARI;
+		Data = data;
+	}
+
 	public Viatge(int idVIATGE, String comunitat, String provincia, String localitat, String entorn, String durada,
-			String tipusViatger, String descripcio, Usuari idUSUARI, Date data) {
+			String tipusViatger, String descripcio, int idUSUARI, Date data) {
 		super();
 		this.idVIATGE = idVIATGE;
 		Comunitat = comunitat;
@@ -97,11 +111,11 @@ public class Viatge {
 		Descripcio = descripcio;
 	}
 
-	public Usuari getIdUSUARI() {
+	public int getIdUSUARI() {
 		return idUSUARI;
 	}
 
-	public void setIdUSUARI(Usuari idUSUARI) {
+	public void setIdUSUARI(int idUSUARI) {
 		this.idUSUARI = idUSUARI;
 	}
 

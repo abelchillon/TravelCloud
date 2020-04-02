@@ -3,8 +3,8 @@ package com.travelcloud.model;
 import java.sql.Date;
 
 public class Valoracio {
-	private Usuari idUSUARI;	
-	private Viatge idVIATGE;
+	private int idUSUARI;	
+	private int idVIATGE;
 	private String Comentari;
 	private int Puntuacio;
 	private Date Data;
@@ -13,7 +13,9 @@ public class Valoracio {
 		super();
 	}
 
-	public Valoracio(Usuari idUSUARI, Viatge idVIATGE, String comentari, int puntuacio, Date data) {
+// Holaa, aqui faltaria un idValoracio tambien para que identifique a la valoracion, no he tocado nada porque supongo que maria tendra que cambiarlo en base de datos...
+
+	public Valoracio(int idUSUARI, int idVIATGE, String comentari, int puntuacio, Date data) {
 		super();
 		this.idUSUARI = idUSUARI;
 		this.idVIATGE = idVIATGE;
@@ -22,19 +24,19 @@ public class Valoracio {
 		Data = data;
 	}
 
-	public Usuari getIdUSUARI() {
+	public int getIdUSUARI() {
 		return idUSUARI;
 	}
 
-	public void setIdUSUARI(Usuari idUSUARI) {
+	public void setIdUSUARI(int idUSUARI) {
 		this.idUSUARI = idUSUARI;
 	}
 
-	public Viatge getIdVIATGE() {
+	public int getIdVIATGE() {
 		return idVIATGE;
 	}
 
-	public void setIdVIATGE(Viatge idVIATGE) {
+	public void setIdVIATGE(int idVIATGE) {
 		this.idVIATGE = idVIATGE;
 	}
 
