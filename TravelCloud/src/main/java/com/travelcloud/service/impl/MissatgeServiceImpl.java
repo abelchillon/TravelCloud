@@ -1,9 +1,12 @@
 package com.travelcloud.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.travelcloud.model.Missatge;
+import com.travelcloud.model.Usuari;
 import com.travelcloud.repository.DAOMissatge;
 import com.travelcloud.service.IMissatgeService;
 
@@ -14,9 +17,44 @@ public class MissatgeServiceImpl implements IMissatgeService{
 	private DAOMissatge daoMissatge;
 
 	@Override
-	public void afegirMissatge(Missatge missatge) throws Exception {
-		// TODO Auto-generated method stub
+	public void insertarMissatge(Missatge missatge) throws Exception{
+		try {
+			daoMissatge.insertarMissatge(missatge);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	@Override
+	public void eliminarMissatge(Missatge missatge) throws Exception{
+		try {
+			daoMissatge.eliminarMissatge(missatge);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	@Override
+	public List<Missatge> llistatMissatges() throws Exception{
+		List<Missatge> missatges;
+		try {
+			missatges = daoMissatge.llistatMissatges();
+		} catch (Exception e) {
+			throw e;
+		}
+		return missatges;
 		
+	}
+	
+	@Override
+	public List<Missatge> llistatMissatgesUsuari(int idUsuariEmisor, int idUsuariReceptor) throws Exception{
+		List<Missatge> missatgesUsuari;
+		try {
+			missatgesUsuari = daoMissatge.llistatMissatgesUsuari(idUsuariEmisor, idUsuariReceptor);
+		} catch (Exception e) {
+			throw e;
+		}
+		return missatgesUsuari;
 	}
 
 }
