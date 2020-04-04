@@ -3,36 +3,34 @@ package com.travelcloud.model;
 import java.sql.Date;
 
 public class Desitjos {
-	private Viatge idVIATGE;
-	private Usuari idUSUARI;	
+	private int idVIATGE;
+	private int idUSUARI;	
 	private Date Data;
 	
 	public Desitjos() {
 		super();
 	}
-	
-	// LA FECHA PARA QUE ES? OSEA PARA QUE QUEREMOS SABER CUANDO UN USUARIO GUARDA ALGO A SU LISTA DE DESEOS? 
-	
-	public Desitjos(Viatge idVIATGE, Usuari idUSUARI, Date data) {
+
+	public Desitjos(int idVIATGE, int idUSUARI, Date data) {
 		super();
 		this.idVIATGE = idVIATGE;
 		this.idUSUARI = idUSUARI;
 		Data = data;
 	}
 
-	public Viatge getIdVIATGE() {
+	public int getIdVIATGE() {
 		return idVIATGE;
 	}
 
-	public void setIdVIATGE(Viatge idVIATGE) {
+	public void setIdVIATGE(int idVIATGE) {
 		this.idVIATGE = idVIATGE;
 	}
 
-	public Usuari getIdUSUARI() {
+	public int getIdUSUARI() {
 		return idUSUARI;
 	}
 
-	public void setIdUSUARI(Usuari idUSUARI) {
+	public void setIdUSUARI(int idUSUARI) {
 		this.idUSUARI = idUSUARI;
 	}
 

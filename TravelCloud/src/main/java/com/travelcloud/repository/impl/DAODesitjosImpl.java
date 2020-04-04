@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.travelcloud.model.Desitjos;
-import com.travelcloud.model.Valoracio;
 import com.travelcloud.repository.DAODesitjos;
 
 @Repository
@@ -32,8 +31,8 @@ public class DAODesitjosImpl implements DAODesitjos{
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, desitjos.getIdVIATGE().getIdVIATGE());
-			pStatement.setInt(2, desitjos.getIdUSUARI().getIdUSUARI());
+			pStatement.setInt(1, desitjos.getIdVIATGE());
+			pStatement.setInt(2, desitjos.getIdUSUARI());
 			pStatement.setDate(3, new Date(Calendar.getInstance().getTime().getTime()));	
 			pStatement.executeUpdate();
 			pStatement.close();
@@ -54,8 +53,8 @@ public class DAODesitjosImpl implements DAODesitjos{
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, desitjos.getIdVIATGE().getIdVIATGE());
-			pStatement.setInt(2, desitjos.getIdUSUARI().getIdUSUARI());
+			pStatement.setInt(1, desitjos.getIdVIATGE());
+			pStatement.setInt(2, desitjos.getIdUSUARI());
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {
@@ -91,7 +90,7 @@ public class DAODesitjosImpl implements DAODesitjos{
 		return llistatDesitjos;
 	}
 	
-	private Valoracio makeDesitjos(ResultSet rs) throws SQLException {
+	private Desitjos makeDesitjos(ResultSet rs) throws SQLException {
 		int idViatge = rs.getInt("idViatge");
 		int idUsuari = rs.getInt("idUsuari");
 		Date data = rs.getDate("Data");

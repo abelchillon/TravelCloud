@@ -134,5 +134,5 @@ public class DAOMissatgeImpl implements DAOMissatge{
 		
 		return missatge;
 		
-		
+	}
 }
