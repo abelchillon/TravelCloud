@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.travelcloud.model.Missatge;
-import com.travelcloud.model.Usuari;
 import com.travelcloud.repository.DAOMissatge;
 
 @Repository

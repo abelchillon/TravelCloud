@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.travelcloud.model.Desitjos;
-import com.travelcloud.model.Valoracio;
 import com.travelcloud.repository.DAODesitjos;
 import com.travelcloud.service.IDesitjosService;
 
