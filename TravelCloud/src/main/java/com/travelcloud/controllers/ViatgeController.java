@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.travelcloud.model.Viatge;
 import com.travelcloud.service.IViatgeService;
 
 
@@ -23,5 +24,19 @@ public class ViatgeController {
 	@Autowired
 	@Qualifier("viatgeService")
 	private IViatgeService viatgeService;
-
+	
+	//PROCESAR FORMULARIO PARA AÑADIR VIAJES
+		@RequestMapping(value="/addTravel", method= RequestMethod.POST)
+		public String processFormAddTravel(@ModelAttribute("newTravel") Viatge viatge) throws Exception {
+			viatgeService.insertarViatge(viatge);
+			return "redirect:/userPage";
+		}
+		
+		//PROCESAR FORMULARIO PARA MODIFICAR VIAJES   -- SE TENDRIA QUE MODIFICAR LA PROPIEDAD ACTION DEL FORMULARIO SI EL VIAJE YA ESTUVIERA CREADO
+		@RequestMapping(value="/updateTravel", method= RequestMethod.POST)
+		public String processFormUpdateTravel(@ModelAttribute("newTravel") Viatge viatge) throws Exception {
+			viatgeService.modificarViatge(viatge);
+			return "redirect:/travelView/{viatge.getIdVIATGE()}";
+		}
+		
 }

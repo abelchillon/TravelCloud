@@ -125,7 +125,7 @@ public class DAOValoracioImpl implements DAOValoracio{
 		int Puntuacio = rs.getInt("Puntuacio");   
 		Date data = rs.getDate("Data");
 		
-		Valoracio valoracio = new Valoracio(IdUsuari, IdViatge, Comentari, Puntuacio, data); //porque idusuari esta como usauri
+		Valoracio valoracio = new Valoracio(IdUsuari, IdViatge, Comentari, Puntuacio, data); 
 		return valoracio; 
 		
 	}

@@ -151,10 +151,11 @@ public class DAOViatgeImpl implements DAOViatge{
 		int IdUsuari = rs.getInt("IdUsuari");
 		Date data = rs.getDate("Data");
 		
-		Viatge viatge = new Viatge(IdViatge, Comunitat, Provincia, Localitat, Entorn, Durada, TipusViatger, Descripcio, IdUsuari, data);   //porque idusuari esta como usauri
+		Viatge viatge = new Viatge(IdViatge, Comunitat, Provincia, Localitat, Entorn, Durada, TipusViatger, Descripcio, IdUsuari, data); 
 		return viatge; 
 		
 	}
+	
 	
 	@Override
 	public List<Viatge> obtenirViatges() throws Exception {

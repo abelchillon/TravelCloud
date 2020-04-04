@@ -105,7 +105,7 @@ public class HomeController {
 	//PROCESAR FORMULARIO ENVIAR MENSAJE
 	@RequestMapping(value="/sendMessage", method= RequestMethod.POST)
 	public String processFormAddValoracio(@ModelAttribute("newMessage") Missatge missatge) throws Exception {
-		missatgeService.afegirMissatge(missatge);
+		missatgeService.insertarMissatge(missatge);
 		return "redirect:/  ";
 	}
 	
