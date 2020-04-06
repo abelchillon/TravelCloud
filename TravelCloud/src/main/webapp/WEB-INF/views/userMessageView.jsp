@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-sm-6">
                             <a class="button button-blog" id="response-button">Responder</a>  
-                            <a class="button button-blog" href="#">Eliminar</a>  
+                            <a class="button button-blog deleteMessage">Eliminar</a>  
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="form-group" id="botons">
                         <input id="send-button" type="submit" class="button button-blog" value="Enviar mensaje">
-                        <input id="cancel-button" type="submit" class="button button-blog" value="Cancelar">
+                        <input id="cancel-button" type="submit" class="button button-blog" id="cancelMessage" value="Cancelar">
                     </div>           
              </div>
             </div>
@@ -93,7 +93,7 @@
                                 <p class="blog-user">${mensaje.nombreUsuario}</p>
                             </div>
                             <div class="col-sm-6">  
-                                <a class="button button-blog" href="#">Eliminar</a>  
+                                <a class="button button-blog deleteMessage">Eliminar</a>  
                             </div>
                         </div>
                     </div>

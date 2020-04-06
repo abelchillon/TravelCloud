@@ -45,7 +45,7 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                            <label class="col-md-4 control-label">T铆tulo del Viaje</label>
+                                            <label class="col-md-4 control-label">T韙ulo del Viaje</label>
                                             <div class="col-md-8 inputGroupContainer">
                                                 <div class="input-group">
                                                     <span class="input-group-addon" style="max-width: 100%;">
@@ -56,17 +56,17 @@
                                             </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label">Selecciona Comunidad Aut贸noma</label>
+                                        <label class="col-md-4 control-label">Selecciona Comunidad Aut髇oma</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
                                                 <span class="input-group-addon" style="max-width: 100%;">
                                                     <i class="glyphicon glyphicon-map-marker"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="NoValid">Selecciona una Comunidad Aut贸noma ...</option> 
+                                                    <option value="NoValid">Selecciona una Comunidad Aut髇oma ...</option> 
                                                     <option value="Andalucia">Andalucia</option> 
                                                     <option value="Galicia">Galicia</option> 
-                                                    <option value="Catalu帽a">Catalu帽a</option>
+                                                    <option value="Catalu帽a">Catalu馻</option>
                                                     <option value="Asturias">Asturias</option> 
                                                 </select>
                                             </div>
@@ -95,7 +95,7 @@
                                     </div>
                                      
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label">Descripci贸n del viaje</label>
+                                        <label class="col-md-4 control-label">Descripci髇 del viaje</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
                                                 <textarea placeholder="Descripcion del viaje..." class="form-control" required="true" value=""></textarea>
@@ -144,16 +144,16 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label">Ubicaci贸n</label>
+                                        <label class="col-md-4 control-label">Ubicaci髇</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
                                                 <span class="input-group-addon" style="max-width: 100%;">
                                                     <i class="glyphicon glyphicon-leaf"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="noValid" selected>Selecciona ubicaci贸n...</option>
+                                                    <option value="noValid" selected>Selecciona ubicaci髇...</option>
                                                     <option value="Mar">Mar</option>
-                                                    <option value="Monta帽a">Monta帽a</option>
+                                                    <option value="Monta帽a">Monta馻</option>
                                                     <option value="Ciudad">Ciudad</option>
                                                     <option value="Naturaleza">Naturaleza</option> 
                                                 </select>
@@ -161,14 +161,14 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label">Duraci贸n</label>
+                                        <label class="col-md-4 control-label">Duraci髇</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
                                                 <span class="input-group-addon" style="max-width: 100%;">
                                                     <i class="glyphicon glyphicon-time"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="noValid" selected>Selecciona duraci贸n...</option>
+                                                    <option value="noValid" selected>Selecciona duraci髇...</option>
                                                     <option value="1">1-3 dias</option>
                                                     <option value="2">3-5 dias</option>
                                                     <option value="3">5-7 dias</option>
@@ -200,8 +200,8 @@
                                     
                                     <!-- botones -->
                                     <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Guardar">
-                                        <input type="submit" class="btn btn-secondary" value="Cancelar">
+                                        <input type="submit" id="savePage" class="btn btn-secondary" value="Guardar">
+                                        <input type="submit" id="cancelUpdate" class="btn btn-secondary" value="Cancelar">
                                     </div>
                                   
                                 </fieldset>

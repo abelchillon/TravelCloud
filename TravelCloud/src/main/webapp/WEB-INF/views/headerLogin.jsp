@@ -42,14 +42,14 @@
                                         </ul>  
                                     </li>
                                 </c:when>
-                                <c:when test="${tipusUser == 'USER_NO_LOGIN'}">
+                                <c:otherwise>
                                     <li>
                                         <a href="/TravelCloud/userRegister"> Registrarse</a>
                                     </li>
                                     <li class="dropdown">
                                         <a href="/TravelCloud//userLogin" id="themes">Iniciar Sesión</a>
                                     </li>
-                                </c:when> 
+                                </c:otherwise> 
                             </c:choose>
                         </ul>
                     </div>

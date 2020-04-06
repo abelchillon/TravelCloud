@@ -6,7 +6,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Iniciar Sesi贸n - TravelCloud</title>
+        <title>Iniciar Sesi髇 - TravelCloud</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Fontawesome para iconos-->
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -29,14 +29,14 @@
         <!-- Formulario inicio sesi贸n -->
         <section>
             <div class="callout-inner">
-                <h3>Iniciar sesi贸n en TravelCloud</h3>
+                <h3>Iniciar sesi髇 en TravelCloud</h3>
             </div>
             <div class="container">
                 <div class="form">
                     <form class="well form-horizontal" method="post">
                         <fieldset>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Correo electr贸nico</label>
+                                <label class="col-md-4 control-label">Correo electr髇ico</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Contrase帽a</label>
+                                <label class="col-md-4 control-label">Contrase馻</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -62,7 +62,7 @@
                                 <label class="form-check-label" for="politica">Guardar datos de acceso</label>
                             </div>
                             <div class="form-group" id="botons">
-                                <input type="submit" class="btn btn-secondary" value="Iniciar sesi贸n">
+                                <input type="submit" class="btn btn-secondary" value="Iniciar sesi髇">
                             </div>
                         </fieldset>
                     </form>

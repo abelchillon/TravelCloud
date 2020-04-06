@@ -170,7 +170,9 @@
 	                        <p class="blog-title">${viaje.titulo}</p>
 	                        <p class="blog-summary">${viaje.descripcion}</p>
 	                        <a class="button button-blog" href="/TravelCloud/travelView">Ver viaje</a>
-	                        <a class="button button-blog" href="#">Añadir a la lista deseos</a>
+	                        <c:if test="${tipusUsuari == USER_LOGIN }">
+	                        	<a class="button button-blog" href="#">Añadir a la lista deseos</a>
+	                        </c:if>
 	                    </div>  
 	                </c:forEach>
 	            </div>

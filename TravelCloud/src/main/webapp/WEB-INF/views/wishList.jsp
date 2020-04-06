@@ -17,6 +17,7 @@
         <!--Full estils propi-->
         <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />">
         <link rel="stylesheet" href="<c:url value="/resources/css/wishList.css" />">
+        <script type="text/javascript" src="<c:url value="/resources/js/showWindowsMessages.js" />"></script>
         <!--Icono ico-->
         <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico" />">
     </head>
@@ -68,7 +69,7 @@
                             <div class="col-sm-6">
                                 <a class="button button-blog" href="/TravelCloud/travelView">Ver viaje</a>  
                                 <c:if test="${tipusUser == 'USER'}">
-                                    <a class="button button-blog" href="#">Elimintar de la lista</a>
+                                    <a class="button button-blog" id="deleteTravelWishList">Elimintar de la lista</a>
                                 </c:if>
                             </div>
                         </div>

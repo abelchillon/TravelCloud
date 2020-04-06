@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />">
         <link rel="stylesheet" href="<c:url value="/resources/css/userRegister.css" />">
         <link rel="stylesheet" href="<c:url value="/resources/css/travelView.css" />">
+        <script type="text/javascript" src="<c:url value="/resources/js/showWindowsMessages.js" />"></script>
         <!--Icono ico-->
         <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico" />">
     </head>
@@ -79,7 +80,7 @@
 
                                     <div class="form-group" id="botons">
                                         <input type="submit" class="btn btn-secondary" value="Enviar mensaje">
-                                        <input type="submit" class="btn btn-secondary" value="Cancelar">
+                                        <input type="submit" class="btn btn-secondary" id="cancelMessage" value="Cancelar">
                                     </div>
                                 </fieldset>
                             </form>

@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />">
         <link rel="stylesheet" href="<c:url value="/resources/css/userRegister.css" />">
         <link rel="stylesheet" href="<c:url value="/resources/css/travelView.css" />">
+        <script type="text/javascript" src="<c:url value="/resources/js/showWindowsMessages.js" />"></script>
         <!--Icono ico-->
         <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico" />">
     </head>
@@ -42,13 +43,13 @@
                                         <p>Datos de acceso</p>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label">Modificar ontraseña</label>
+                                        <label class="col-md-4 control-label">Modificar contrase�a</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="glyphicon glyphicon-eye-open"></i>
                                                 </span>
-                                                <input id="pasword" name="pasword" class="form-control" value="" type="password" placeholder="Nueva contraseña (8 caracters mínimo)" minlength="8" required>
+                                                <input id="pasword" name="pasword" class="form-control" value="" type="password" placeholder="Nueva contrase�a (8 caracteres m�nimo)" minlength="8" required>
                                             </div>
                                         </div>
                                     </div>
@@ -78,7 +79,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label">Dirección</label>
+                                        <label class="col-md-4 control-label">Direcci�n</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
@@ -89,17 +90,17 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label">Comunidad Autónoma</label>
+                                        <label class="col-md-4 control-label">Comunidad Aut�noma</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
                                                 <span class="input-group-addon" style="max-width: 100%;">
                                                     <i class="glyphicon glyphicon-map-marker"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="NoValid">Selecciona una Comunidad Autónoma ...</option> 
+                                                    <option value="NoValid">Selecciona una Comunidad Aut�noma ...</option> 
                                                     <option value="Andalucia">Andalucia</option> 
                                                     <option value="Galicia">Galicia</option> 
-                                                    <option value="Cataluña">Cataluña</option>
+                                                    <option value="Cataluña">Catalu�nya</option>
                                                     <option value="Asturias">Asturias</option> 
                                                 </select>
                                             </div>
@@ -128,9 +129,9 @@
                                     </div>
 
                                     <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Guardar cambios">
-                                        <input type="submit" class="btn btn-secondary" value="Cancelar">
-                                        <input type="submit" class="btn btn-secondary" value="Eliminar cuenta">
+                                        <input type="submit" id="savePage" class="btn btn-secondary" value="Guardar cambios">
+                                        <input type="submit" id="cancelUpdate" class="btn btn-secondary" value="Cancelar">
+                                        <input type="submit" id="deleteUserPage" class="btn btn-secondary" value="Eliminar cuenta">
                                     </div>  
                                 </fieldset>
                             </form>

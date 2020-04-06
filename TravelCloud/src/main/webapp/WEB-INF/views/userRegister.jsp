@@ -41,7 +41,7 @@
                                         <p>Datos de acceso</p>
                                     </div>
                                     <div class="form-group">
-                                            <label class="col-md-4 control-label">Correo electrónico</label>
+                                            <label class="col-md-4 control-label">Correo electr�nico</label>
                                             <div class="col-md-8 inputGroupContainer">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
@@ -52,13 +52,13 @@
                                             </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label">Contraseña</label>
+                                        <label class="col-md-4 control-label">Contrase�a</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="glyphicon glyphicon-eye-open"></i>
                                                 </span>
-                                                <input id="pasword" name="pasword" class="form-control" value="" type="password" placeholder="contraseña (8 caracters mínimo)" minlength="8" required>
+                                                <input id="pasword" name="pasword" class="form-control" value="" type="password" placeholder="contrase�a (8 caracters m�nimo)" minlength="8" required>
                                             </div>
                                         </div>
                                     </div>
@@ -89,17 +89,17 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label">Comunidad Autónoma</label>
+                                        <label class="col-md-4 control-label">Comunidad Aut�noma</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
                                                 <span class="input-group-addon" style="max-width: 100%;">
                                                     <i class="glyphicon glyphicon-map-marker"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="NoValid">Selecciona una Comunidad Autónoma ...</option> 
+                                                    <option value="NoValid">Selecciona una Comunidad Aut�noma ...</option> 
                                                     <option value="Andalucia">Andalucia</option> 
                                                     <option value="Galicia">Galicia</option> 
-                                                    <option value="Cataluña">Cataluña</option>
+                                                    <option value="Cataluña">Catalu�a</option>
                                                     <option value="Asturias">Asturias</option> 
                                                 </select>
                                             </div>
@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="form-check form-check-inline politica">
                                         <input id="politica" clas="form-check-input" type="checkbox">
-                                        <label class="form-check-label" for="politica">Acepto política de privacidad</label>
+                                        <label class="form-check-label" for="politica">Acepto pol�tica de privacidad</label>
                                     </div>
 
                                     <div class="form-group" id="botons">

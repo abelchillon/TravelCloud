@@ -18,6 +18,7 @@
         <!--Full estils propi-->
         <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />">
         <link rel="stylesheet" href="<c:url value="/resources/css/userPage.css" />">
+        <script type="text/javascript" src="<c:url value="/resources/js/showWindowsMessages.js" />"></script>
         <!--Icono ico-->
         <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico" />">
     </head>
@@ -43,7 +44,7 @@
 
         <!-- BOTONES GESTION USUARIO -->
         <c:choose>
-            <c:when test="${tipusUser == 'USER'}">   <!--- habria que comprobar que el usuario que esta login es el mismo que el id del usuario que quiere mostrarse-->
+            <c:when test="${tipusUser == 'USER'}">   <!-- YSM habria que comprobar que el usuario que esta login es el mismo que el id del usuario que quiere mostrarse, ya que si otro user quiere ver el perfil de otro usario no podra acceder a estos botones-->
                 <section id="userButtons">
                     <div class="user-buttons">
                         <a class="button button-user" href="/TravelCloud/userUpdate">Editar Perfil</a>
@@ -65,7 +66,6 @@
                 <section id="userButtons">
                     <div class="user-buttons">
                         <a class="button button-user" href="/TravelCloud/sendMessage">Enviar mensaje</a>
-                        <a class="button button-user" href="">Volver</a>
                     </div>
                 </section>
             </c:otherwise>
@@ -73,9 +73,9 @@
         
         <!-- VIAJES USUARIO -->
         <!-- VIAJES USUARIO -->
-        <!-- para este apartado habria que diferenciar, si el usuario esta visitando su propio perfil, o el perfil de otro usuario  -->
+        <!-- YSM - para este apartado habria que diferenciar, si el usuario esta visitando su propio perfil, o el perfil de otro usuario  -->
         <!-- esta es la configuracion en caso de que se visite el perfil de otro usuario -->
-        <!-- solo el usuario web normal podra ver este apartado cuando entre su propio perfil, admin y asesor como no suben viajes, no tienen este apartado--->
+        <!-- solo el usuario web normal podra ver este apartado cuando entre en su propio perfil, admin y asesor como no suben viajes, no tienen este apartado--->
         <section id="travels-user">
             <div class="travUs">
                 <h3>Mis Viajes</h3>
@@ -92,10 +92,10 @@
                         <p class="blog-user">${travelUser.numComentarios}</p>
                         <a class="button button-blog" href="/TravelCloud/travelView">Ver</a>
                         <c:if test="${tipusUser == 'USER'}">
-                            <a class="button button-blog" href="#">Editar</a>
+                            <a class="button button-blog" href="/TravelCloud/travelPush">Editar</a>
                         </c:if>
                         <c:if test="${tipusUser == 'USER' && tipusUser == 'ADMIN'}">
-                            <a class="button button-blog" href="#">Borrar</a>
+                            <a class="button button-blog" id="deleteTravel">Borrar</a>
                         </c:if>
                     </div>
                 </div>
