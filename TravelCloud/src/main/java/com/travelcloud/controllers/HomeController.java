@@ -78,6 +78,13 @@ public class HomeController {
 	public String userRegister() {
 		return "userRegister";
 	}
+	
+	// YSM - lo he añadido porque no me da acceso a esta pagina, pero sigue sin funcionarme y no he querido tocar nada mas por miedo a liarla
+	@RequestMapping(value = "userUpdate", method = RequestMethod.GET)
+	public String userUpdate() {
+		return "userUpdate";
+	}
+	
 		
 	//PONGO ESTO AQUI PARA REVISAR SI ESTA BIEN HECHO, LUEGO YA LO UBICAREMOS DONDE TOQUE
 	
