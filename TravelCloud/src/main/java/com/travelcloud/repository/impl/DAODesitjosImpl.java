@@ -31,8 +31,8 @@ public class DAODesitjosImpl implements DAODesitjos{
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, desitjos.getIdVIATGE().getIdVIATGE());
-			pStatement.setInt(2, desitjos.getIdUSUARI().getIdUSUARI());
+			pStatement.setInt(1, desitjos.getIdVIATGE());
+			pStatement.setInt(2, desitjos.getIdUSUARI());
 			pStatement.setDate(3, new Date(Calendar.getInstance().getTime().getTime()));	
 			pStatement.executeUpdate();
 			pStatement.close();
@@ -53,8 +53,8 @@ public class DAODesitjosImpl implements DAODesitjos{
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, desitjos.getIdVIATGE().getIdVIATGE());
-			pStatement.setInt(2, desitjos.getIdUSUARI().getIdUSUARI());
+			pStatement.setInt(1, desitjos.getIdVIATGE());
+			pStatement.setInt(2, desitjos.getIdUSUARI());
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {

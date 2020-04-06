@@ -39,7 +39,7 @@ public class Missatge {
 	public String getDescripcio() {
 		return descripcio;
 	}
-	public String getDataMissatge() {
+	public Date getDataMissatge() {
 		return DataMissatge;
 	}
 	
