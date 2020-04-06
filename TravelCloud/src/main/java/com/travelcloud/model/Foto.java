@@ -13,8 +13,6 @@ public class Foto {
 	public Foto() {
 		super();
 	}
-
-	// LA FECHA DE LA FOTO?? 
 	
 	
 	public Foto(int idFOTO, Usuari idUSUARI, Viatge idVIATGE, int tipus, String source, Date data) {

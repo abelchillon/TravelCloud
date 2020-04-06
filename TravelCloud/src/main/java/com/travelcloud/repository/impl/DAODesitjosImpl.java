@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.travelcloud.model.Desitjos;
-import com.travelcloud.model.Valoracio;
 import com.travelcloud.repository.DAODesitjos;
 
 @Repository
@@ -91,12 +90,12 @@ public class DAODesitjosImpl implements DAODesitjos{
 		return llistatDesitjos;
 	}
 	
-	private Valoracio makeDesitjos(ResultSet rs) throws SQLException {
+	private Desitjos makeDesitjos(ResultSet rs) throws SQLException {
 		int idViatge = rs.getInt("idViatge");
 		int idUsuari = rs.getInt("idUsuari");
 		Date data = rs.getDate("Data");
 		
-		Desitjos desitjos = new Desitjos(idViatge, idUsuari, data); //porque idusuari esta como usauri i idviaje esta como viaje
+		Desitjos desitjos = new Desitjos(idViatge, idUsuari, data); //YSM - porque idusuari esta como usauri i idviaje esta como viaje
 		return desitjos; 
 		
 	}
