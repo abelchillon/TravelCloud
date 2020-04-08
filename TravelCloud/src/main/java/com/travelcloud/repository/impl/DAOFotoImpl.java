@@ -28,18 +28,16 @@ public class DAOFotoImpl implements DAOFoto{
 
 	@Override
 	public void insertarFoto(Foto foto) throws Exception {
-		String sql = "INSERT INTO foto (idFoto, idUsuari, idViatge, tipus, source, data) "
-				+ "values (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO foto (idUsuari, idViatge, src, dataCreacio) "
+				+ "values (?, ?, ?, ?)";
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, foto.getIdFOTO());
-			pStatement.setInt(2, foto.getIdUSUARI().getIdUSUARI());
-			pStatement.setInt(3, foto.getIdVIATGE().getIdVIATGE());
-			pStatement.setInt(4, foto.getTipus());
-			pStatement.setString(5, foto.getSource());
-			pStatement.setDate(6, new Date(Calendar.getInstance().getTime().getTime()));	
+			pStatement.setInt(1, foto.getIdUsuari());
+			pStatement.setInt(2, foto.getIdViatge());
+			pStatement.setString(3, foto.getSrc());
+			pStatement.setDate(4, new Date(Calendar.getInstance().getTime().getTime()));	
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {
@@ -53,13 +51,13 @@ public class DAOFotoImpl implements DAOFoto{
 	
 	@Override
 	public void eliminarFoto(Foto foto) throws Exception{
-		String sql = "DELETE FROM foto  WHERE idFoto = ?";
+		String sql = "DELETE FROM foto  WHERE id = ?";
 		
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, foto.getIdFOTO());
+			pStatement.setInt(1, foto.getId());
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {
@@ -98,14 +96,13 @@ public class DAOFotoImpl implements DAOFoto{
 	
 	@Override
 	public Foto llistarFotoUsuari(int idUsuari, int tipus) throws Exception{
-		String sql = "SELECT * FROM foto WHERE idUsuari = ? AND tipus = ?";
+		String sql = "SELECT * FROM foto WHERE idUsuari = ?";
 		Connection connection = null;
 		
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
 			pStatement.setInt(1, idUsuari);
-			pStatement.setInt(2, tipus);
 			ResultSet rs = pStatement.executeQuery();
 			while(rs.next()) {
 				foto = makeFoto(rs);
@@ -124,14 +121,13 @@ public class DAOFotoImpl implements DAOFoto{
 	
 
 	private Foto makeFoto(ResultSet rs) throws SQLException {
-		int idFoto = rs.getInt("idFoto");
+		int id = rs.getInt("id");
 		int idUsuari = rs.getInt("idUsuari");
 		int idViatge = rs.getInt("idViatge");
-		int tipus = rs.getInt("tipus");
-		String source = rs.getString("source");
-		Date data = rs.getDate("Data");
+		String source = rs.getString("src");
+		Date dataCreacio = rs.getDate("dataCreacio");
 		
-		Foto foto = new Foto(idFoto, idUsuari, idViatge, tipus, source, data); //YSM - porque idusuari esta como usauri i idviaje esta como viaje
+		Foto foto = new Foto(id, idUsuari, idViatge, source, dataCreacio); 
 		return foto; 
 		
 	}

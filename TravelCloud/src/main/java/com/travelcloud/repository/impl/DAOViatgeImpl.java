@@ -29,8 +29,8 @@ public class DAOViatgeImpl implements DAOViatge{
 	
 	@Override
 	public void insertarViatge(Viatge viatge) throws Exception{  
-		String sql = "INSERT INTO viatge (Comunitat, Provincia, Localitat, Entorn, Durada, TipusViatger, Descripcio, idUsuari, Data) "
-				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO viatge (comunitat, provincia, localitat, entorn, durada, tipus, descripcio, titol, idUsuari, dataCreacio) "
+				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
@@ -40,9 +40,10 @@ public class DAOViatgeImpl implements DAOViatge{
 			pStatement.setString(4, viatge.getLocalitat());
 			pStatement.setString(5, viatge.getEntorn());
 			pStatement.setString(6, viatge.getDurada());
-			pStatement.setString(7, viatge.getTipusViatger());
+			pStatement.setString(7, viatge.getTipus());
 			pStatement.setString(8, viatge.getDescripcio());
-			pStatement.setInt(9, viatge.getIdUSUARI());
+			pStatement.setString(9, viatge.getTitol());
+			pStatement.setInt(10, viatge.getIdUsuari());
 			pStatement.setDate(10, new Date(Calendar.getInstance().getTime().getTime()));
 			pStatement.executeUpdate();
 			pStatement.close();
@@ -57,7 +58,7 @@ public class DAOViatgeImpl implements DAOViatge{
 	
 	@Override
 	public void modificarViatge(Viatge viatge) throws Exception{
-		String sql = "UPDATE viatge SET Comunitat = ?, Provincia = ?, Localitat = ?, Entorn = ?, Durada = ?, TipusViatger = ?, Descripcio = ? WHERE idVIATGE = ?";
+		String sql = "UPDATE viatge SET comunitat = ?, provincia = ?, localitat = ?, entorn = ?, durada = ?, tipus = ?, descripcio = ? WHERE id = ?";
 		
 		Connection connection = null;
 		try {
@@ -68,9 +69,9 @@ public class DAOViatgeImpl implements DAOViatge{
 			pStatement.setString(3, viatge.getLocalitat());
 			pStatement.setString(4, viatge.getEntorn());
 			pStatement.setString(5, viatge.getDurada());
-			pStatement.setString(6, viatge.getTipusViatger());
+			pStatement.setString(6, viatge.getTipus());
 			pStatement.setString(7, viatge.getDescripcio());
-			pStatement.setInt(8, viatge.getIdVIATGE());
+			pStatement.setInt(8, viatge.getId());
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {
@@ -115,7 +116,7 @@ public class DAOViatgeImpl implements DAOViatge{
 	//LISTAR VIAJES POR ID USUARI
 	@Override
 	public List<Viatge> llistarViatgesUsuari(int idUsuari) throws Exception{
-		String sql = "SELECT * FROM viatge WHERE idUSUARI = ?";
+		String sql = "SELECT * FROM viatge WHERE idUsuari = ?";
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
@@ -138,20 +139,20 @@ public class DAOViatgeImpl implements DAOViatge{
 		return llistatViatgesUsuari;
 	}
 	
-	//METODO AUXILIAR PARA CREAR VIAJE
 	private Viatge makeViatge(ResultSet rs) throws SQLException {
-		int IdViatge = rs.getInt("IdViatge");
-		String Comunitat = rs.getString("Comunitat");
-		String Provincia = rs.getString("Provincia");   
-		String Localitat = rs.getString("Localitat");
-		String Entorn = rs.getString("Entorn");
-		String Durada = rs.getString("Durada");
-		String TipusViatger = rs.getString("TipusViatger");
-		String Descripcio = rs.getString("Descripcio");
-		int IdUsuari = rs.getInt("IdUsuari");
-		Date data = rs.getDate("Data");
+		int id = rs.getInt("id");
+		String comunitat = rs.getString("comunitat");
+		String provincia = rs.getString("provincia");   
+		String localitat = rs.getString("localitat");
+		String entorn = rs.getString("entorn");
+		String durada = rs.getString("durada");
+		String tipus = rs.getString("tipus");
+		String descripcio = rs.getString("descripcio");
+		String titol = rs.getString("titol");
+		int idUsuari = rs.getInt("idUsuari");
+		Date dataCreacio = rs.getDate("dataCreacio");
 		
-		Viatge viatge = new Viatge(IdViatge, Comunitat, Provincia, Localitat, Entorn, Durada, TipusViatger, Descripcio, IdUsuari, data); 
+		Viatge viatge = new Viatge(id, comunitat, provincia, localitat, entorn, durada, tipus, descripcio, titol, idUsuari, dataCreacio); 
 		return viatge; 
 		
 	}
@@ -159,7 +160,7 @@ public class DAOViatgeImpl implements DAOViatge{
 	
 	@Override
 	public List<Viatge> obtenirViatges() throws Exception {
-		String sql = "SELECT DISTINCT Comunitat, Provincia, Localitat, Entorn, Durada, TipusViatger, Descripcio, idUsuari, Data FROM viatge";
+		String sql = "SELECT DISTINCT id, comunitat, provincia, localitat, entorn, durada, tipus, descripcio, titol, idUsuari, dataCreacio FROM viatge";
 		Connection connection = null;
 		List<Viatge> viatges = null;
 		try {
@@ -169,15 +170,18 @@ public class DAOViatgeImpl implements DAOViatge{
 			viatges = new ArrayList<Viatge>();
 			while (rs.next()) {
 				Viatge viatge = new Viatge();
-				viatge.setComunitat(rs.getString("Comunitat"));
-				viatge.setData(rs.getDate("Data"));
-				viatge.setDescripcio(rs.getString("Descripcio"));
-				viatge.setDurada(rs.getString("Durada"));
-				viatge.setEntorn(rs.getString("Entorn"));
-				viatge.setIdUSUARI(rs.getInt("idUSUARI"));
-				viatge.setLocalitat(rs.getString("Localitat"));
-				viatge.setProvincia(rs.getString("Provincia"));
-				viatge.setTipusViatger(rs.getString("TipusViatger"));
+				viatge.setId(rs.getInt("id"));
+				viatge.setComunitat(rs.getString("comunitat"));
+				viatge.setProvincia(rs.getString("provincia"));
+				viatge.setLocalitat(rs.getString("localitat"));
+				viatge.setEntorn(rs.getString("entorn"));
+				viatge.setDurada(rs.getString("durada"));
+				viatge.setTipus(rs.getString("tipus"));
+				viatge.setDescripcio(rs.getString("descripcio"));
+				viatge.setTitol(rs.getString("titol"));
+				viatge.setIdUsuari(rs.getInt("idUsuari"));
+				viatge.setLocalitat(rs.getString("localitat"));
+				viatge.setDataCreacio(rs.getDate("dataCreacio"));
 				
 				viatges.add(viatge);
 			}

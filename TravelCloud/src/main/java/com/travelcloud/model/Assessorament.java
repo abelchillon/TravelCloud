@@ -3,59 +3,52 @@ package com.travelcloud.model;
 import java.sql.Date;
 
 public class Assessorament {
-	private int idASSESSORAMENT;
-	private Usuari idUSUARI;	
-	private Date Data;
+	private int id;
+	private int idUsuari;	
 	private int idAssessor;
-
+	private Date dataCreacio;
+	
 	public Assessorament() {
 		super();
 	}
 	
-	public Assessorament(int idASSESSORAMENT, Usuari idUSUARI, Date data, int idAssessor) {
+	public Assessorament(int id, int idUsuari, int idAssessor, Date dataCreacio) {
 		super();
-		this.idASSESSORAMENT = idASSESSORAMENT;
-		this.idUSUARI = idUSUARI;
-		this.Data = data;
+		this.id = id;
+		this.idUsuari = idUsuari;
 		this.idAssessor = idAssessor;
-	}
-
-	public int getIdASSESSORAMENT() {
-		return idASSESSORAMENT;
-	}
-
-	public void setIdASSESSORAMENT(int idASSESSORAMENT) {
-		this.idASSESSORAMENT = idASSESSORAMENT;
-	}
-
-	public Usuari getIdUSUARI() {
-		return idUSUARI;
-	}
-
-	public void setIdUSUARI(Usuari idUSUARI) {
-		this.idUSUARI = idUSUARI;
+		this.dataCreacio = dataCreacio;
 	}
 	
-	public Date getData() {
-		return Data;
+	public int getId() {
+		return id;
 	}
-
-	public void setData(Date data) {
-		Data = data;
+	public void setId(int id) {
+		this.id = id;
 	}
-
+	public int getIdUsuari() {
+		return idUsuari;
+	}
+	public void setIdUsuari(int idUsuari) {
+		this.idUsuari = idUsuari;
+	}
 	public int getIdAssessor() {
 		return idAssessor;
 	}
-
 	public void setIdAssessor(int idAssessor) {
 		this.idAssessor = idAssessor;
+	}
+	public Date getDataCreacio() {
+		return dataCreacio;
+	}
+	public void setDataCreacio(Date dataCreacio) {
+		this.dataCreacio = dataCreacio;
 	}
 
 	@Override
 	public String toString() {
-		return "Assessorament [idASSESSORAMENT=" + idASSESSORAMENT + ", idUSUARI=" + idUSUARI + ", Data=" + Data
-				+ ", idAssessor=" + idAssessor + "]";
+		return "Assessorament [id=" + id + ", idUsuari=" + idUsuari + ", idAssessor=" + idAssessor + ", dataCreacio="
+				+ dataCreacio + "]";
 	}
 
 	

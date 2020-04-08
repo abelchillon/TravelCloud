@@ -4,66 +4,92 @@ import java.sql.Date;
 
 public class Missatge {
 	
-	private int IdMissatge;
-	private int idUsuariEmisor;
-	private int idUsuariReceptor;
+	private int id;
 	private String titol;
-	private String descripcio;
-	private Date DataMissatge;
+	private String cos;
+	private int idUsuari;
+	private int idAssessorament;
+	private int idAssessor;
+	private Date dataCreacio;
 	
 	public Missatge() {
 		super();
 	}
-	public Missatge(int IdMissatge, int idUsuariEmisor, int idUsuariReceptor, String titol, String descripcio, Date DataMissatge) {
+
+	public Missatge(int id, String titol, String cos, int idUsuari, int idAssessorament, int idAssessor,
+			Date dataCreacio) {
 		super();
-		this.IdMissatge = IdMissatge;
-		this.idUsuariEmisor = idUsuariEmisor;
-		this.idUsuariReceptor = idUsuariReceptor;
+		this.id = id;
 		this.titol = titol;
-		this.descripcio = descripcio;
-		this.DataMissatge = DataMissatge;
+		this.cos = cos;
+		this.idUsuari = idUsuari;
+		this.idAssessorament = idAssessorament;
+		this.idAssessor = idAssessor;
+		this.dataCreacio = dataCreacio;
 	}
-	
-	public int getIdMissatge() {
-		return IdMissatge;
+
+	public int getId() {
+		return id;
 	}
-	public int getIdUsuariEmisor() {
-		return idUsuariEmisor;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public int getIdUsuariReceptor() {
-		return idUsuariReceptor;
-	}
+
 	public String getTitol() {
 		return titol;
 	}
-	public String getDescripcio() {
-		return descripcio;
-	}
-	public Date getDataMissatge() {
-		return DataMissatge;
-	}
-	
-	public void setIdUsuariEmisor(int idUsuariEmisor) {
-		this.idUsuariEmisor = idUsuariEmisor;
-	}
-	public void setIdUsuariReceptor(int idUsuariReceptor) {
-		this.idUsuariReceptor = idUsuariReceptor;
-	}
+
 	public void setTitol(String titol) {
 		this.titol = titol;
 	}
-	public void setDescripcio(String descripcio) {
-		this.descripcio = descripcio;
-	}
-	public void setDataMissatge(Date DataMissatge) {
-		this.DataMissatge = DataMissatge;
-	}
-	
-	
-	@Override
-	public String toString() {
-		return "Missatge [idMissatge=" + IdMissatge + ", idUsuariEmisor=" + idUsuariEmisor + ", idUsuariReceptor=" + idUsuariReceptor + ", titol="
-				+ titol + ", descripcio=" + descripcio + ", DataMissatge=" + DataMissatge +  "]";
+
+	public String getCos() {
+		return cos;
 	}
 
+	public void setCos(String cos) {
+		this.cos = cos;
+	}
+
+	public int getIdUsuari() {
+		return idUsuari;
+	}
+
+	public void setIdUsuari(int idUsuari) {
+		this.idUsuari = idUsuari;
+	}
+
+	public int getIdAssessorament() {
+		return idAssessorament;
+	}
+
+	public void setIdAssessorament(int idAssessorament) {
+		this.idAssessorament = idAssessorament;
+	}
+
+	public int getIdAssessor() {
+		return idAssessor;
+	}
+
+	public void setIdAssessor(int idAssessor) {
+		this.idAssessor = idAssessor;
+	}
+
+	public Date getDataCreacio() {
+		return dataCreacio;
+	}
+
+	public void setDataCreacio(Date dataCreacio) {
+		this.dataCreacio = dataCreacio;
+	}
+
+	@Override
+	public String toString() {
+		return "Missatge [id=" + id + ", titol=" + titol + ", cos=" + cos + ", idUsuari=" + idUsuari
+				+ ", idAssessorament=" + idAssessorament + ", idAssessor=" + idAssessor + ", dataCreacio=" + dataCreacio
+				+ "]";
+	}
+	
+	
 }

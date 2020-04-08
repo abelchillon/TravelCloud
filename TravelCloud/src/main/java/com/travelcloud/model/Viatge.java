@@ -2,135 +2,132 @@ package com.travelcloud.model;
 
 import java.sql.Date;
 
-public class Viatge {   // FALTARIA AÑADIR EL NOMBRE O TITULO DEL VIAJE NO?
-	private int idVIATGE;
-	private String Comunitat;
-	private String Provincia;
-	private String Localitat;
-	private String Entorn;
-	private String Durada;
-	private String TipusViatger;
-	private String Descripcio;
-	private int idUSUARI;	
-	private Date Data;
+public class Viatge { 
+	private int id;
+	private String comunitat;
+	private String provincia;
+	private String localitat;
+	private String entorn;
+	private String durada;
+	private String tipus;
+	private String descripcio;
+	private String titol;
+	private int idUsuari;	
+	private Date dataCreacio;
 	
 	public Viatge() {
 		super();
 	}
 
-	public Viatge(String comunitat, String provincia, String localitat, String entorn, String durada,
-			String tipusViatger, String descripcio, int idUSUARI, Date data) {
+	public Viatge(int id, String comunitat, String provincia, String localitat, String entorn, String durada,
+			String tipus, String descripcio, String titol, int idUsuari, Date dataCreacio) {
 		super();
-		Comunitat = comunitat;
-		Provincia = provincia;
-		Localitat = localitat;
-		Entorn = entorn;
-		Durada = durada;
-		TipusViatger = tipusViatger;
-		Descripcio = descripcio;
-		this.idUSUARI = idUSUARI;
-		Data = data;
+		this.id = id;
+		this.comunitat = comunitat;
+		this.provincia = provincia;
+		this.localitat = localitat;
+		this.entorn = entorn;
+		this.durada = durada;
+		this.tipus = tipus;
+		this.descripcio = descripcio;
+		this.titol = titol;
+		this.idUsuari = idUsuari;
+		this.dataCreacio = dataCreacio;
 	}
 
-	public Viatge(int idVIATGE, String comunitat, String provincia, String localitat, String entorn, String durada,
-			String tipusViatger, String descripcio, int idUSUARI, Date data) {
-		super();
-		this.idVIATGE = idVIATGE;
-		Comunitat = comunitat;
-		Provincia = provincia;
-		Localitat = localitat;
-		Entorn = entorn;
-		Durada = durada;
-		TipusViatger = tipusViatger;
-		Descripcio = descripcio;
-		this.idUSUARI = idUSUARI;
-		Data = data;
+	public int getId() {
+		return id;
 	}
 
-	public int getIdVIATGE() {
-		return idVIATGE;
-	}
-
-	public void setIdVIATGE(int idVIATGE) {
-		this.idVIATGE = idVIATGE;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getComunitat() {
-		return Comunitat;
+		return comunitat;
 	}
 
 	public void setComunitat(String comunitat) {
-		Comunitat = comunitat;
+		this.comunitat = comunitat;
 	}
 
 	public String getProvincia() {
-		return Provincia;
+		return provincia;
 	}
 
 	public void setProvincia(String provincia) {
-		Provincia = provincia;
+		this.provincia = provincia;
 	}
 
 	public String getLocalitat() {
-		return Localitat;
+		return localitat;
 	}
 
 	public void setLocalitat(String localitat) {
-		Localitat = localitat;
+		this.localitat = localitat;
 	}
 
 	public String getEntorn() {
-		return Entorn;
+		return entorn;
 	}
 
 	public void setEntorn(String entorn) {
-		Entorn = entorn;
+		this.entorn = entorn;
 	}
 
 	public String getDurada() {
-		return Durada;
+		return durada;
 	}
 
 	public void setDurada(String durada) {
-		Durada = durada;
+		this.durada = durada;
 	}
 
-	public String getTipusViatger() {
-		return TipusViatger;
+	public String getTipus() {
+		return tipus;
 	}
 
-	public void setTipusViatger(String tipusViatger) {
-		TipusViatger = tipusViatger;
+	public void setTipus(String tipus) {
+		this.tipus = tipus;
 	}
 
 	public String getDescripcio() {
-		return Descripcio;
+		return descripcio;
 	}
 
 	public void setDescripcio(String descripcio) {
-		Descripcio = descripcio;
+		this.descripcio = descripcio;
 	}
 
-	public int getIdUSUARI() {
-		return idUSUARI;
+	public String getTitol() {
+		return titol;
 	}
 
-	public void setIdUSUARI(int idUSUARI) {
-		this.idUSUARI = idUSUARI;
+	public void setTitol(String titol) {
+		this.titol = titol;
 	}
 
-	public Date getData() {
-		return Data;
+	public int getIdUsuari() {
+		return idUsuari;
 	}
 
-	public void setData(Date data) {
-		Data = data;
+	public void setIdUsuari(int idUsuari) {
+		this.idUsuari = idUsuari;
+	}
+
+	public Date getDataCreacio() {
+		return dataCreacio;
+	}
+
+	public void setDataCreacio(Date dataCreacio) {
+		this.dataCreacio = dataCreacio;
 	}
 
 	@Override
 	public String toString() {
-		return "Viatge [idVIATGE=" + idVIATGE + ", Comunitat=" + Comunitat + ", Provincia=" + Provincia + ", Localitat="
-				+ Localitat + ", Entorn=" + Entorn + ", Durada=" + Durada + ", TipusViatger=" + TipusViatger
-				+ ", Descripcio=" + Descripcio + ", idUSUARI=" + idUSUARI + ", Data=" + Data + "]";
+		return "Viatge [id=" + id + ", comunitat=" + comunitat + ", provincia=" + provincia + ", localitat=" + localitat
+				+ ", entorn=" + entorn + ", durada=" + durada + ", tipus=" + tipus + ", descripcio=" + descripcio
+				+ ", titol=" + titol + ", idUsuari=" + idUsuari + ", dataCreacio=" + dataCreacio + "]";
 	}
+
 }

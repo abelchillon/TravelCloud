@@ -3,72 +3,79 @@ package com.travelcloud.model;
 import java.sql.Date;
 
 public class Valoracio {
-	private int idUSUARI;	
-	private int idVIATGE;
-	private String Comentari;
-	private int Puntuacio;
-	private Date Data;
+	private int id;	
+	private int idUsuari;	
+	private int idViatge;
+	private String comentari;
+	private int puntuacio;
+	private Date dataCreacio;
 	
 	public Valoracio() {
 		super();
 	}
 
-// Holaa, aqui faltaria un idValoracio tambien para que identifique a la valoracion, no he tocado nada porque supongo que maria tendra que cambiarlo en base de datos...
-
-	public Valoracio(int idUSUARI, int idVIATGE, String comentari, int puntuacio, Date data) {
+	public Valoracio(int id, int idUsuari, int idViatge, String comentari, int puntuacio, Date dataCreacio) {
 		super();
-		this.idUSUARI = idUSUARI;
-		this.idVIATGE = idVIATGE;
-		Comentari = comentari;
-		Puntuacio = puntuacio;
-		Data = data;
+		this.id = id;
+		this.idUsuari = idUsuari;
+		this.idViatge = idViatge;
+		this.comentari = comentari;
+		this.puntuacio = puntuacio;
+		this.dataCreacio = dataCreacio;
 	}
 
-	public int getIdUSUARI() {
-		return idUSUARI;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdUSUARI(int idUSUARI) {
-		this.idUSUARI = idUSUARI;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public int getIdVIATGE() {
-		return idVIATGE;
+	public int getIdUsuari() {
+		return idUsuari;
 	}
 
-	public void setIdVIATGE(int idVIATGE) {
-		this.idVIATGE = idVIATGE;
+	public void setIdUsuari(int idUsuari) {
+		this.idUsuari = idUsuari;
+	}
+
+	public int getIdViatge() {
+		return idViatge;
+	}
+
+	public void setIdViatge(int idViatge) {
+		this.idViatge = idViatge;
 	}
 
 	public String getComentari() {
-		return Comentari;
+		return comentari;
 	}
 
 	public void setComentari(String comentari) {
-		Comentari = comentari;
+		this.comentari = comentari;
 	}
 
 	public int getPuntuacio() {
-		return Puntuacio;
+		return puntuacio;
 	}
 
 	public void setPuntuacio(int puntuacio) {
-		Puntuacio = puntuacio;
+		this.puntuacio = puntuacio;
 	}
 
-	public Date getData() {
-		return Data;
+	public Date getDataCreacio() {
+		return dataCreacio;
 	}
 
-	public void setData(Date data) {
-		Data = data;
+	public void setDataCreacio(Date dataCreacio) {
+		this.dataCreacio = dataCreacio;
 	}
 
 	@Override
 	public String toString() {
-		return "Valoracio [idUSUARI=" + idUSUARI + ", idVIATGE=" + idVIATGE + ", Comentari=" + Comentari
-				+ ", Puntuacio=" + Puntuacio + ", Data=" + Data + "]";
+		return "Valoracio [id=" + id + ", idUsuari=" + idUsuari + ", idViatge=" + idViatge + ", comentari=" + comentari
+				+ ", puntuacio=" + puntuacio + ", dataCreacio=" + dataCreacio + "]";
 	}
-	
 
 }

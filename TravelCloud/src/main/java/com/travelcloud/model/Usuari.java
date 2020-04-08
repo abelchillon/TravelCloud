@@ -3,76 +3,111 @@ package com.travelcloud.model;
 import java.sql.Date;
 
 public class Usuari {
-	private int idUSUARI;
-	private String NomUsuari;
-	private String Contrasenya;
+	private int id;
+	private String nom;
+	private String cognom1;
+	private String cognom2;
+	private String password;
 	private String email;
-	private String Telefon;
-	private Date DataRegistre;
-	private String Rol;
+	private String telefon;
+	private String rol;
+	private Date dataCreacio;
 	
 	public Usuari() {
 		super();
 	}
-	public Usuari(int idUSUARI, String nomUsuari, String contrasenya, String email, String telefon,
-			String Rol,Date dataRegistre) {
+
+	public Usuari(int id, String nom, String cognom1, String cognom2, String password, String email, String telefon,
+			String rol, Date dataCreacio) {
 		super();
-		this.idUSUARI = idUSUARI;
-		NomUsuari = nomUsuari;
-		Contrasenya = contrasenya;
+		this.id = id;
+		this.nom = nom;
+		this.cognom1 = cognom1;
+		this.cognom2 = cognom2;
+		this.password = password;
 		this.email = email;
-		Telefon = telefon;
-		DataRegistre = dataRegistre;
+		this.telefon = telefon;
+		this.rol = rol;
+		this.dataCreacio = dataCreacio;
 	}
-	
-	public int getIdUSUARI() {
-		return idUSUARI;
+
+	public int getId() {
+		return id;
 	}
-	public void setIdUSUARI(int idUSUARI) {
-		this.idUSUARI = idUSUARI;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getNomUsuari() {
-		return NomUsuari;
+
+	public String getNom() {
+		return nom;
 	}
-	public void setNomUsuari(String nomUsuari) {
-		NomUsuari = nomUsuari;
+
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
-	public String getContrasenya() {
-		return Contrasenya;
+
+	public String getCognom1() {
+		return cognom1;
 	}
-	public void setContrasenya(String contrasenya) {
-		Contrasenya = contrasenya;
+
+	public void setCognom1(String cognom1) {
+		this.cognom1 = cognom1;
 	}
+
+	public String getCognom2() {
+		return cognom2;
+	}
+
+	public void setCognom2(String cognom2) {
+		this.cognom2 = cognom2;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getTelefon() {
-		return Telefon;
+		return telefon;
 	}
+
 	public void setTelefon(String telefon) {
-		Telefon = telefon;
+		this.telefon = telefon;
 	}
-	public Date getDataRegistre() {
-		return DataRegistre;
-	}
-	public void setDataRegistre(Date dataRegistre) {
-		DataRegistre = dataRegistre;
-	}
+
 	public String getRol() {
-		return Rol;
+		return rol;
 	}
+
 	public void setRol(String rol) {
-		Rol = rol;
+		this.rol = rol;
 	}
+
+	public Date getDataCreacio() {
+		return dataCreacio;
+	}
+
+	public void setDataCreacio(Date dataCreacio) {
+		this.dataCreacio = dataCreacio;
+	}
+
 	@Override
 	public String toString() {
-		return "Usuari [idUSUARI=" + idUSUARI + ", NomUsuari=" + NomUsuari + ", Contrasenya=" + Contrasenya + ", email="
-				+ email + ", Telefon=" + Telefon + ", DataRegistre=" + DataRegistre + ", Rol=" + Rol + "]";
+		return "Usuari [id=" + id + ", nom=" + nom + ", cognom1=" + cognom1 + ", cognom2=" + cognom2 + ", password="
+				+ password + ", email=" + email + ", telefon=" + telefon + ", rol=" + rol + ", dataCreacio="
+				+ dataCreacio + "]";
 	}
-	
-
 	
 }

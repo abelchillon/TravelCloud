@@ -28,17 +28,17 @@ public class DAOMissatgeImpl implements DAOMissatge{
 	@Override
 	public void insertarMissatge(Missatge missatge) throws Exception{
 		
-		String sql = "INSERT INTO missatge (idMissatge, idUsuariEmisor, idUsuariReceptor, titol, descripcio, dataMissatge) "
+		String sql = "INSERT INTO missatge (titol, cos, idUsuari, idAssessorament, idAssessor, dataCreacio) "
 				+ "values (?, ?, ?, ?, ?, ?)";
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, missatge.getIdMissatge());
-			pStatement.setInt(2, missatge.getIdUsuariEmisor());
-			pStatement.setInt(3, missatge.getIdUsuariReceptor());
-			pStatement.setString(4, missatge.getTitol());
-			pStatement.setString(5, missatge.getDescripcio());
+			pStatement.setString(1, missatge.getTitol());
+			pStatement.setString(2,missatge.getCos());
+			pStatement.setInt(3, missatge.getIdUsuari());
+			pStatement.setInt(3, missatge.getIdAssessorament());
+			pStatement.setInt(3, missatge.getIdAssessor());
 			pStatement.setDate(6, new Date(Calendar.getInstance().getTime().getTime()));
 			pStatement.executeUpdate();
 			pStatement.close();
@@ -48,19 +48,18 @@ public class DAOMissatgeImpl implements DAOMissatge{
 			if (connection != null) {
 				connection.close();				
 			}
-		}
-		
+		}		
 	}
 	
 	@Override
 	public void eliminarMissatge(Missatge missatge) throws Exception{
-		String sql = "DELETE FROM missatge  WHERE idMissatge = ?";
+		String sql = "DELETE FROM missatge  WHERE id = ?";
 		
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, missatge.getIdMissatge());
+			pStatement.setInt(1, missatge.getId());
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {
@@ -98,7 +97,7 @@ public class DAOMissatgeImpl implements DAOMissatge{
 	
 	@Override
 	public List<Missatge> llistatMissatgesUsuari(int idUsuariEmisor, int idUsuariReceptor) throws Exception{
-		String sql = "SELECT * FROM missatge WHERE idUsuariEmisor = ? AND idUsuariReceptor = ?";
+		String sql = "SELECT * FROM missatge WHERE idUsuari = ? AND idAssessor = ?";
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
@@ -122,14 +121,15 @@ public class DAOMissatgeImpl implements DAOMissatge{
 	}
 	
 	private Missatge makeMissatge(ResultSet rs) throws SQLException {
-		int idMissatge = rs.getInt("idMissatge");
-		int idUsuariEmisor = rs.getInt("idUsuariEmisor");
-		int idUsuariReceptor = rs.getInt("idUsuariReceptor");
+		int id = rs.getInt("id");
 		String titol = rs.getString("titol");
-		String descripcio = rs.getString("descripcio");
-		Date dataMissatge = rs.getDate("dataMissatge");
+		String cos = rs.getString("cos");		
+		int idUsuari = rs.getInt("idUsuari");
+		int idAssessorament = rs.getInt("idAssessorament");
+		int idAssessor = rs.getInt("idAssessor");		
+		Date dataCreacio = rs.getDate("dataCreacio");
 		
-		Missatge missatge = new Missatge(idMissatge, idUsuariEmisor, idUsuariReceptor, titol, descripcio, dataMissatge);
+		Missatge missatge = new Missatge(id, titol, cos, idUsuari, idAssessorament, idAssessor, dataCreacio);
 		
 		return missatge;
 		

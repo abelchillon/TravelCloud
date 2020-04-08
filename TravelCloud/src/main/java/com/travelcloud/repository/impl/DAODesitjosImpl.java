@@ -25,14 +25,14 @@ public class DAODesitjosImpl implements DAODesitjos{
 	
 	@Override
 	public void insertarDesitjos(Desitjos desitjos) throws Exception{
-		String sql = "INSERT INTO desitjos (idViatge, idUsuari, data) "
+		String sql = "INSERT INTO desitjos (idUsuari, idViatge, dataCreacio) "
 				+ "values (?, ?, ?)";
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, desitjos.getIdVIATGE());
-			pStatement.setInt(2, desitjos.getIdUSUARI());
+			pStatement.setInt(1, desitjos.getIdUsuari());
+			pStatement.setInt(2, desitjos.getIdViatge());
 			pStatement.setDate(3, new Date(Calendar.getInstance().getTime().getTime()));	
 			pStatement.executeUpdate();
 			pStatement.close();
@@ -47,14 +47,14 @@ public class DAODesitjosImpl implements DAODesitjos{
 	
 	@Override
 	public void eliminarDesitjos(Desitjos desitjos) throws Exception{
-		String sql = "DELETE FROM desitjos  WHERE idUSUARI = ? AND idVIATGE = ?";
+		String sql = "DELETE FROM desitjos  WHERE idUsuari = ? AND idViatge = ?";
 		
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, desitjos.getIdVIATGE());
-			pStatement.setInt(2, desitjos.getIdUSUARI());
+			pStatement.setInt(1, desitjos.getIdUsuari());
+			pStatement.setInt(2, desitjos.getIdViatge());
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {
@@ -91,11 +91,12 @@ public class DAODesitjosImpl implements DAODesitjos{
 	}
 	
 	private Desitjos makeDesitjos(ResultSet rs) throws SQLException {
-		int idViatge = rs.getInt("idViatge");
+		int id = rs.getInt("id");
 		int idUsuari = rs.getInt("idUsuari");
-		Date data = rs.getDate("Data");
+		int idViatge = rs.getInt("idViatge");
+		Date dataCreacio = rs.getDate("Data");
 		
-		Desitjos desitjos = new Desitjos(idViatge, idUsuari, data); //YSM - porque idusuari esta como usauri i idviaje esta como viaje
+		Desitjos desitjos = new Desitjos(id, idUsuari, idViatge, dataCreacio);
 		return desitjos; 
 		
 	}

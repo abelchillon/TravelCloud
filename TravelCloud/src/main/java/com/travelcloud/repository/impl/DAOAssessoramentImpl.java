@@ -25,16 +25,15 @@ public class DAOAssessoramentImpl implements DAOAssessorament{
 	
 	@Override
 	public void insertarAssessorament(Assessorament assessorament) throws Exception{
-		String sql = "INSERT INTO assessorament (idAssessorament, idUsuari, data, idAssessor) "
-				+ "values (?, ?, ?, ?)";
+		String sql = "INSERT INTO assessorament (idUsuari, idAssessor, data) "
+				+ "values (?, ?, ?)";
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, assessorament.getIdASSESSORAMENT());
-			pStatement.setInt(2, assessorament.getIdUSUARI().getIdUSUARI());
+			pStatement.setInt(1, assessorament.getIdUsuari());
+			pStatement.setInt(2, assessorament.getIdAssessor());
 			pStatement.setDate(3, new Date(Calendar.getInstance().getTime().getTime()));
-			pStatement.setInt(4, assessorament.getIdAssessor());
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {
@@ -48,13 +47,13 @@ public class DAOAssessoramentImpl implements DAOAssessorament{
 	
 	@Override
 	public void eliminarAssessorament(Assessorament assessorament) throws Exception{
-		String sql = "DELETE FROM assessorament  WHERE idAssessorament = ?";
+		String sql = "DELETE FROM assessorament  WHERE id = ?";
 		
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, assessorament.getIdASSESSORAMENT());
+			pStatement.setInt(1, assessorament.getId());
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {
@@ -91,12 +90,13 @@ public class DAOAssessoramentImpl implements DAOAssessorament{
 	
 	
 	private Assessorament makeAssessorament(ResultSet rs) throws SQLException {
-		int idAssessorament = rs.getInt("idAssessorament");
+		int id = rs.getInt("id");
 		int idUsuari = rs.getInt("idUsuari");
+		int idAssessor = rs.getInt("idAssessor");
 		Date data = rs.getDate("Data");
-		int idAsesor = rs.getInt("idAssessor");
+
 		
-		Assessorament assessorament = new Assessorament(idAssessorament, idUsuari, data, idAsesor); //YSM - porque idusuari esta como usauri
+		Assessorament assessorament = new Assessorament(id, idUsuari, idAssessor,data); 
 		return assessorament; 
 		
 	}

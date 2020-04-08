@@ -22,20 +22,20 @@ import com.travelcloud.repository.DAOValoracio;
 @Repository
 public class DAOValoracioImpl implements DAOValoracio{
 
-	List<Valoracio> llistatValoracions; //x idViatge
+	List<Valoracio> llistatValoracions;
 	@Autowired
 	private DataSource dataSource;
 
 	@Override
 	public void insertarValoracio(Valoracio valoracio) throws Exception{
-		String sql = "INSERT INTO valoracio (idUSUARI, idVIATGE, Comentari, Puntuacio, Data) "
+		String sql = "INSERT INTO valoracio (idUsuari, idViatge, comentari, puntuacio, dataCreacio) "
 				+ "values (?, ?, ?, ?, ?)";
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, valoracio.getIdUSUARI());
-			pStatement.setInt(2, valoracio.getIdVIATGE());
+			pStatement.setInt(1, valoracio.getIdUsuari());
+			pStatement.setInt(2, valoracio.getIdViatge());
 			pStatement.setString(3, valoracio.getComentari());
 			pStatement.setInt(4, valoracio.getPuntuacio());
 			pStatement.setDate(5, new Date(Calendar.getInstance().getTime().getTime()));
@@ -52,7 +52,7 @@ public class DAOValoracioImpl implements DAOValoracio{
 	}
 	@Override
 	public void modificarValoracio(Valoracio valoracio) throws Exception{
-		String sql = "UPDATE valoracio SET Comentari = ?, Puntuacio = ?  WHERE idUSUARI = ? AND idVIATGE = ?";
+		String sql = "UPDATE valoracio SET comentari = ?, puntuacio = ?  WHERE idUsuari = ? AND idViatge = ?";
 		
 		Connection connection = null;
 		try {
@@ -60,8 +60,8 @@ public class DAOValoracioImpl implements DAOValoracio{
 			PreparedStatement pStatement = connection.prepareStatement(sql);
 			pStatement.setString(1, valoracio.getComentari());
 			pStatement.setInt(2, valoracio.getPuntuacio());
-			pStatement.setInt(3, valoracio.getIdUSUARI());
-			pStatement.setInt(4, valoracio.getIdVIATGE());
+			pStatement.setInt(3, valoracio.getIdUsuari());
+			pStatement.setInt(4, valoracio.getIdViatge());
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {
@@ -74,14 +74,14 @@ public class DAOValoracioImpl implements DAOValoracio{
 	}
 	@Override
 	public void eliminarValoracio(Valoracio valoracio) throws Exception{  // se tendra que cambiar cuando haya id de valoracion...
-		String sql = "DELETE FROM valoracio  WHERE idUSUARI = ? AND idVIATGE = ?";
+		String sql = "DELETE FROM valoracio  WHERE idUsuari = ? AND idViatge = ?";
 		
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, valoracio.getIdUSUARI());
-			pStatement.setInt(2, valoracio.getIdVIATGE());
+			pStatement.setInt(1, valoracio.getIdUsuari());
+			pStatement.setInt(2, valoracio.getIdViatge());
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {
@@ -103,7 +103,7 @@ public class DAOValoracioImpl implements DAOValoracio{
 			ResultSet rs = pStatement.executeQuery();
 			while(rs.next()) {
 				Valoracio valoracio = makeValoracio(rs);
-				if (idViatgeValoracio == valoracio.getIdVIATGE()) {
+				if (idViatgeValoracio == valoracio.getIdViatge()) {
 					llistatValoracions.add(valoracio);
 				}
 			}
@@ -119,13 +119,14 @@ public class DAOValoracioImpl implements DAOValoracio{
 	}
 	
 	private Valoracio makeValoracio(ResultSet rs) throws SQLException {
-		int IdUsuari = rs.getInt("IdUSUARI");
-		int IdViatge = rs.getInt("IdVIATGE");
-		String Comentari = rs.getString("Comentari");
-		int Puntuacio = rs.getInt("Puntuacio");   
-		Date data = rs.getDate("Data");
+		int id = rs.getInt("id");
+		int idUsuari = rs.getInt("idUsuari");
+		int idViatge = rs.getInt("idViatge");
+		String comentari = rs.getString("comentari");
+		int puntuacio = rs.getInt("puntuacio");   
+		Date dataCreacio = rs.getDate("dataCreacio");
 		
-		Valoracio valoracio = new Valoracio(IdUsuari, IdViatge, Comentari, Puntuacio, data); 
+		Valoracio valoracio = new Valoracio(id, idUsuari, idViatge, comentari, puntuacio, dataCreacio); 
 		return valoracio; 
 		
 	}
@@ -142,11 +143,12 @@ public class DAOValoracioImpl implements DAOValoracio{
 			valoracions = new ArrayList<Valoracio>();
 			while (rs.next()) {
 				Valoracio valoracio = new Valoracio();
-				valoracio.setIdUSUARI(rs.getInt("idUSUARI"));
-				valoracio.setIdVIATGE(rs.getInt("idVIATGE"));
-				valoracio.setComentari(rs.getString("Comentari"));
-				valoracio.setPuntuacio(rs.getInt("Puntuacio"));
-				valoracio.setData(rs.getDate("Data"));
+				valoracio.setId(rs.getInt("id"));
+				valoracio.setIdUsuari(rs.getInt("idUsuari"));
+				valoracio.setIdViatge(rs.getInt("idViate"));
+				valoracio.setComentari(rs.getString("comentari"));
+				valoracio.setPuntuacio(rs.getInt("puntuacio"));
+				valoracio.setDataCreacio(rs.getDate("dataCreacio"));
 				
 				valoracions.add(valoracio);
 			}

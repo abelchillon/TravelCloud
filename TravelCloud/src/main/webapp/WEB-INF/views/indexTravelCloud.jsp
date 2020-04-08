@@ -51,7 +51,7 @@
 							<select name="tipoViaje" class="selectpicker">  
                                 <option value="noValid" disabled selected>Tipo viaje...</option>
 	                        	<c:forEach items="${viatges}" var="v">
-	                        			<option value="${v.tipusViatger}">${v.tipusViatger}</option>
+	                        			<option value="${v.tipusViatger}">${v.tipus}</option>
 								</c:forEach>	
 							</select>
                         </div>

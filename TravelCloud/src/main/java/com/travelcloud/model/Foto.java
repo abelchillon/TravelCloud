@@ -3,80 +3,70 @@ package com.travelcloud.model;
 import java.sql.Date;
 
 public class Foto {
-	private int idFOTO;
-	private Usuari idUSUARI;	
-	private Viatge idVIATGE;
-	private int Tipus;
-	private String Source;
-	private Date Data;
+	private int id;
+	private int idUsuari;	
+	private int idViatge;
+	private String src;
+	private Date dataCreacio;
 		
 	public Foto() {
 		super();
 	}
-	
-	
-	public Foto(int idFOTO, Usuari idUSUARI, Viatge idVIATGE, int tipus, String source, Date data) {
+
+	public Foto(int id, int idUsuari, int idViatge, String src, Date dataCreacio) {
 		super();
-		this.idFOTO = idFOTO;
-		this.idUSUARI = idUSUARI;
-		this.idVIATGE = idVIATGE;
-		Tipus = tipus;
-		Source = source;
-		Data = data;
+		this.id = id;
+		this.idUsuari = idUsuari;
+		this.idViatge = idViatge;
+		this.src = src;
+		this.dataCreacio = dataCreacio;
 	}
 
-	public int getIdFOTO() {
-		return idFOTO;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdFOTO(int idFOTO) {
-		this.idFOTO = idFOTO;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public Usuari getIdUSUARI() {
-		return idUSUARI;
+	public int getIdUsuari() {
+		return idUsuari;
 	}
 
-	public void setIdUSUARI(Usuari idUSUARI) {
-		this.idUSUARI = idUSUARI;
+	public void setIdUsuari(int idUsuari) {
+		this.idUsuari = idUsuari;
 	}
 
-	public Viatge getIdVIATGE() {
-		return idVIATGE;
+	public int getIdViatge() {
+		return idViatge;
 	}
 
-	public void setIdVIATGE(Viatge idVIATGE) {
-		this.idVIATGE = idVIATGE;
+	public void setIdViatge(int idViatge) {
+		this.idViatge = idViatge;
 	}
 
-	public int getTipus() {
-		return Tipus;
+	public String getSrc() {
+		return src;
 	}
 
-	public void setTipus(int tipus) {
-		Tipus = tipus;
+	public void setSrc(String src) {
+		this.src = src;
 	}
 
-	public String getSource() {
-		return Source;
+	public Date getDataCreacio() {
+		return dataCreacio;
 	}
 
-	public void setSource(String source) {
-		Source = source;
-	}
-
-	public Date getData() {
-		return Data;
-	}
-
-	public void setData(Date data) {
-		Data = data;
+	public void setDataCreacio(Date dataCreacio) {
+		this.dataCreacio = dataCreacio;
 	}
 
 	@Override
 	public String toString() {
-		return "Foto [idFOTO=" + idFOTO + ", idUSUARI=" + idUSUARI + ", idVIATGE=" + idVIATGE + ", Tipus=" + Tipus
-				+ ", Source=" + Source + ", Data=" + Data + "]";
+		return "Foto [id=" + id + ", idUsuari=" + idUsuari + ", idViatge=" + idViatge + ", src=" + src
+				+ ", dataCreacio=" + dataCreacio + "]";
 	}
+	
 	
 }
