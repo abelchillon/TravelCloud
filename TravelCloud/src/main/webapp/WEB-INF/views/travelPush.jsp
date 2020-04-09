@@ -37,7 +37,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal" action="/addTravel" method="POST">
+                            <form class="well form-horizontal" action="addTravel" method="POST">
                                 <fieldset>
                                     
                                     <div class="td-head">
@@ -51,7 +51,7 @@
                                                     <span class="input-group-addon" style="max-width: 100%;">
                                                         <i class="glyphicon glyphicon-map-marker"></i>
                                                     </span>
-                                                    <input id="email" name="email" placeholder="TÃ­tulo del viaje" class="form-control" required="true" value="" type="text">
+                                                    <input id="email" name="email" placeholder="Título del viaje" class="form-control" required="true" value="" type="text">
                                                 </div>
                                             </div>
                                     </div>
@@ -91,7 +91,7 @@
                                     </div>
                                     
                                     <div class="td-head">
-                                        <p>DescripciÃ³n</p>
+                                        <p>Descripción</p>
                                     </div>
                                      
                                     <div class="form-group">
@@ -179,29 +179,22 @@
                                     </div>
                                     
                                     <div class="i-button">
-                                        <input type="button" value="Subir Imagenes" class="button img-button" />
+                                        <input type="button" value="Subir Imagenes" class="button img-button" id="subirImagenesViaje"/>
                                     </div>
                                     
                                     <!-- imagenes viaje-->
                                     <div class="imgs-travel">
-                                        <div>
-                                            <img alt="imagen viaje 1" src="https://picsum.photos/300/300?random=1" />
-                                        </div>
-                                        <div>
-                                            <img alt="imagen viaje 1" src="https://picsum.photos/300/300?random=2" />
-                                        </div>
-                                        <div>
-                                            <img alt="imagen viaje 1" src="https://picsum.photos/300/300?random=3" />
-                                        </div>
-                                        <div>
-                                            <img alt="imagen viaje 1" src="https://picsum.photos/300/300?random=4" />
-                                        </div>
+                                        <c:forEach var="imagen" items="${travelImgs}" varStatus="status">
+						                    <div>
+						                        <img alt="imagen viaje 1" src="${imagen.src}" />
+						                    </div>
+                						</c:forEach>
                                     </div>
                                     
                                     <!-- botones -->
                                     <div class="form-group" id="botons">
-                                        <input type="submit" id="savePage" class="btn btn-secondary" value="Guardar">
-                                        <input type="submit" id="cancelUpdate" class="btn btn-secondary" value="Cancelar">
+                                        <input type="submit" id="savePageTravel" class="btn btn-secondary" value="Guardar">
+                                        <input type="submit" id="cancelPageTravel" class="btn btn-secondary" value="Cancelar">
                                     </div>
                                   
                                 </fieldset>

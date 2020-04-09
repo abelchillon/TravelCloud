@@ -27,6 +27,7 @@
         <%@include file="headerLogin.jsp" %>
 
         <!-- LISTADO COMUNIDADES AUTONOMAS -->
+        <form action="listadoComunidadesAutonomas" method="post">
         <section class="features">
             <div class="row">
                 <div class="col-md-12">
@@ -39,7 +40,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/610/300/200.jpg" alt="Imatge 1">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Andalucía</a>    
+                                <input type="submit" class="button button-blog" value="Andalucia" id="Andalucia"/>   
                             </div>
                         </div>
                     </div>
@@ -49,7 +50,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=1" alt="Imatge 2">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Aragón</a>
+                                <input type="submit" class="button button-blog" value="Aragon" id="Aragon"/>
                             </div>
                         </div>
                     </div>
@@ -59,7 +60,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=2" alt="Imatge 2">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Asturias</a>
+                                <input type="submit" class="button button-blog" value="Asturias" id="Asturias"/>
                             </div>
                         </div>
                     </div>
@@ -69,7 +70,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/154/300/200.jpg" alt="Imatge 3">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Baleares</a>
+                                <input type="submit" class="button button-blog" value="Baleares" id="Baleares"/>
                           </div>
                         </div>
                     </div>
@@ -81,7 +82,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/658/300/200.jpg" alt="Imatge 1">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Canarias</a>    
+                                <input type="submit" class="button button-blog" value="Canarias" id="Canarias"/>  
                             </div>
                         </div>
                     </div>
@@ -91,7 +92,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/231/300/200.jpg" alt="Imatge 2">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Cantabria</a>
+                                <input type="submit" class="button button-blog" value="Cantabria" id="Cantabria"/>
                             </div>
                         </div>
                     </div>
@@ -101,7 +102,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=6" alt="Imatge 2">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Castilla-La Mancha</a>
+                                <input type="submit" class="button button-blog" value="Castilla-La Mancha" id="Castilla-La Mancha"/>
                             </div>
                         </div>
                     </div>
@@ -111,7 +112,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=7" alt="Imatge 3">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Castilla y León</a>
+                                <input type="submit" class="button button-blog" value="Castilla y Leon" id="Castilla y Leon"/>
                           </div>
                         </div>
                     </div>
@@ -123,7 +124,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/961/300/200.jpg" alt="Imatge 1">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Cataluña</a>>    
+                                <input type="submit" class="button button-blog" value="Catalunya" id="Catalunya"/>    
                             </div>
                         </div>
                     </div>
@@ -133,7 +134,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=9" alt="Imatge 2">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Comunidad Valenciana</a>
+                                <input type="submit" class="button button-blog" value="Comunidad Valenciana" id="Comunidad Valenciana"/>
                             </div>
                         </div>
                     </div>
@@ -143,7 +144,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/190/300/200.jpg" alt="Imatge 2">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Extremadura</a>
+                                <input type="submit" class="button button-blog" value="Extremadura" id="Extremadura"/>
                             </div>
                         </div>
                     </div>
@@ -153,7 +154,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=11" alt="Imatge 3">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Galicia</a>
+                                <input type="submit" class="button button-blog" value="Galicia" id="Galicia"/>
                           </div>
                         </div>
                     </div>
@@ -165,7 +166,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=12" alt="Imatge 1">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Madrid</a>    
+                                <input type="submit" class="button button-blog" value="Madrid" id="Madrid"/>    
                             </div>
                         </div>
                     </div>
@@ -175,7 +176,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=13" alt="Imatge 2">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Murcia</a>
+                                <input type="submit" class="button button-blog" value="Murcia" id="Murcia"/>
                             </div>
                         </div>
                     </div>
@@ -185,7 +186,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=14" alt="Imatge 2">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">Navarra</a>
+                                <input type="submit" class="button button-blog" value="Navarra" id="Navarra"/>
                             </div>
                         </div>
                     </div>
@@ -195,7 +196,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=15" alt="Imatge 3">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">País Vasco</a>
+                                <input type="submit" class="button button-blog" value="Pais Vasco" id="Pais Vasco"/>
                           </div>
                         </div>
                     </div>
@@ -207,13 +208,14 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=16" alt="Imatge 1">
                             <div class="card-body">
-                                <a class="button button-blog" href="travel/travelSearch.php">La Rioja</a>    
+                                <input type="submit" class="button button-blog" value="La Rioja" id="La Rioja"/>    
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        </form>
 
         <!-- Footer-->
         <%@include file="footer.jsp" %>

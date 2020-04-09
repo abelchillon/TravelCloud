@@ -33,7 +33,7 @@
             </div>
             <div class="container">
                 <div class="form">
-                    <form class="well form-horizontal" method="post">
+                    <form class="well form-horizontal" method="post" action="userLogin">
                         <fieldset>
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Correo electrónico</label>
@@ -62,7 +62,7 @@
                                 <label class="form-check-label" for="politica">Guardar datos de acceso</label>
                             </div>
                             <div class="form-group" id="botons">
-                                <input type="submit" class="btn btn-secondary" value="Iniciar sesión">
+                                <input type="submit" class="btn btn-secondary" value="Iniciar sesión" id="login">
                             </div>
                         </fieldset>
                     </form>

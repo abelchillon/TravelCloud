@@ -31,7 +31,7 @@
         <section>
             <div class="callout-inner">
                 <div>
-                    <h3>Deja tu valoraciÃ³n</h3>
+                    <h3>Deja tu valoración</h3>
                 </div>   
             </div>
             <div class="container">
@@ -39,7 +39,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal" action="/addValoracio" method="POST">
+                            <form class="well form-horizontal" action="addValoracio" method="POST">
                                 <fieldset>
                                     <div class="form-group">
                                         <label class="col-md-4 control-label">¿Qué te ha parecido este viaje?</label>
@@ -68,8 +68,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Guardar">
-                                        <input type="submit" class="btn btn-secondary" value="Cancelar">
+                                        <input type="submit" class="btn btn-secondary" value="Guardar" id="guardarValoracion">
+                                        <input type="submit" class="btn btn-secondary" value="Cancelar" id="cancelarValoracion">
                                     </div>
                                 </fieldset>
                             </form>

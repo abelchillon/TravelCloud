@@ -37,7 +37,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal" action="/updateUser" method="POST">
+                            <form class="well form-horizontal" action="updateUser" method="POST">
                                 <fieldset>
                                     <div class="td-head">
                                         <p>Datos de acceso</p>
@@ -118,7 +118,7 @@
                                         </div>
                                     </div>
                                     <div class="i-button">
-                                        <input type="button" value="Cambiar imagen de perfil" class="button img-button" />
+                                        <input type="button" value="Cambiar imagen de perfil" class="button img-button" id="cambiarImgPerfil"/>
                                     </div>
                                     
                                     <!-- imagenes viaje-->
@@ -129,9 +129,9 @@
                                     </div>
 
                                     <div class="form-group" id="botons">
-                                        <input type="submit" id="savePage" class="btn btn-secondary" value="Guardar cambios">
-                                        <input type="submit" id="cancelUpdate" class="btn btn-secondary" value="Cancelar">
-                                        <input type="submit" id="deleteUserPage" class="btn btn-secondary" value="Eliminar cuenta">
+                                        <input type="submit" id="savePage" class="btn btn-secondary" value="Guardar cambios" id="guardarCambiosUser">
+                                        <input type="submit" id="cancelUpdate" class="btn btn-secondary" value="Cancelar" id="cancelarCambiosUser">
+                                        <input type="submit" id="deleteUserPage" class="btn btn-secondary" value="Eliminar cuenta" id="eliminarCuenta">
                                     </div>  
                                 </fieldset>
                             </form>

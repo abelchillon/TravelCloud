@@ -49,7 +49,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal" action="/sendMessage" method="POST">
+                            <form class="well form-horizontal" action="sendMessage" method="POST">
                                 <fieldset>
                                     
                                     <div class="form-group">
@@ -74,12 +74,12 @@
                                     </div>
                                     
                                     <div class="form-check form-check-inline politica">
-                                        <input id="accesoAsesor" clas="form-check-input" type="checkbox">
+                                        <input id="accesoAsesor" clas="form-check-input" type="checkbox" id="checkbox">
                                         <label class="form-check-label" for="politica">Estoy de acuerdo con que se pueda acceder a mis datos</label>
                                     </div>
 
                                     <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Enviar mensaje">
+                                        <input type="submit" class="btn btn-secondary" value="Enviar mensaje" id="enviarMensaje">
                                         <input type="submit" class="btn btn-secondary" id="cancelMessage" value="Cancelar">
                                     </div>
                                 </fieldset>

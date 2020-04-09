@@ -76,7 +76,7 @@
 							</select>
                         </div>
                         <div class="button-search">
-                            <input type="submit" class="button log-button" value="Buscar" />
+                            <input type="submit" class="button log-button" value="Buscar" id="buscarViaje" />
                         </div>
                     </form>
                 </div>
@@ -133,7 +133,9 @@
                 </div>
             </div>
             <!--Boton para ir a la pagina de busqueda de viages-->
-            <div class="blog-cta"><a class="button ghost-button" href="/TravelCloud/comunidades">Descubre mas lugares</a></div>
+            <div class="blog-cta">
+            	<a class="button ghost-button" href="/TravelCloud/comunidades">Descubre mas lugares</a>
+            </div>
         </section>
         
 

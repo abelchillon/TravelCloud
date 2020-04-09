@@ -35,7 +35,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal" action="/addUser" method="POST">
+                            <form class="well form-horizontal" action="addUser" method="POST">
                                 <fieldset>
                                     <div class="td-head">
                                         <p>Datos de acceso</p>
@@ -111,7 +111,7 @@
                                     </div>
 
                                     <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Darse de alta">
+                                        <input type="submit" class="btn btn-secondary" value="Darse de alta" id="registrarUser">
                                     </div>
                                 </fieldset>
                             </form>
