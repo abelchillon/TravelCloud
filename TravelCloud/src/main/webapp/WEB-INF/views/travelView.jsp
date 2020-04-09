@@ -77,13 +77,13 @@
                     <c:when test="${tipusUser == 'USER'}"> <!-- YSM - COMPARAR ID USURIO LOGIN CON EL ID DEL USUARIO QUE HA CREADO EL VIAJE, SI NO ES NUESTRO VIAJE:  --> 
                     
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="VALORAR Y COMENTAR" id="addValoracio"/>   <!-- aqui tiene que redirigir a opiniones.jsp -->
+                            <input type="submit" class="button button-blog" value="VALORAR Y COMENTAR" name="addValoracio"/>   <!-- aqui tiene que redirigir a opiniones.jsp -->
                         </div>
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="AÑADIR A LA LISTA DE DESEOS" id="addWishList"/>    
+                            <input type="submit" class="button button-blog" value="AÑADIR A LA LISTA DE DESEOS" name="addWishList"/>    
                         </div>
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="VOLVER A LA BÚSQUEDA" id="returnSearch"/>   
+                            <input type="submit" class="button button-blog" value="VOLVER A LA BÚSQUEDA" name="returnSearch"/>   
                         </div>
                     
                     </c:when>
@@ -91,20 +91,20 @@
                     <c:when test="${tipusUser == 'USER-PROPIO VIAJE'}">
                     
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="MODIFICAR VIAJE" id="editTravel"/> 
+                            <input type="submit" class="button button-blog" value="MODIFICAR VIAJE" name="editTravel"/> 
                         </div>
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="ELIMINAR VIAJE" id="deleteTravel"/>
+                            <input type="submit" class="button button-blog" value="ELIMINAR VIAJE" name="deleteTravel"/>
                         </div>
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="VOLVER" id="returnPage"/> 
+                            <input type="submit" class="button button-blog" value="VOLVER" name="returnPage"/> 
                         </div>
                     </c:when>
                     
                     <!--Si quien visita el viaje es ADMIN o ASESOR -->
                     <c:otherwise>
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="VOLVER" id="returnPageAdmin"/>    
+                            <input type="submit" class="button button-blog" value="VOLVER" name="returnPage"/>    
                         </div>
                     </c:otherwise>
                     </form>
@@ -132,7 +132,7 @@
                             <p class="blog-user">${valoracion.dataCreacio}</p>
                             <c:if test="${tipusUser = 'ADMIN'}">
                            		<form action="deleteValoracioAdmin" method="post">
-                           			<input type="submit" class="button" value="Eliminar valoración" id="deleteValoracioAdmin"/>
+                           			<input type="submit" class="button" value="Eliminar valoración" name="deleteValoracioAdmin"/>
                            		</form>
                                 
                             </c:if>

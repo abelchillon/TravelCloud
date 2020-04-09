@@ -47,7 +47,7 @@
                         <div class="col-sm-6">
                         	<form action="botonsMissatge" method="post">
 	                            <input type="submit" class="button button-blog" id="response-button" value="Responder"/>  
-	                            <input type="submit" class="button button-blog deleteMessage" value="Eliminar"/> <!-- en vez de id, este lleva la class deleteMessage -->
+	                            <input type="submit" class="button button-blog deleteMessage" name="deleteMessage" value="Eliminar"/> 
                           	</form>  
                         </div>
                     </div>
@@ -66,11 +66,11 @@
             <div class="travelContainer">
                 <div class="travel">
                     <div class="travel-info">    
-                        <textarea placeholder="Escribe aquÃ­ tu respuesta..." class="form-control response" required="true" value=""></textarea>    
+                        <textarea placeholder="Escribe aquí tu respuesta..." class="form-control response" required="true" value=""></textarea>    
                     </div>
                     <div class="form-group" id="botons">
-                        <input id="send-button" type="submit" class="button button-blog" value="Enviar mensaje">
-                        <input id="cancel-button" type="submit" class="button button-blog" value="Cancelar">
+                        <input id="send-button" name="enviarMissatge" type="submit" class="button button-blog" value="Enviar mensaje">
+                        <input id="cancel-button" name="cancelarMissatge" type="submit" class="button button-blog" value="Cancelar">
                     </div>           
              </div>
             </div>
@@ -98,7 +98,7 @@
                             </div>
                             <div class="col-sm-6">
                             	<form action="eliminarMensaje" method="post">  
-                                <input type="submit" class="button button-blog deleteMessage" value="Eliminar" id="eliminarMissatge"/>
+                                <input type="submit" class="button button-blog deleteMessage" value="Eliminar" name="deleteMessage"/>
                                 </form>  
                             </div>
                         </div>

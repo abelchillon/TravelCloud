@@ -193,8 +193,8 @@
                                     
                                     <!-- botones -->
                                     <div class="form-group" id="botons">
-                                        <input type="submit" id="savePageTravel" class="btn btn-secondary" value="Guardar">
-                                        <input type="submit" id="cancelPageTravel" class="btn btn-secondary" value="Cancelar">
+                                        <input type="submit" name="afegirViatge" class="btn btn-secondary" value="Guardar">
+                                        <input type="submit" name="cancelarViatge" class="btn btn-secondary" value="Cancelar">
                                     </div>
                                   
                                 </fieldset>

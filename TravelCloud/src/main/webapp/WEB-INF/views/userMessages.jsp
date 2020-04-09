@@ -47,7 +47,7 @@
                             </div>
                             <div class="col-sm-6">
                             	<form action="veureMissatge" method="post">
-                                	<input type="submit" class="button button-blog" value="Ver mensaje" id="veureMissatge"/>  
+                                	<input type="submit" class="button button-blog" value="Ver mensaje" name="veureMissatge"/>  
                                 </form>
                             </div>
                         </div>

@@ -43,37 +43,39 @@
         </section>
 
         <!-- BOTONES GESTION USUARIO -->
+        <form action="botonesUserPage" method="post"> 
         <c:choose>
             <c:when test="${usuari.id == hh }">   <!-- YSM si el id del usuario que queremos visitar, es el mismo que nuestro id, se mostraran los botones, sino no. -->
-            	<form action="/botonesUserPage" method="post"> 
+            	
 	                <section id="userButtons">
 	                    <div class="user-buttons">
 	                        <input type="submit" class="button button-user" value="Editar Perfil"/>
 	                        <c:choose>
 	                            <c:when test="${tipusUser == 'USER'}">
-	                                <input type="submit" class="button button-user" value="Subir Viaje"/>
-	                                <input type="submit" class="button button-user" value="Lista de deseos"/>
+	                                <input type="submit" class="button button-user" value="Subir Viaje" name="subirViaje"/>
+	                                <input type="submit" class="button button-user" value="Lista de deseos" name="listaDeseos"/>
 	                            </c:when>
 	                            <c:when test="${tipusUser == 'ADMIN'}">
-	                            	<input type="submit" class="button button-user" value="Gestión usuarios"/>
-	                            	<input type="submit" class="button button-user" value="Gestión viajes"/>
+	                            	<input type="submit" class="button button-user" value="Gestión usuarios" name="gestionUsuarios"/>
+	                            	<input type="submit" class="button button-user" value="Gestión viajes" name="gestionViajes"/>
 	                            </c:when>
 	                        </c:choose>
-	                        <input type="submit" class="button button-user" value="Mensajes"/>
+	                        <input type="submit" class="button button-user" value="Mensajes" name="mensajes"/>
 	                    </div>
 	                </section>
-            	</form>
+            	
             </c:when>
             <c:otherwise> <!-- si el id no es el mismo, pero somos ADMIN o ASESOR, solo mostrara la opcion de enviarle un mensaje, SINO PUES NO MOSTRARA NADA -->
             	<c:if test="${tipusUser == 'ADMIN' || tipusUser == 'ASSESSOR' }">
 	                <section id="userButtons">
 	                    <div class="user-buttons">
-	                        <a class="button button-user" href="/TravelCloud/sendMessage">Enviar mensaje</a>
+	                        <input type="submit" class="button button-user" value="Enviar mensaje" name="enviarMensaje"/>
 	                    </div>
 	                </section>
                 </c:if>
             </c:otherwise>
         </c:choose>
+        </form>
         
         <!-- VIAJES USUARIO -->
        	<c:choose>
@@ -94,9 +96,9 @@
 				                <p class="blog-user">${travelUser.totalPuntuacio}: </p>
 				                
 				                <form action="botonesViajesUserPage" method="post">
-				                    <input type="submit" class="button button-blog" value="Ver" id="verTravel"/>
-				                    <input type="submit" class="button button-blog" value="Editar" id="editarTravel"/>
-				                    <input type="submit" class="button button-blog" value="Borrar" id="borrarTravel"/>
+				                    <input type="submit" class="button button-blog" value="Ver" name="viewTravel"/>
+				                    <input type="submit" class="button button-blog" value="Editar" name="editTravel"/>
+				                    <input type="submit" class="button button-blog" value="Borrar" name="deleteTravel"/>
 			                    </form>
 			                    
 			                </div>

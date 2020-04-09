@@ -79,8 +79,8 @@
                                     </div>
 
                                     <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Enviar mensaje" id="enviarMensaje">
-                                        <input type="submit" class="btn btn-secondary" id="cancelMessage" value="Cancelar">
+                                        <input type="submit" class="btn btn-secondary" value="Enviar mensaje" name="enviarMissatge">
+                                        <input type="submit" class="btn btn-secondary" name="cancelarMissatge" value="Cancelar">
                                     </div>
                                 </fieldset>
                             </form>

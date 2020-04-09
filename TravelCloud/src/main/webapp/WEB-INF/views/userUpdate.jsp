@@ -127,11 +127,10 @@
                                             <img alt="imagen perfil usuario" src="https://picsum.photos/300/300?random=1" />
                                         </div>
                                     </div>
-
-                                    <div class="form-group" id="botons">
-                                        <input type="submit" id="savePage" class="btn btn-secondary" value="Guardar cambios" id="guardarCambiosUser">
-                                        <input type="submit" id="cancelUpdate" class="btn btn-secondary" value="Cancelar" id="cancelarCambiosUser">
-                                        <input type="submit" id="deleteUserPage" class="btn btn-secondary" value="Eliminar cuenta" id="eliminarCuenta">
+                                    <div class="form-group" id="botons">		
+                                        <input type="submit" name="savePage" class="btn btn-secondary" value="Guardar cambios" id="guardarCambiosUser">
+                                        <input type="submit" name="cancelUpdate" class="btn btn-secondary" value="Cancelar" id="cancelarCambiosUser">
+                                        <input type="submit" name="deleteUserPage" class="btn btn-secondary" value="Eliminar cuenta" id="eliminarCuenta">
                                     </div>  
                                 </fieldset>
                             </form>

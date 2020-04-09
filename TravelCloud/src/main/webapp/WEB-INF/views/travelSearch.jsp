@@ -101,13 +101,13 @@
                             <div class="col-sm-6">
                             	<form action="botonesTravelSearch" method="post">
                             	
-                                <input type="submit" class="button button-blog" value="Ver viaje" id="verViaje"/>
+                                <input type="submit" class="button button-blog" value="Ver viaje" name="verViaje"/>
                                 <c:choose>
                                     <c:when test="${tipusUser = 'ADMIN'}">
-                                        <input type="submit" class="button button-blog" value="Eliminar" id="eliminarViaje"/>
+                                        <input type="submit" class="button button-blog" value="Eliminar" name="eliminarViaje"/>
                                     </c:when>
                                     <c:when test="${tipusUser = 'USER'}">
-                                        <input type="submit" class="button button-blog" value="Añadir Lista Deseos" id="añadirWishList"/>
+                                        <input type="submit" class="button button-blog" value="Añadir Lista Deseos" name="addWishList"/>
                                     </c:when>
                                 </c:choose>
                                 </form>

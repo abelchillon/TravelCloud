@@ -62,7 +62,7 @@
                                 <label class="form-check-label" for="politica">Guardar datos de acceso</label>
                             </div>
                             <div class="form-group" id="botons">
-                                <input type="submit" class="btn btn-secondary" value="Iniciar sesión" id="login">
+                                <input type="submit" class="btn btn-secondary" value="Iniciar sesión" name="login">
                             </div>
                         </fieldset>
                     </form>

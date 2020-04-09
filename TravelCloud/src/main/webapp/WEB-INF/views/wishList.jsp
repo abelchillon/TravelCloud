@@ -69,9 +69,9 @@
                             <div class="col-sm-6">
                             <form action="botonsWishList" method="post">
                             
-                                <input type="submit" class="button button-blog" value="Ver viaje" id="verViaje"/>  
+                                <input type="submit" class="button button-blog" value="Ver viaje" name="verViaje"/>  
                                 <c:if test="${tipusUser == 'USER'}"> <!-- YSM- falta comparar id usuario -->
-                                    <a class="button button-blog" id="deleteTravelWishList" value="Eliminar de la lista"/>
+                                    <a class="button button-blog" name="deleteTravelWishList" value="Eliminar de la lista"/>
                                 </c:if>
                             </form>
                             </div>

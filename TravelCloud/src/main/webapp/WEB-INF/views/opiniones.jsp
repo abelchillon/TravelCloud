@@ -68,8 +68,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Guardar" id="guardarValoracion">
-                                        <input type="submit" class="btn btn-secondary" value="Cancelar" id="cancelarValoracion">
+                                        <input type="submit" class="btn btn-secondary" value="Guardar" name="guardarValoracion">
+                                        <input type="submit" class="btn btn-secondary" value="Cancelar" name="cancelarValoracion">
                                     </div>
                                 </fieldset>
                             </form>

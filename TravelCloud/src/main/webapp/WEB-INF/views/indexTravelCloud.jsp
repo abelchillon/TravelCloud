@@ -171,10 +171,12 @@
 	                    <div class="blog-text">
 	                        <p class="blog-title">${viaje.titulo}</p>
 	                        <p class="blog-summary">${viaje.descripcion}</p>
-	                        <a class="button button-blog" href="/TravelCloud/travelView">Ver viaje</a>
+	                        <form action="botonesIndex" method="post">
+	                        <input type="submit" class="button button-blog" value="Ver Viaje" name="verViaje"/>
 	                        <c:if test="${tipusUsuari == USER_LOGIN }">
-	                        	<a class="button button-blog" href="#">Añadir a la lista deseos</a>
+	                        	<input type="submit" class="button button-blog" value="Añadir a la lista deseos" name="addWishList"/>
 	                        </c:if>
+	                        </form>
 	                    </div>  
 	                </c:forEach>
 	            </div>

@@ -111,7 +111,7 @@
                                     </div>
 
                                     <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Darse de alta" id="registrarUser">
+                                        <input type="submit" class="btn btn-secondary" value="Darse de alta" name="registrarUser">
                                     </div>
                                 </fieldset>
                             </form>
