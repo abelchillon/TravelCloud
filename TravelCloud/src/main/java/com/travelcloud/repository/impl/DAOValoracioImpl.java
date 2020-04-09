@@ -94,7 +94,6 @@ public class DAOValoracioImpl implements DAOValoracio{
 	}
 	@Override
 	public List<Valoracio> llistarValoracionsPerViatge(int idViatgeValoracio) throws Exception{
-		
 		String sql = "SELECT * FROM valoracio";
 		Connection connection = null;
 		try {
@@ -162,5 +161,31 @@ public class DAOValoracioImpl implements DAOValoracio{
 			}
 		}
 		return valoracions;
+	}
+	
+	@Override
+	public int puntuacioTotalViatge(int idViatge) throws Exception {
+		String sql = "SELECT puntuacio FROM valoracio WHERE idViatge = ?";
+		Connection connection = null;
+		int puntuacio;
+		int puntuacioTotal = 0;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			ResultSet rs = pStatement.executeQuery();
+			pStatement.setInt(1, idViatge);
+			while(rs.next()) {
+				puntuacio = rs.getInt("puntuacio");
+				puntuacioTotal = puntuacioTotal + puntuacio;
+			}
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		return puntuacioTotal;
 	}
 }

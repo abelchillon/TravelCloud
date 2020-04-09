@@ -11,4 +11,6 @@ public interface DAOValoracio{
 	
 	public List<Valoracio> llistarValoracionsPerViatge(int idViatgeValoracio) throws Exception;
 	public List<Valoracio> obtenirPuntuacions() throws Exception;
+	
+	public int puntuacioTotalViatge(int idViatge) throws Exception;
 }

@@ -9,5 +9,5 @@ public interface DAOFoto{
 	public void eliminarFoto(Foto foto) throws Exception;
 	
 	public List<Foto> llistarFotosViatge(int idViatge) throws Exception;
-	public Foto llistarFotoUsuari(int idUsuari, int tipus) throws Exception;
+	public Foto llistarFotoUsuari(int idUsuari) throws Exception;
 }
