@@ -72,7 +72,7 @@
             <c:forEach var="travel" items="${travelList}" varStatus="status">
                 <div class="travelContainer">
                     <div class="travel-img">
-                        <img alt="imagenViage" src="${travel.travelFoto}" />
+                        <img alt="Imagen Principal Viaje" src="${travel.travelFoto}" />
                     </div>
                     <div class="travel">
                         <div class="travel-info">

@@ -174,7 +174,7 @@
                                     <div class="imgs-travel">
                                         <c:forEach var="imagen" items="${travelImgs}" varStatus="status">
 						                    <div>
-						                        <img alt="imagen viaje 1" src="${imagen.src}" />
+						                        <img alt="imagen viaje usuario" src="${imagen.src}" />
 						                    </div>
                 						</c:forEach>
                                     </div>

@@ -50,11 +50,9 @@
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
                                                     <option name="noValid" selected>Puntua este viaje...</option>
-                                                    <option name="val1">1</option>
-                                                    <option name="val2">2</option>
-                                                    <option name="val3">3</option>
-                                                    <option name="val4">4</option>
-                                                    <option name="val5">5</option> 
+                                                    <c:forEach items="${valoracions}" var="val">
+	                        							<option value="${val.puntuacio}">${val.puntuacio}</option>
+													</c:forEach>	
                                                 </select>
                                             </div>
                                         </div>

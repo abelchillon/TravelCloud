@@ -65,7 +65,7 @@
             <div class="imgs-travel">
                 <c:forEach var="imagen" items="${travelImgs}" varStatus="status">
                     <div>
-                        <img alt="imagen viaje 1" src="${imagen}" />
+                        <img alt="Imagen Viaje" src="${imagen}" />
                     </div>
                 </c:forEach>
             </div>
@@ -88,7 +88,7 @@
                     
                     </c:when>
                     <!-- PARA CUANDO UN USUARIO VISITA SU PROPIO VIAJE  -->
-                    <c:when test="${tipusUser == 'USER-PROPIO VIAJE'}">
+                    <c:when test="${usuari.id == session.getAttribute("id")}">
                     
                         <div class="opinions-button">
                             <input type="submit" class="button button-blog" value="MODIFICAR VIAJE" name="editTravel"/> 
@@ -103,6 +103,9 @@
                     
                     <!--Si quien visita el viaje es ADMIN o ASESOR -->
                     <c:otherwise>
+                     	<div class="opinions-button">
+                            <input type="submit" class="button button-blog" value="ELIMINAR VIAJE" name="deleteTravelAdmin"/>
+                        </div>
                         <div class="opinions-button">
                             <input type="submit" class="button button-blog" value="VOLVER" name="returnPage"/>    
                         </div>
@@ -122,7 +125,7 @@
                 <div class="row opinion-travel">
                     <div class="col-sm-6 opinion">
                         <div class="blog-image">
-                            <img src="${userImg}"/>
+                            <img src="${userImg}" alt="Imagen de Perfil Usuario"/>
                         </div>
                         <div class="blog-text">
                             <p class="blog-title">Valoración</p>

@@ -38,6 +38,7 @@
 	color: #c5e6e1;
 	text-align: center;
 	transition: background-color 200ms ease;
+	border: none;
 }
 .button-user:hover {
 	text-decoration: none;

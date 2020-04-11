@@ -45,7 +45,7 @@
         <!-- BOTONES GESTION USUARIO -->
         <form action="botonesUserPage" method="post"> 
         <c:choose>
-            <c:when test="${usuari.id == hh }">   <!-- YSM si el id del usuario que queremos visitar, es el mismo que nuestro id, se mostraran los botones, sino no. -->
+            <c:when test="${usuari.id == session.getAttribute("id") }">   <!-- YSM si el id del usuario que queremos visitar, es el mismo que nuestro id, se mostraran los botones, sino no. -->
             	
 	                <section id="userButtons">
 	                    <div class="user-buttons">
@@ -79,7 +79,7 @@
         
         <!-- VIAJES USUARIO -->
        	<c:choose>
-       		<c:when test="${usuari.id == hh }">	<!-- YSM si el usuario tiene el mismo id, esta visitando su propio perfil -->
+       		<c:when test="${usuari.id == session.getAttribute("id")}">	<!-- YSM si el usuario tiene el mismo id, esta visitando su propio perfil -->
        			<c:if test="${tipusUsuari == 'USER' }"> <!-- admin y asesor no tienen viajes, asi que no tienen este apartado -->
        				<section id="travels-user">
 		            <div class="travUs">
@@ -110,7 +110,7 @@
 		<c:otherwise>  <!-- YSM si no tienen el mismo id esque esta visitando el perfil de otro usuario -->
 			<section id="travels-user">
 		    	<div class="travUs">
-		    		<h3>Mis Viajes</h3>
+		    		<h3>Viajes</h3>
 		    	</div>
 			        <c:forEach var="travelUser" items="${travelUserList}" varStatus="status">
 			        	<div class="container-viaje">

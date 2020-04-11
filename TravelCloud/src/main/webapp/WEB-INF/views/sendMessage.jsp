@@ -32,18 +32,20 @@
             
             <!-- SELECCION EN FUNCION DE LA URL DESDE LA QUE ES LLAMADA LA VISTA -->
             <!-- SI SE ACCEDE A ENVIAR MENSAJE DESDE LA WISH LIST  -->
-            <div class="callout-inner">
-                <h3>¿Necesitas ayuda para planificar tu viaje?</h3>
-                <h3>Ponte en contacto con nuestro asesor</h3>
-            </div>
+            <c:if test="$(tipusUsuari == 'USER')">
+	            <div class="callout-inner">
+	                <h3>¿Necesitas ayuda para planificar tu viaje?</h3>
+	                <h3>Ponte en contacto con nuestro asesor</h3>
+	            </div>
+            </c:if>
             
-            <!--SI SE ACCEDE DESDE CUALQUIER OTRO LUGAR, PARA ENVIAR UN MENSAJE DIRECTO A UN USUARIO -->
-            <div class="callout-inner">
-                <h3>Enviar Mensaje</h3>
-            </div>
-            
-            
-            
+            <!--SI EL USUARIO ES ADMIN O ASESOR -->
+            <c:if test="$(tipusUsuari == 'ADMIN' || tipusUsuari == 'ASESOR')">
+            	<div class="callout-inner">
+               		<h3>Enviar Mensaje</h3>
+            	</div>
+            </c:if>
+
             <div class="container">
                 <table class="table table-striped">
                     <tbody>
@@ -59,7 +61,7 @@
                                                     <span class="input-group-addon">
                                                         <i class="glyphicon glyphicon-envelope"></i>
                                                     </span>
-                                                    <input id="text" name="titleMessage" placeholder="Título del mensaje" class="form-control" required="true" value="" type="email">
+                                                    <input id="text" name="titleMessage" placeholder="Título del mensaje" class="form-control" required="true" type="email">
                                                 </div>
                                             </div>
                                     </div>
@@ -68,7 +70,7 @@
                                         <label class="col-md-4 control-label">Mensaje</label>
                                         <div class="col-md-8 inputGroupContainer">
                                             <div class="input-group">
-                                                <textarea placeholder="Escribe aquí tu mensaje..." class="form-control" required="true" value=""></textarea>
+                                                <textarea placeholder="Escribe aquí tu mensaje..." class="form-control" required="true"></textarea>
                                             </div>
                                         </div>
                                     </div>

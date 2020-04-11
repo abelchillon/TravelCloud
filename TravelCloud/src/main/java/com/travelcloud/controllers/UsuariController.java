@@ -20,7 +20,7 @@ import com.travelcloud.service.IDesitjosService;
 import com.travelcloud.service.IMissatgeService;
 
 @Controller
-@RequestMapping(value="/usuari")
+@RequestMapping(value="/userPage")
 public class UsuariController {
 	
 	@Autowired

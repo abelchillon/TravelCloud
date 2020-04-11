@@ -35,7 +35,7 @@
             <c:forEach var="usuari" items="${usuarios}" varStatus="status">
                 <div class="container-viaje user">
                     <div class="img-viaje">
-                        <img src="${usuari.imagen}"/>
+                        <img src="${usuari.imagen}" alt="Imagen Usuario"/>
                     </div>
                     <div class="content-viaje">
                         <p class="blog-title">${usuari.nomUsuari}</p>

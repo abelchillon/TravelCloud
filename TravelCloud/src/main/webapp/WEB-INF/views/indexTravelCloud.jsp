@@ -94,7 +94,7 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card" style="width: 30rem;">
-                            <img class="card-img-top" src="https://unsplash.it/300/200?image=1006" alt="Imatge 1">
+                            <img class="card-img-top" src="https://unsplash.it/300/200?image=1006" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
                                 <h4>Catalunya</h4>    
                             </div>
@@ -104,7 +104,7 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card" style="width: 30rem;">
-                            <img class="card-img-top" src="https://unsplash.it/300/200?image=740" alt="Imatge 2">
+                            <img class="card-img-top" src="https://unsplash.it/300/200?image=740" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
                                 <h4>Madrid</h4>
                             </div>
@@ -114,7 +114,7 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card" style="width: 30rem;">
-                            <img class="card-img-top" src="https://picsum.photos/300/200?random=1" alt="Imatge 3">
+                            <img class="card-img-top" src="https://picsum.photos/300/200?random=1" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
                                 <h4>Andalucia</h4>
                           </div>
@@ -124,7 +124,7 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card" style="width: 30rem;">
-                            <img class="card-img-top" src="https://picsum.photos/id/1018/300/200" alt="Imatge 3">
+                            <img class="card-img-top" src="https://picsum.photos/id/1018/300/200" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
                                 <h4>Cantabria</h4>
                           </div>
@@ -166,14 +166,14 @@
                 <div class="blog-grid">
                 	<c:forEach var="viaje" items="${viajesDestacados}" varStatus="status">
 	                    <div class="blog-image">
-	                        <img src="https://unsplash.it/600/300?image=122"/>
+	                        <img src="${viaje.imagenPrincipal}" alt="Imagen Viaje Principal"/>
 	                    </div>
 	                    <div class="blog-text">
 	                        <p class="blog-title">${viaje.titulo}</p>
 	                        <p class="blog-summary">${viaje.descripcion}</p>
 	                        <form action="botonesIndex" method="post">
 	                        <input type="submit" class="button button-blog" value="Ver Viaje" name="verViaje"/>
-	                        <c:if test="${tipusUsuari == USER_LOGIN }">
+	                        <c:if test="${tipusUsuari == 'USER'}">
 	                        	<input type="submit" class="button button-blog" value="Añadir a la lista deseos" name="addWishList"/>
 	                        </c:if>
 	                        </form>
