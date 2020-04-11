@@ -63,11 +63,9 @@
                                                     <i class="glyphicon glyphicon-map-marker"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="NoValid">Selecciona una Comunidad Autónoma ...</option> 
-                                                    <option value="Andalucia">Andalucia</option> 
-                                                    <option value="Galicia">Galicia</option> 
-                                                    <option value="CataluÃ±a">Cataluña</option>
-                                                    <option value="Asturias">Asturias</option> 
+                                                    <c:forEach items="${viatges}" var="v">
+	                        							<option value="${v.comunitat}">${v.comunitat}</option>
+													</c:forEach>
                                                 </select>
                                             </div>
                                         </div>
@@ -80,11 +78,9 @@
                                                     <i class="glyphicon glyphicon-map-marker"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="NoValid">Selecciona una Pronvicia ...</option> 
-                                                    <option value="Andalucia">Barcelona</option> 
-                                                    <option value="Galicia">Girona</option> 
-                                                    <option value="CataluÃ±a">Lleida</option>
-                                                    <option value="Asturias">Tarragona</option> 
+                                                    <c:forEach items="${viatges}" var="v">
+	                        							<option value="${v.provincia}">${v.provincia}</option>
+													</c:forEach>
                                                 </select>
                                             </div>
                                         </div>
@@ -132,13 +128,9 @@
                                                     <i class="glyphicon glyphicon-user"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="noValid" selected>Selecciona tipo de viaje ...</option> 
-                                                    <option value="Andalucia">Pareja</option> 
-                                                    <option value="Galicia">Familia</option> 
-                                                    <option value="CataluÃ±a">Amigos</option>
-                                                    <option value="Asturias">Solitario</option> 
-                                                    <option value="Asturias">Animales</option> 
-                                                    <option value="Asturias">Trabajo</option> 
+                                                    <c:forEach items="${viatges}" var="v">
+	                        							<option value="${v.tipusViatger}">${v.tipus}</option>
+													</c:forEach> 
                                                 </select>
                                             </div>
                                         </div>
@@ -151,11 +143,9 @@
                                                     <i class="glyphicon glyphicon-leaf"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="noValid" selected>Selecciona ubicación...</option>
-                                                    <option value="Mar">Mar</option>
-                                                    <option value="MontaÃ±a">Montaña</option>
-                                                    <option value="Ciudad">Ciudad</option>
-                                                    <option value="Naturaleza">Naturaleza</option> 
+                                                    <c:forEach items="${viatges}" var="v">
+					                        			<option value="${v.entorn}">${v.entorn}</option>
+													</c:forEach> 
                                                 </select>
                                             </div>
                                         </div>
@@ -168,11 +158,9 @@
                                                     <i class="glyphicon glyphicon-time"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="noValid" selected>Selecciona duración...</option>
-                                                    <option value="1">1-3 dias</option>
-                                                    <option value="2">3-5 dias</option>
-                                                    <option value="3">5-7 dias</option>
-                                                    <option value="4">+7 dias</option>
+                                                    <c:forEach items="${viatges}" var="v">
+					                        			<option value="${v.durada}">${v.durada}</option>
+													</c:forEach> 
                                                 </select>
                                             </div>
                                         </div>

@@ -96,11 +96,9 @@
                                                     <i class="glyphicon glyphicon-map-marker"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="NoValid">Selecciona una Comunidad Autónoma ...</option> 
-                                                    <option value="Andalucia">Andalucia</option> 
-                                                    <option value="Galicia">Galicia</option> 
-                                                    <option value="CataluÃ±a">Cataluña</option>
-                                                    <option value="Asturias">Asturias</option> 
+                                                    <c:forEach items="${viatges}" var="v">
+	                        							<option value="${v.comunitat}">${v.comunitat}</option>
+													</c:forEach>
                                                 </select>
                                             </div>
                                         </div>

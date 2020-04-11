@@ -53,7 +53,7 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-eye-open"></i>
                                         </span>
-                                        <input id="pasword" name="pasword" class="form-control" value="" type="password" placeholder="contraseÃ±a (8 caracters mÃ­nimo)" minlength="8" required>
+                                        <input id="pasword" name="pasword" class="form-control" value="" type="password" placeholder="contraseña (8 caracteres mínimo)" minlength="8" required>
                                     </div>
                                 </div>
                             </div>
