@@ -73,7 +73,7 @@ public class DAOValoracioImpl implements DAOValoracio{
 		}
 	}
 	@Override
-	public void eliminarValoracio(Valoracio valoracio) throws Exception{  // se tendra que cambiar cuando haya id de valoracion...
+	public void eliminarValoracio(Valoracio valoracio) throws Exception{  
 		String sql = "DELETE FROM valoracio  WHERE idUsuari = ? AND idViatge = ?";
 		
 		Connection connection = null;

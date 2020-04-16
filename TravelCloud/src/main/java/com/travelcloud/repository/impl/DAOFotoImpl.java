@@ -50,6 +50,26 @@ public class DAOFotoImpl implements DAOFoto{
 	}
 	
 	@Override
+	public void modificarFoto(Foto foto) throws Exception {
+		String sql = "UPDATE foto SET src = ? WHERE id = ? ";
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setString(1, foto.getSrc());
+			pStatement.setInt(2, foto.getId());	
+			pStatement.executeUpdate();
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+	}
+	
+	@Override
 	public void eliminarFoto(Foto foto) throws Exception{
 		String sql = "DELETE FROM foto  WHERE id = ?";
 		
@@ -95,7 +115,7 @@ public class DAOFotoImpl implements DAOFoto{
 	}
 	
 	@Override
-	public Foto llistarFotoUsuari(int idUsuari, int tipus) throws Exception{
+	public Foto llistarFotoUsuari(int idUsuari) throws Exception{
 		String sql = "SELECT * FROM foto WHERE idUsuari = ?";
 		Connection connection = null;
 		

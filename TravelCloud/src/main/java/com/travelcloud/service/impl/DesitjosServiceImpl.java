@@ -25,6 +25,15 @@ public class DesitjosServiceImpl implements IDesitjosService{
 	}
 	
 	@Override
+	public void modificarDesitjos(Desitjos desitjos) throws Exception{
+		try {
+			daoDesitjos.modificarDesitjos(desitjos);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	@Override
 	public void eliminarDesitjos(Desitjos desitjos) throws Exception{
 		try {
 			daoDesitjos.eliminarDesitjos(desitjos);

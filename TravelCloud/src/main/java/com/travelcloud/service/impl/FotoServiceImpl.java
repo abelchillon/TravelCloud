@@ -26,6 +26,15 @@ public class FotoServiceImpl implements IFotoService{
 	}
 	
 	@Override
+	public void modificarFoto(Foto foto) throws Exception{
+		try {
+			daoFoto.modificarFoto(foto);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	@Override
 	public void eliminarFoto(Foto foto) throws Exception{
 		try {
 			daoFoto.eliminarFoto(foto);

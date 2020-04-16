@@ -45,6 +45,26 @@ public class DAODesitjosImpl implements DAODesitjos{
 		}
 	}
 	
+	public void modificarDesitjos(Desitjos desitjos) throws Exception{
+		String sql = "UPDATE desitjos SET idUsuari = ?, idViatge = ? where id = ? ";
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, desitjos.getIdUsuari());
+			pStatement.setInt(2, desitjos.getIdViatge());
+			pStatement.setInt(3, desitjos.getId());	
+			pStatement.executeUpdate();
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+	}
+	
 	@Override
 	public void eliminarDesitjos(Desitjos desitjos) throws Exception{
 		String sql = "DELETE FROM desitjos  WHERE idUsuari = ? AND idViatge = ?";
