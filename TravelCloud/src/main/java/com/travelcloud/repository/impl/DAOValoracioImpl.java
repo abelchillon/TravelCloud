@@ -95,11 +95,12 @@ public class DAOValoracioImpl implements DAOValoracio{
 	@Override
 	public List<Valoracio> llistarValoracionsPerViatge(int idViatgeValoracio) throws Exception{
 		
-		String sql = "SELECT * FROM valoracio";
+		String sql = "SELECT * FROM valoracio WHERE idViatge = ?";
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, idViatgeValoracio);
 			ResultSet rs = pStatement.executeQuery();
 			while(rs.next()) {
 				Valoracio valoracio = makeValoracio(rs);
@@ -145,7 +146,7 @@ public class DAOValoracioImpl implements DAOValoracio{
 				Valoracio valoracio = new Valoracio();
 				valoracio.setId(rs.getInt("id"));
 				valoracio.setIdUsuari(rs.getInt("idUsuari"));
-				valoracio.setIdViatge(rs.getInt("idViate"));
+				valoracio.setIdViatge(rs.getInt("idViatge"));
 				valoracio.setComentari(rs.getString("comentari"));
 				valoracio.setPuntuacio(rs.getInt("puntuacio"));
 				valoracio.setDataCreacio(rs.getDate("dataCreacio"));

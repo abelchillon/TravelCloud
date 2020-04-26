@@ -14,6 +14,7 @@ public class Viatge {
 	private String titol;
 	private int idUsuari;	
 	private Date dataCreacio;
+	private int puntuacio;
 	
 	public Viatge() {
 		super();
@@ -121,6 +122,14 @@ public class Viatge {
 
 	public void setDataCreacio(Date dataCreacio) {
 		this.dataCreacio = dataCreacio;
+	}
+
+	public int getPuntuacio() {
+		return puntuacio;
+	}
+
+	public void setPuntuacio(int puntuacio) {
+		this.puntuacio = puntuacio;
 	}
 
 	@Override

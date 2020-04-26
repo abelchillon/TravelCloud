@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <footer id="footer">
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
     <div class="container">
         <div class="footer-grid">
             <div class="footer-group">
@@ -10,9 +11,9 @@
                 </div>
                 <div class="footer-links">
                     <ul>
-                        <li> <a href="/TravelCloud/travelPush">Subir viaje</a></li>
-                        <li> <a href="/TravelCloud/wishList">Lista de deseos</a></li>
-                        <li> <a href="/TravelCloud/userMessages">Mensajes</a></li>
+                        <li> <a href="${contextPath}/travelPush">Subir viaje</a></li>
+                        <li> <a href="${contextPath}/wishList">Lista de deseos</a></li>
+                        <li> <a href="${contextPath}/userMessages">Mensajes</a></li>
                     </ul>
                 </div>
             </div>
@@ -22,9 +23,9 @@
                 </div>
                 <div class="footer-links">
                     <ul>
-                        <li> <a href="/TravelCloud/content">Sobre nosotros</a></li>
-                        <li> <a href="/TravelCloud/content">Condiciones uso página</a></li>
-                        <li> <a href="/TravelCloud/content">Tratamiento datos</a></li>
+                        <li> <a href="${contextPath}/content">Sobre nosotros</a></li>
+                        <li> <a href="${contextPath}/content">Condiciones uso página</a></li>
+                        <li> <a href="${contextPath}/content">Tratamiento datos</a></li>
                     </ul>
                 </div>
             </div>
@@ -34,9 +35,9 @@
                 </div>
                 <div class="footer-links">
                     <ul>
-                        <li> <a href="/TravelCloud/travelSearch">Buscar viaje</a></li>
-                        <li> <a href="/TravelCloud/comunidades">Comunidades Autónomas</a></li>
-                        <li> <a href="/TravelCloud/content">Condiciones publicación viajes</a></li>
+                        <li> <a href="${contextPath}/travelSearch">Buscar viaje</a></li>
+                        <li> <a href="${contextPath}/comunidades">Comunidades Autónomas</a></li>
+                        <li> <a href="${contextPath}/content">Condiciones publicación viajes</a></li>
                     </ul>
                 </div>
             </div>

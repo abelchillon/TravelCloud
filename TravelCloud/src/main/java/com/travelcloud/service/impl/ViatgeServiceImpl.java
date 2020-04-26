@@ -68,4 +68,19 @@ public class ViatgeServiceImpl implements IViatgeService{
 	public List<Viatge> obtenirViatges() throws Exception {
 		return daoViatge.obtenirViatges();
 	}
+
+	@Override
+	public List<Viatge> obtenirViatgesSegonComunitat(int id) throws Exception {
+		return daoViatge.obtenirViatgesSegonComunitat(id);
+	}
+
+	@Override
+	public List<Viatge> obtenirViatgesSegonLocalitat(int id) throws Exception {
+		return daoViatge.obtenirViatgesSegonLocalitat(id);
+	}
+
+	@Override
+	public List<Viatge> obtenirViatgesPerFiltre(Viatge viatge) throws Exception {
+		return daoViatge.obtenirViatgesPerFiltre(viatge);
+	}
 }

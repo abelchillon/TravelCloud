@@ -160,7 +160,7 @@ public class DAOViatgeImpl implements DAOViatge{
 	
 	@Override
 	public List<Viatge> obtenirViatges() throws Exception {
-		String sql = "SELECT DISTINCT id, comunitat, provincia, localitat, entorn, durada, tipus, descripcio, titol, idUsuari, dataCreacio FROM viatge";
+		String sql = "SELECT DISTINCT vi.id, vi.comunitat, vi.provincia, vi.localitat, vi.entorn, vi.durada, vi.tipus, vi.descripcio, vi.titol, vi.idUsuari, vi.dataCreacio, va.puntuacio FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id";
 		Connection connection = null;
 		List<Viatge> viatges = null;
 		try {
@@ -182,7 +182,115 @@ public class DAOViatgeImpl implements DAOViatge{
 				viatge.setIdUsuari(rs.getInt("idUsuari"));
 				viatge.setLocalitat(rs.getString("localitat"));
 				viatge.setDataCreacio(rs.getDate("dataCreacio"));
-				
+				viatge.setPuntuacio(rs.getInt("puntuacio"));
+
+				viatges.add(viatge);
+			}
+			rs.close();
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();
+			}
+		}
+		List<String> comunitats = new ArrayList<String>();
+		List<Viatge> viatgesEsborrar = new ArrayList<Viatge>();
+		for (Viatge viatge : viatges) {
+			for (String comunitat : comunitats) {
+				if (viatge.getComunitat()!=null 
+						&& viatge.getComunitat().equals(comunitat)) {
+					viatgesEsborrar.add(viatge);
+				}
+			}
+			comunitats.add(viatge.getComunitat());
+		}
+		
+		for (Viatge viatge : viatgesEsborrar) {
+			viatges.remove(viatge);
+		}
+		return viatges;
+	}
+
+	@Override
+	public List<Viatge> obtenirViatgesSegonComunitat(int id) throws Exception {
+		String sql = "SELECT * FROM viatge where comunitat = (select comunitat from viatge where id = ?)";
+		Connection connection = null;
+		List<Viatge> viatges = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, id);
+			ResultSet rs = pStatement.executeQuery();
+			viatges = new ArrayList<Viatge>();
+			while (rs.next()) {
+				Viatge viatge = new Viatge();
+				viatge.setId(rs.getInt("id"));
+				viatge.setComunitat(rs.getString("comunitat"));
+				viatge.setProvincia(rs.getString("provincia"));
+				viatge.setLocalitat(rs.getString("localitat"));
+				viatge.setEntorn(rs.getString("entorn"));
+				viatge.setDurada(rs.getString("durada"));
+				viatge.setTipus(rs.getString("tipus"));
+				viatge.setDescripcio(rs.getString("descripcio"));
+				viatge.setTitol(rs.getString("titol"));
+				viatge.setIdUsuari(rs.getInt("idUsuari"));
+				viatge.setLocalitat(rs.getString("localitat"));
+				viatge.setDataCreacio(rs.getDate("dataCreacio"));				
+				viatges.add(viatge);
+			}
+			rs.close();
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();
+			}
+		}
+		
+		List<String> provincies = new ArrayList<String>();
+		for (Viatge viatge : viatges) {
+			for (String provincia : provincies) {
+				if (viatge.getProvincia()!=null 
+						&& viatge.getProvincia().equals(provincia)) {
+					viatge.setProvincia(null);
+				}
+			}
+			provincies.add(viatge.getProvincia());
+		}
+			
+		return viatges;
+	}
+	
+	@Override
+	public List<Viatge> obtenirViatgesSegonLocalitat(int id) throws Exception {
+		String sql = "SELECT vi.*, va.puntuacio FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id where vi.localitat = (select localitat from viatge where id = ?)";
+		
+		Connection connection = null;
+		List<Viatge> viatges = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, id);
+			ResultSet rs = pStatement.executeQuery();
+			viatges = new ArrayList<Viatge>();
+			while (rs.next()) {
+				Viatge viatge = new Viatge();
+				viatge.setId(rs.getInt("id"));
+				viatge.setComunitat(rs.getString("comunitat"));
+				viatge.setProvincia(rs.getString("provincia"));
+				viatge.setLocalitat(rs.getString("localitat"));
+				viatge.setEntorn(rs.getString("entorn"));
+				viatge.setDurada(rs.getString("durada"));
+				viatge.setTipus(rs.getString("tipus"));
+				viatge.setDescripcio(rs.getString("descripcio"));
+				viatge.setTitol(rs.getString("titol"));
+				viatge.setIdUsuari(rs.getInt("idUsuari"));
+				viatge.setLocalitat(rs.getString("localitat"));
+				viatge.setDataCreacio(rs.getDate("dataCreacio"));	
+				viatge.setPuntuacio(rs.getInt("puntuacio"));
 				viatges.add(viatge);
 			}
 			rs.close();
@@ -196,6 +304,224 @@ public class DAOViatgeImpl implements DAOViatge{
 		}
 		
 		return viatges;
+	}
+
+	@Override
+	public List<Viatge> obtenirViatgesPerFiltre(Viatge viatge) throws Exception {
+		String sql = "";
+		Connection connection = null;
+		connection = dataSource.getConnection();
+		PreparedStatement pStatement = null;
+		ResultSet rs = null;	
+		boolean hasPuntuacio = false;
+		if (viatge.getPuntuacio()!=0) {
+			hasPuntuacio = true;
+			if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
+					&& viatge.getEntorn() != null && viatge.getDurada()!=null && viatge.getTipus()!=null) {
+				sql = "SELECT vi.*, va.puntuacio FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
+						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
+						+ "and vi.provincia = (select provincia from viatge where id = ?) "
+						+ "and vi.localitat = (select localitat from viatge where id = ?) "
+						+ "and vi.entorn = (select entorn from viatge where id = ?) "
+						+ "and vi.durada = (select durada from viatge where id = ?) "
+						+ "and vi.tipus = (select tipus from viatge where id = ?) "
+						+ "and va.puntuacio = ?";
+
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
+				pStatement.setInt(3, Integer.parseInt(viatge.getLocalitat()));
+				pStatement.setInt(4, Integer.parseInt(viatge.getEntorn()));
+				pStatement.setInt(5, Integer.parseInt(viatge.getDurada()));
+				pStatement.setInt(6, Integer.parseInt(viatge.getTipus()));
+				pStatement.setInt(7, viatge.getPuntuacio());			
+				rs = pStatement.executeQuery();
+			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
+					&& viatge.getEntorn() != null && viatge.getDurada()!=null) {
+				sql = "SELECT vi.*, va.puntuacio FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
+						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
+						+ "and vi.provincia = (select provincia from viatge where id = ?) "
+						+ "and vi.localitat = (select localitat from viatge where id = ?) "
+						+ "and vi.entorn = (select entorn from viatge where id = ?) "
+						+ "and vi.durada = (select durada from viatge where id = ?) "
+						+ "and va.puntuacio = ?";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
+				pStatement.setInt(3, Integer.parseInt(viatge.getLocalitat()));
+				pStatement.setInt(4, Integer.parseInt(viatge.getEntorn()));
+				pStatement.setInt(5, Integer.parseInt(viatge.getDurada()));
+				pStatement.setInt(6, viatge.getPuntuacio());
+				rs = pStatement.executeQuery();
+			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
+					&& viatge.getEntorn() != null) {
+				sql = "SELECT vi.*, va.puntuacio FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
+						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
+						+ "and vi.provincia = (select provincia from viatge where id = ?) "
+						+ "and vi.localitat = (select localitat from viatge where id = ?) "
+						+ "and vi.entorn = (select entorn from viatge where id = ?) "
+						+ "and va.puntuacio = ?";
+
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
+				pStatement.setInt(3, Integer.parseInt(viatge.getLocalitat()));
+				pStatement.setInt(4, Integer.parseInt(viatge.getEntorn()));
+				pStatement.setInt(5, viatge.getPuntuacio());
+				rs = pStatement.executeQuery();
+			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null) {
+				sql = "SELECT vi.*, va.puntuacio FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
+						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
+						+ "and vi.provincia = (select provincia from viatge where id = ?) "
+						+ "and vi.localitat = (select localitat from viatge where id = ?) "
+						+ "and va.puntuacio = ?";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
+				pStatement.setInt(3, Integer.parseInt(viatge.getLocalitat()));
+				pStatement.setInt(4, viatge.getPuntuacio());
+				rs = pStatement.executeQuery();
+			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null) {
+				sql = "SELECT vi.*, va.puntuacio FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
+						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
+						+ "and vi.provincia = (select provincia from viatge where id = ?) "
+						+ "and va.puntuacio = ?";
+
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
+				pStatement.setInt(3, viatge.getPuntuacio());	
+				rs = pStatement.executeQuery();
+			} else if (viatge.getComunitat()!=null) {
+				sql = "SELECT vi.*, va.puntuacio FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
+						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
+						+ "and va.puntuacio = ?";
+
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				pStatement.setInt(2, viatge.getPuntuacio());
+				rs = pStatement.executeQuery();
+			} else {
+				sql = "SELECT vi.*, va.puntuacio FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id where va.puntuacio = ?";
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, viatge.getPuntuacio());
+				rs = pStatement.executeQuery();
+			}
+			
+		} else {
+			if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
+					&& viatge.getEntorn() != null && viatge.getDurada()!=null && viatge.getTipus()!=null) {
+				sql = "SELECT * FROM viatge "
+						+ "where comunitat = (select comunitat from viatge where id = ?) "
+						+ "and provincia = (select provincia from viatge where id = ?) "
+						+ "and localitat = (select localitat from viatge where id = ?) "
+						+ "and entorn = (select entorn from viatge where id = ?) "
+						+ "and durada = (select durada from viatge where id = ?) "
+						+ "and tipus = (select tipus from viatge where id = ?)";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
+				pStatement.setInt(3, Integer.parseInt(viatge.getLocalitat()));
+				pStatement.setInt(4, Integer.parseInt(viatge.getEntorn()));
+				pStatement.setInt(5, Integer.parseInt(viatge.getDurada()));
+				pStatement.setInt(6, Integer.parseInt(viatge.getTipus()));
+				rs = pStatement.executeQuery();
+			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
+					&& viatge.getEntorn() != null && viatge.getDurada()!=null) {
+				sql = "SELECT * FROM viatge "
+						+ "where comunitat = (select comunitat from viatge where id = ?) "
+						+ "and provincia = (select provincia from viatge where id = ?) "
+						+ "and localitat = (select localitat from viatge where id = ?) "
+						+ "and entorn = (select entorn from viatge where id = ?) "
+						+ "and durada = (select durada from viatge where id = ?) ";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
+				pStatement.setInt(3, Integer.parseInt(viatge.getLocalitat()));
+				pStatement.setInt(4, Integer.parseInt(viatge.getEntorn()));
+				pStatement.setInt(5, Integer.parseInt(viatge.getDurada()));
+				rs = pStatement.executeQuery();
+			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
+					&& viatge.getEntorn() != null) {
+				sql = "SELECT * FROM viatge "
+						+ "where comunitat = (select comunitat from viatge where id = ?) "
+						+ "and provincia = (select provincia from viatge where id = ?) "
+						+ "and localitat = (select localitat from viatge where id = ?) "
+						+ "and entorn = (select entorn from viatge where id = ?)";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
+				pStatement.setInt(3, Integer.parseInt(viatge.getLocalitat()));
+				pStatement.setInt(4, Integer.parseInt(viatge.getEntorn()));
+				rs = pStatement.executeQuery();
+			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null) {
+				sql = "SELECT * FROM viatge "
+						+ "where comunitat = (select comunitat from viatge where id = ?) "
+						+ "and provincia = (select provincia from viatge where id = ?) "
+				 		+ "and localitat = (select localitat from viatge where id = ?) ";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
+				pStatement.setInt(3, Integer.parseInt(viatge.getLocalitat()));
+				rs = pStatement.executeQuery();
+			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null) {
+				sql = "SELECT * FROM viatge "
+						+ "where comunitat = (select comunitat from viatge where id = ?) "
+						+ "and provincia = (select provincia from viatge where id = ?)";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
+				rs = pStatement.executeQuery();
+			} else if (viatge.getComunitat()!=null) {
+				sql = "SELECT * FROM viatge "
+						+ "where comunitat = (select comunitat from viatge where id = ?)";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				rs = pStatement.executeQuery();
+			}
+		}
+		List<Viatge> viatges = null;
+		try {
+			viatges = new ArrayList<Viatge>();
+			while (rs.next()) {
+				Viatge viatgeResult = new Viatge();
+				viatgeResult.setId(rs.getInt("id"));
+				viatgeResult.setComunitat(rs.getString("comunitat"));
+				viatgeResult.setProvincia(rs.getString("provincia"));
+				viatgeResult.setLocalitat(rs.getString("localitat"));
+				viatgeResult.setEntorn(rs.getString("entorn"));
+				viatgeResult.setDurada(rs.getString("durada"));
+				viatgeResult.setTipus(rs.getString("tipus"));
+				viatgeResult.setDescripcio(rs.getString("descripcio"));
+				viatgeResult.setTitol(rs.getString("titol"));
+				viatgeResult.setIdUsuari(rs.getInt("idUsuari"));
+				viatgeResult.setLocalitat(rs.getString("localitat"));
+				viatgeResult.setDataCreacio(rs.getDate("dataCreacio"));	
+				if (hasPuntuacio) {
+					viatgeResult.setPuntuacio(rs.getInt("puntuacio"));					
+				}
+				viatges.add(viatgeResult);
+			}
+			rs.close();
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();
+			}
+		}
+		
+		return viatges;
+	
 	}
 }
 

@@ -11,5 +11,8 @@ public interface DAOViatge{
 	public List<Viatge> llistarViatges() throws Exception;
 	public List<Viatge> llistarViatgesUsuari(int idUsuari) throws Exception;
 	public List<Viatge> obtenirViatges() throws Exception;
+	public List<Viatge> obtenirViatgesSegonComunitat(int id) throws Exception;
+	public List<Viatge> obtenirViatgesSegonLocalitat(int id) throws Exception;
+	public List<Viatge> obtenirViatgesPerFiltre(Viatge viatge) throws Exception;
 
 }

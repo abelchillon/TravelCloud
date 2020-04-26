@@ -24,62 +24,8 @@
     <body>
         <!-- Navegació/Header-->
         <%@include file="headerLogin.jsp" %>
-        
-        <!-- FILTROS BUSQUEDA VIAJE -->
-        <section>
-            <div class="row">
-                <div class="col-sm-12 formViaje">
-                    <form name="busquedaDestino" method="post" action="">
-                        <div class="forms">
-                            <select name="caDespl" class="selectpicker">
-                                <option value="noValid" disabled selected>Comunidad Autónoma...</option>
-                                <option value="Andalucia">Andalucia</option>
-                                <option value="Catalunya">Catalunya</option>
-                                <option value="PaisVasco">Pais Vaco</option>    
-                            </select>
-                            <select name="provincia" class="selectpicker">
-                                <option value="noValid" disabled selected>Provincia...</option>
-                                <option value="ejemplo1">Ejemplo1</option>
-                                <option value="ejemplo2">Ejemplo2</option>
-                                <option value="ejemplo2">Ejemplo3</option>
-                            </select>
-                            <select name="tipoViaje" class="selectpicker">
-                                <option value="noValid" disabled selected>Tipo viaje...</option>
-                                <option value="pareja">Pareja</option>
-                                <option value="Familia">Familia</option>
-                                <option value="Amigos">Amigos</option>
-                                <option value="Solitario">Solitario</option>
-                                <option value="Animales">Animales</option>
-                                <option value="Trabajo">Trabajo</option>
-                            </select>
-                            <select name="ubicacion" class="selectpicker">
-                                <option value="noValid" disabled selected>Ubicación...</option>
-                                <option value="Mar">Mar</option>
-                                <option value="MontaÃ±a">Montaña</option>
-                                <option value="Ciudad">Ciudad</option>
-                                <option value="Naturaleza">Naturaleza</option>
-                            </select>
-                            <select name="duracion" class="selectpicker">
-                                <option value="noValid" disabled selected>Duración...</option>
-                                <option value="1">1-3 dias</option>
-                                <option value="2">3-5 dias</option>
-                                <option value="3">5-7 dias</option>
-                                <option value="4">+7 dias</option>
-                            </select>
-                            <select name="valoracion" class="selectpicker">
-                                <option name="noValid" disabled selected>Valoración...</option>
-                                <option name="val1">1</option>
-                                <option name="val2">2</option>
-                                <option name="val3">3</option>
-                                <option name="val4">4</option>
-                                <option name="val5">5</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-        
+        <%@include file="filterSearch.jsp" %>
+        <p>hola
         <!--VISTAS VIAJES-->
         <section class="travels-section">
             <!--- FALTARIA MODIFICAR LOS NOMBRES, YA QUE NOSE CUALES HAS PUESTO ---->

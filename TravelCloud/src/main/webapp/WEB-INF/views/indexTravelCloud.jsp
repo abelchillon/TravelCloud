@@ -1,6 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -20,68 +22,70 @@
         <!--Icono ico-->
         <link href="<c:url value="/resources/img/favicon.ico" />" rel="shortcut icon">
     </head>
-    
+    <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
     <body>
         <!-- Navegació/Header--> 
         <%@include file="headerLogin.jsp" %>
+        <%@include file="filterSearch.jsp" %>
         
         <!-- CREACION APARTADO BUSQUEDA DESTINO-->
-        <section>
-            <div class="hero"> 
-                <div class="content">
+<!--         <section> -->
+<!--             <div class="hero">  -->
+<!--                 <div class="content"> -->
                 
-                    <div class="hero-inner">
-                        <h2>Busca tu destino</h2>
-                    </div>
-                    <!--FILTRO DE DESTINOS-->
-                    <form name="busquedaDestino" method="post" action="">
-                        <div class="forms">
-                        	<select name="caDespl" class="selectpicker">  
-                        		<option value="noValid" disabled selected>Comunidad Autónoma...</option>                        		                      
-	                        	<c:forEach items="${viatges}" var="v">
-	                        			<option value="${v.comunitat}">${v.comunitat}</option>
-								</c:forEach>	
-							</select>
-							<select name="provincia" class="selectpicker">  
-                                <option value="noValid" disabled selected>Provincia...</option>
-	                        	<c:forEach items="${viatges}" var="v">
-	                        			<option value="${v.provincia}">${v.provincia}</option>
-								</c:forEach>	
-							</select>
-							<select name="tipoViaje" class="selectpicker">  
-                                <option value="noValid" disabled selected>Tipo viaje...</option>
-	                        	<c:forEach items="${viatges}" var="v">
-	                        			<option value="${v.tipusViatger}">${v.tipus}</option>
-								</c:forEach>	
-							</select>
-                        </div>
-                        <div class="forms">
-                        	<select name="ubicacion" class="selectpicker">  
-                                <option value="noValid" disabled selected>Ubicación...</option>
-	                        	<c:forEach items="${viatges}" var="v">
-	                        			<option value="${v.entorn}">${v.entorn}</option>
-								</c:forEach>	
-							</select>
-							<select name="duracion" class="selectpicker">  
-                                <option value="noValid" disabled selected>Duracion...</option>
-	                        	<c:forEach items="${viatges}" var="v">
-	                        			<option value="${v.durada}">${v.durada}</option>
-								</c:forEach>	
-							</select>
-							<select name="valoracion" class="selectpicker">  
-                                <option value="noValid" disabled selected>Valoracion...</option>
-	                        	<c:forEach items="${valoracions}" var="val">
-	                        			<option value="${val.puntuacio}">${val.puntuacio}</option>
-								</c:forEach>	
-							</select>
-                        </div>
-                        <div class="button-search">
-                            <input type="submit" class="button log-button" value="Buscar" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
+<!--                     <div class="hero-inner"> -->
+<!--                         <h2>Busca tu destino</h2> -->
+<!--                     </div> -->
+                    
+<!--                     FILTRO DE DESTINOS -->
+<%--                     <form:form name="busquedaDestino" method="post" action="searchViatge"> --%>
+<!--                         <div class="forms"> -->
+<!--                         	<select name="caDespl" class="selectpicker">   -->
+<!--                         		<option value="noValid" disabled selected>Comunidad Autónoma...</option>                        		                       -->
+<%-- 	                        	<c:forEach items="${viatges}" var="v"> --%>
+<%-- 	                        			<option value="${v.comunitat}">${v.comunitat}</option> --%>
+<%-- 								</c:forEach>	 --%>
+<!-- 							</select> -->
+<!-- 							<select name="provincia" class="selectpicker">   -->
+<!--                                 <option value="noValid" disabled selected>Provincia...</option> -->
+<%-- 	                        	<c:forEach items="${viatges}" var="v"> --%>
+<%-- 	                        			<option value="${v.provincia}">${v.provincia}</option> --%>
+<%-- 								</c:forEach>	 --%>
+<!-- 							</select> -->
+<!-- 							<select name="tipoViaje" class="selectpicker">   -->
+<!--                                 <option value="noValid" disabled selected>Tipo viaje...</option> -->
+<%-- 	                        	<c:forEach items="${viatges}" var="v"> --%>
+<%-- 	                        			<option value="${v.tipus}">${v.tipus}</option> --%>
+<%-- 								</c:forEach>	 --%>
+<!-- 							</select> -->
+<!--                         </div> -->
+<!--                         <div class="forms"> -->
+<!--                         	<select name="ubicacion" class="selectpicker">   -->
+<!--                                 <option value="noValid" disabled selected>Ubicación...</option> -->
+<%-- 	                        	<c:forEach items="${viatges}" var="v"> --%>
+<%-- 	                        			<option value="${v.entorn}">${v.entorn}</option> --%>
+<%-- 								</c:forEach>	 --%>
+<!-- 							</select> -->
+<!-- 							<select name="duracion" class="selectpicker">   -->
+<!--                                 <option value="noValid" disabled selected>Duracion...</option> -->
+<%-- 	                        	<c:forEach items="${viatges}" var="v"> --%>
+<%-- 	                        			<option value="${v.durada}">${v.durada}</option> --%>
+<%-- 								</c:forEach>	 --%>
+<!-- 							</select> -->
+<!-- 							<select name="valoracion" class="selectpicker">   -->
+<!--                                 <option value="noValid" disabled selected>Valoracion...</option> -->
+<%-- 	                        	<c:forEach items="${valoracions}" var="val"> --%>
+<%-- 	                        			<option value="${val.puntuacio}">${val.puntuacio}</option> --%>
+<%-- 								</c:forEach>	 --%>
+<!-- 							</select> -->
+<!--                         </div> -->
+<!--                         <div class="button-search"> -->
+<!--                             <input type="submit" class="button log-button" value="Buscar" /> -->
+<!--                         </div> -->
+<%--                     </form:form> --%>
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </section> -->
         
         <!-- Seccion descubre lugares-->
         <section class="features">
@@ -133,7 +137,7 @@
                 </div>
             </div>
             <!--Boton para ir a la pagina de busqueda de viages-->
-            <div class="blog-cta"><a class="button ghost-button" href="/TravelCloud/comunidades">Descubre mas lugares</a></div>
+            <div class="blog-cta"><a class="button ghost-button" href="${contextPath}/comunidades">Descubre mas lugares</a></div>
         </section>
         
 
@@ -145,8 +149,8 @@
                 </div>
                 <div class="col-sm-6 hero-logins">
                     <div class="log-cta">
-                        <a class="log-button" href="/TravelCloud/userLogin">Iniciar Sesión</a>
-                        <a class="log-button" href="/TravelCloud/userRegister">Registrarse</a>
+                        <a class="log-button" href="${contextPath}/userLogin">Iniciar Sesión</a>
+                        <a class="log-button" href="${contextPath}/userRegister">Registrarse</a>
                     </div>    
                 </div>
             </div>
@@ -169,7 +173,7 @@
 	                    <div class="blog-text">
 	                        <p class="blog-title">${viaje.titulo}</p>
 	                        <p class="blog-summary">${viaje.descripcion}</p>
-	                        <a class="button button-blog" href="/TravelCloud/travelView">Ver viaje</a>
+	                        <a class="button button-blog" href="${contextPath}/travelView">Ver viaje</a>
 	                        <c:if test="${tipusUsuari == USER_LOGIN }">
 	                        	<a class="button button-blog" href="#">Añadir a la lista deseos</a>
 	                        </c:if>
@@ -178,7 +182,7 @@
 	            </div>
 	                
 	            <div class="blog-cta blog-cta-button">
-	            	<a class="button ghost-button" href="/TravelCloud/travelSearch">Ver mas</a>
+	            	<a class="button ghost-button" href="${contextPath}/travelSearch">Ver mas</a>
 	        	</div>
                 
             </div>

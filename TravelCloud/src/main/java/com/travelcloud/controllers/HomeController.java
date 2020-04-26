@@ -3,20 +3,26 @@ package com.travelcloud.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.objenesis.instantiator.basic.NewInstanceInstantiator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.travelcloud.model.Missatge;
 import com.travelcloud.model.Usuari;
 import com.travelcloud.model.Valoracio;
+import com.travelcloud.model.Viatge;
 import com.travelcloud.service.IMissatgeService;
 import com.travelcloud.service.IUsuariService;
 import com.travelcloud.service.IValoracioService;
@@ -48,15 +54,79 @@ public class HomeController {
 	}
 		
 	@RequestMapping(value="index", method=RequestMethod.GET)	
-	public String indexTravelCloud(Model model) {
+	public String indexTravelCloud(HttpSession session, ModelMap model) {
 		try {
-			model.addAttribute("viatges",viatgeService.obtenirViatges());
-			model.addAttribute("valoracions",valoracioService.obtenirPuntuacions());
+			List<Viatge> viatges = viatgeService.obtenirViatges();
+			if (viatges != null) {
+				model.addAttribute("viatges",viatges);
+				model.addAttribute("viatge", new Viatge());
+			}
 		} catch (Exception e) {
 			System.out.println("No s'ha pogut obtenir els viatges.");
 			e.printStackTrace();
 		}
 		return "indexTravelCloud";
+	}
+	
+	@RequestMapping(value = "search_filter", method = RequestMethod.POST)
+	@ResponseBody
+    public List<Viatge> getModals(@RequestParam(value = "tipo", required = true) String tipo) {
+	    System.out.println("valor pasado como pasametro: " + tipo);
+	    try {
+	    	List<Viatge> viatges = viatgeService.obtenirViatgesSegonComunitat(Integer.parseInt(tipo));
+	    	if (viatges != null) {
+	    		return viatges;
+			} else {
+				return null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	    
+	    return null;
+	 }
+	
+	@RequestMapping(value = "search_filter_localitat", method = RequestMethod.POST)
+	@ResponseBody
+    public List<Viatge> getModalsLocalitat(@RequestParam(value = "tipo", required = true) String tipo) {
+	    System.out.println("valor pasado como pasametro: " + tipo);
+	    try {
+	    	List<Viatge> viatges = viatgeService.obtenirViatgesSegonLocalitat(Integer.parseInt(tipo));
+	    	
+	    	if (viatges != null) {
+	    		return viatges;
+			} else {
+				return null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	    
+	    return null;
+	 }
+	
+	@RequestMapping(value="/searchViatge", method=RequestMethod.POST)
+	public ModelAndView resultados(@ModelAttribute("viatges") Viatge viatge,
+			HttpSession session, ModelMap model) {
+		try {
+			List<Viatge> viatges = viatgeService.obtenirViatges();
+			if (viatges != null) {
+				model.addAttribute("viatges",viatges);
+				model.addAttribute("viatge", new Viatge());
+				List<Viatge> travels = viatgeService.obtenirViatgesPerFiltre(viatge);
+				if (travels!=null && travels.size()>0) {
+					model.addAttribute("travels",travels);
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("No s'ha pogut obtenir els viatges.");
+			e.printStackTrace();
+		}
+		System.out.println(viatge.toString());
+		ModelAndView mav = new ModelAndView("travelSearch");
+		mav.addObject("viatge", viatge);
+		
+		return mav;
 	}
 	
 	@RequestMapping(value="userPage", method=RequestMethod.GET)	
