@@ -9,6 +9,7 @@ public interface IMissatgeService {
 	public void eliminarMissatge(Missatge missatge) throws Exception;
 	
 	public List<Missatge> llistatMissatges() throws Exception;
-	public List<Missatge> llistatMissatgesUsuari(int idUsuariEmisor, int idUsuariReceptor) throws Exception;
-
+	public List<Missatge> llistatCadenaMissatgesUsuari(int idUsuariEmisor, int idUsuariReceptor) throws Exception;
+	
+	public List<Missatge> llistatMissatgeUsuari(int idUsuariReceptor) throws Exception;
 }
