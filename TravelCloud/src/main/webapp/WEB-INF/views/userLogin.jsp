@@ -33,7 +33,7 @@
             </div>
             <div class="container">
                 <div class="form">
-                    <form class="well form-horizontal" method="post">
+                    <form class="well form-horizontal" method="post" action="userLogin">
                         <fieldset>
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Correo electrónico</label>
@@ -53,7 +53,7 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-eye-open"></i>
                                         </span>
-                                        <input id="pasword" name="pasword" class="form-control" value="" type="password" placeholder="contraseÃ±a (8 caracters mÃ­nimo)" minlength="8" required>
+                                        <input id="pasword" name="pasword" class="form-control" value="" type="password" placeholder="contraseña (8 caracteres mínimo)" minlength="8" required>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                 <label class="form-check-label" for="politica">Guardar datos de acceso</label>
                             </div>
                             <div class="form-group" id="botons">
-                                <input type="submit" class="btn btn-secondary" value="Iniciar sesión">
+                                <input type="submit" class="btn btn-secondary" value="Iniciar sesión" name="login">
                             </div>
                         </fieldset>
                     </form>

@@ -37,7 +37,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal" action="/addTravel" method="POST">
+                            <form class="well form-horizontal" action="addTravel" method="POST">
                                 <fieldset>
                                     
                                     <div class="td-head">
@@ -51,7 +51,7 @@
                                                     <span class="input-group-addon" style="max-width: 100%;">
                                                         <i class="glyphicon glyphicon-map-marker"></i>
                                                     </span>
-                                                    <input id="email" name="email" placeholder="TÃ­tulo del viaje" class="form-control" required="true" value="" type="text">
+                                                    <input id="email" name="email" placeholder="Título del viaje" class="form-control" required="true" value="" type="text">
                                                 </div>
                                             </div>
                                     </div>
@@ -63,11 +63,9 @@
                                                     <i class="glyphicon glyphicon-map-marker"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="NoValid">Selecciona una Comunidad Autónoma ...</option> 
-                                                    <option value="Andalucia">Andalucia</option> 
-                                                    <option value="Galicia">Galicia</option> 
-                                                    <option value="CataluÃ±a">Cataluña</option>
-                                                    <option value="Asturias">Asturias</option> 
+                                                    <c:forEach items="${viatges}" var="v">
+	                        							<option value="${v.comunitat}">${v.comunitat}</option>
+													</c:forEach>
                                                 </select>
                                             </div>
                                         </div>
@@ -80,18 +78,16 @@
                                                     <i class="glyphicon glyphicon-map-marker"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="NoValid">Selecciona una Pronvicia ...</option> 
-                                                    <option value="Andalucia">Barcelona</option> 
-                                                    <option value="Galicia">Girona</option> 
-                                                    <option value="CataluÃ±a">Lleida</option>
-                                                    <option value="Asturias">Tarragona</option> 
+                                                    <c:forEach items="${viatges}" var="v">
+	                        							<option value="${v.provincia}">${v.provincia}</option>
+													</c:forEach>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <div class="td-head">
-                                        <p>DescripciÃ³n</p>
+                                        <p>Descripción</p>
                                     </div>
                                      
                                     <div class="form-group">
@@ -132,13 +128,9 @@
                                                     <i class="glyphicon glyphicon-user"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="noValid" selected>Selecciona tipo de viaje ...</option> 
-                                                    <option value="Andalucia">Pareja</option> 
-                                                    <option value="Galicia">Familia</option> 
-                                                    <option value="CataluÃ±a">Amigos</option>
-                                                    <option value="Asturias">Solitario</option> 
-                                                    <option value="Asturias">Animales</option> 
-                                                    <option value="Asturias">Trabajo</option> 
+                                                    <c:forEach items="${viatges}" var="v">
+	                        							<option value="${v.tipusViatger}">${v.tipus}</option>
+													</c:forEach> 
                                                 </select>
                                             </div>
                                         </div>
@@ -151,11 +143,9 @@
                                                     <i class="glyphicon glyphicon-leaf"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="noValid" selected>Selecciona ubicación...</option>
-                                                    <option value="Mar">Mar</option>
-                                                    <option value="MontaÃ±a">Montaña</option>
-                                                    <option value="Ciudad">Ciudad</option>
-                                                    <option value="Naturaleza">Naturaleza</option> 
+                                                    <c:forEach items="${viatges}" var="v">
+					                        			<option value="${v.entorn}">${v.entorn}</option>
+													</c:forEach> 
                                                 </select>
                                             </div>
                                         </div>
@@ -168,40 +158,31 @@
                                                     <i class="glyphicon glyphicon-time"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="noValid" selected>Selecciona duración...</option>
-                                                    <option value="1">1-3 dias</option>
-                                                    <option value="2">3-5 dias</option>
-                                                    <option value="3">5-7 dias</option>
-                                                    <option value="4">+7 dias</option>
+                                                    <c:forEach items="${viatges}" var="v">
+					                        			<option value="${v.durada}">${v.durada}</option>
+													</c:forEach> 
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <div class="i-button">
-                                        <input type="button" value="Subir Imagenes" class="button img-button" />
+                                        <input type="button" value="Subir Imagenes" class="button img-button" id="subirImagenesViaje"/>
                                     </div>
                                     
                                     <!-- imagenes viaje-->
                                     <div class="imgs-travel">
-                                        <div>
-                                            <img alt="imagen viaje 1" src="https://picsum.photos/300/300?random=1" />
-                                        </div>
-                                        <div>
-                                            <img alt="imagen viaje 1" src="https://picsum.photos/300/300?random=2" />
-                                        </div>
-                                        <div>
-                                            <img alt="imagen viaje 1" src="https://picsum.photos/300/300?random=3" />
-                                        </div>
-                                        <div>
-                                            <img alt="imagen viaje 1" src="https://picsum.photos/300/300?random=4" />
-                                        </div>
+                                        <c:forEach var="imagen" items="${travelImgs}" varStatus="status">
+						                    <div>
+						                        <img alt="imagen viaje usuario" src="${imagen.src}" />
+						                    </div>
+                						</c:forEach>
                                     </div>
                                     
                                     <!-- botones -->
                                     <div class="form-group" id="botons">
-                                        <input type="submit" id="savePage" class="btn btn-secondary" value="Guardar">
-                                        <input type="submit" id="cancelUpdate" class="btn btn-secondary" value="Cancelar">
+                                        <input type="submit" name="afegirViatge" class="btn btn-secondary" value="Guardar">
+                                        <input type="submit" name="cancelarViatge" class="btn btn-secondary" value="Cancelar">
                                     </div>
                                   
                                 </fieldset>

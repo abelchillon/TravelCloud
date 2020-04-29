@@ -73,7 +73,7 @@ public class DAOValoracioImpl implements DAOValoracio{
 		}
 	}
 	@Override
-	public void eliminarValoracio(Valoracio valoracio) throws Exception{  // se tendra que cambiar cuando haya id de valoracion...
+	public void eliminarValoracio(Valoracio valoracio) throws Exception{  
 		String sql = "DELETE FROM valoracio  WHERE idUsuari = ? AND idViatge = ?";
 		
 		Connection connection = null;
@@ -94,7 +94,6 @@ public class DAOValoracioImpl implements DAOValoracio{
 	}
 	@Override
 	public List<Valoracio> llistarValoracionsPerViatge(int idViatgeValoracio) throws Exception{
-		
 		String sql = "SELECT * FROM valoracio WHERE idViatge = ?";
 		Connection connection = null;
 		try {
@@ -163,5 +162,31 @@ public class DAOValoracioImpl implements DAOValoracio{
 			}
 		}
 		return valoracions;
+	}
+	
+	@Override
+	public int puntuacioTotalViatge(int idViatge) throws Exception {
+		String sql = "SELECT puntuacio FROM valoracio WHERE idViatge = ?";
+		Connection connection = null;
+		int puntuacio;
+		int puntuacioTotal = 0;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			ResultSet rs = pStatement.executeQuery();
+			pStatement.setInt(1, idViatge);
+			while(rs.next()) {
+				puntuacio = rs.getInt("puntuacio");
+				puntuacioTotal = puntuacioTotal + puntuacio;
+			}
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		return puntuacioTotal;
 	}
 }

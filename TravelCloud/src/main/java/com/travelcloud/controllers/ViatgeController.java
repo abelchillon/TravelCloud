@@ -25,8 +25,37 @@ public class ViatgeController {
 	@Qualifier("viatgeService")
 	private IViatgeService viatgeService;
 	
-	//PROCESAR FORMULARIO PARA AÑADIR VIAJES
-		@RequestMapping(value="/addTravel", method= RequestMethod.POST)
+	
+		@RequestMapping(value="/afegirViatge", method= RequestMethod.POST)
+		public ModelAndView afegirViatge(@ModelAttribute("viatge") Viatge viatge) throws Exception {
+			System.out.println(viatge.toString());
+			ModelAndView mav = new ModelAndView(" ");
+			mav.addObject("viatge", viatge);
+			try {
+				viatgeService.insertarViatge(viatge);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return mav;
+		}
+		
+		@RequestMapping(value="/cancelarViatge", method= RequestMethod.POST)
+		public ModelAndView cancelarViatge(@ModelAttribute("viatge") Viatge viatge) throws Exception {
+			System.out.println(viatge.toString());
+			ModelAndView mav = new ModelAndView(" ");
+			mav.addObject("viatge", viatge);
+			try {
+				viatgeService.eliminarViatge(viatge);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return mav;
+		}
+		
+		
+		//PROCESAR FORMULARIO PARA AÑADIR VIAJES
 		public String processFormAddTravel(@ModelAttribute("newTravel") Viatge viatge) throws Exception {
 			viatgeService.insertarViatge(viatge);
 			return "redirect:/userPage";

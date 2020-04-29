@@ -25,36 +25,37 @@
         <!-- Navegació/Header-->
         <%@include file="headerLogin.jsp" %>
         <%@include file="filterSearch.jsp" %>
-        <p>hola
         <!--VISTAS VIAJES-->
         <section class="travels-section">
-            <!--- FALTARIA MODIFICAR LOS NOMBRES, YA QUE NOSE CUALES HAS PUESTO ---->
             <c:forEach var="travel" items="${travelList}" varStatus="status">
                 <div class="travelContainer">
                     <div class="travel-img">
-                        <img alt="imagenViage" src="${travel.travelFoto}" />
+                        <img alt="Imagen Principal Viaje" src="${travel.travelFoto}" />
                     </div>
                     <div class="travel">
                         <div class="travel-info">
-                            <p class="blog-title">${travel.nomViatge}</p>
-                            <p class="descrip-travel">${travel.descripcioViatge}</p>
+                            <p class="blog-title">${travel.titol}</p>
+                            <p class="descrip-travel">${travel.descripcio}</p>
                         </div>
                         <div class="row">
                             <div class="col-sm-5">
-                                <p class="blog-user"><c:out value="${travel.userName}"/></p>
+                                <p class="blog-user"><c:out value="${travel.idUsuari}"/></p>
                                 <p class="blog-user"><c:out value="${travel.valoracio}"/></p>
 
                             </div>
                             <div class="col-sm-6">
-                                <a class="button button-blog" href="/TravelCloud/travelView">Ver viaje</a>
+                            	<form action="botonesTravelSearch" method="post">
+                            	
+                                <input type="submit" class="button button-blog" value="Ver viaje" name="verViaje"/>
                                 <c:choose>
                                     <c:when test="${tipusUser = 'ADMIN'}">
-                                        <a class="button button-blog" href="#">Eliminar</a>
+                                        <input type="submit" class="button button-blog" value="Eliminar" name="eliminarViaje"/>
                                     </c:when>
                                     <c:when test="${tipusUser = 'USER'}">
-                                        <a class="button button-blog" href="#">Añadir Lista Deseos</a>
+                                        <input type="submit" class="button button-blog" value="Añadir Lista Deseos" name="addWishList"/>
                                     </c:when>
                                 </c:choose>
+                                </form>
                             </div>
                         </div>
                     </div>

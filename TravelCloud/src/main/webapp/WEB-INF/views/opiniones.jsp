@@ -31,7 +31,7 @@
         <section>
             <div class="callout-inner">
                 <div>
-                    <h3>Deja tu valoraciÃ³n</h3>
+                    <h3>Deja tu valoración</h3>
                 </div>   
             </div>
             <div class="container">
@@ -39,7 +39,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal" action="/addValoracio" method="POST">
+                            <form class="well form-horizontal" action="addValoracio" method="POST">
                                 <fieldset>
                                     <div class="form-group">
                                         <label class="col-md-4 control-label">¿Qué te ha parecido este viaje?</label>
@@ -50,11 +50,9 @@
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
                                                     <option name="noValid" selected>Puntua este viaje...</option>
-                                                    <option name="val1">1</option>
-                                                    <option name="val2">2</option>
-                                                    <option name="val3">3</option>
-                                                    <option name="val4">4</option>
-                                                    <option name="val5">5</option> 
+                                                    <c:forEach items="${valoracions}" var="val">
+	                        							<option value="${val.puntuacio}">${val.puntuacio}</option>
+													</c:forEach>	
                                                 </select>
                                             </div>
                                         </div>
@@ -68,8 +66,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Guardar">
-                                        <input type="submit" class="btn btn-secondary" value="Cancelar">
+                                        <input type="submit" class="btn btn-secondary" value="Guardar" name="guardarValoracion">
+                                        <input type="submit" class="btn btn-secondary" value="Cancelar" name="cancelarValoracion">
                                     </div>
                                 </fieldset>
                             </form>

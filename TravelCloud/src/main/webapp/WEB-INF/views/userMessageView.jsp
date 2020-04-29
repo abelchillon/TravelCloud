@@ -30,30 +30,33 @@
         <section id="section-message" class="travels-section">
             <div class="wishList">
                 <div class="title-message">
-                    <h2><c:out value="${tituloMensaje}"/></h2>
+                    <h2><c:out value="${missatge.titol}"/></h2>
                 </div>
             </div>
             
             <div class="travelContainer">
                 <div class="travel">
                     <div class="travel-info">
-                        <p class="descrip-travel"><c:out value="${descripcionMensaje}"/></p>
+                        <p class="descrip-travel"><c:out value="${missatge.cos}"/></p>
                     </div>
                     <div class="row">
                         <div class="col-sm-5">
-                            <p class="blog-user"><c:out value="${fechaMensaje}"/></p>
-                            <p class="blog-user"><c:out value="${nombreUsuario}"/></p>
+                            <p class="blog-user"><c:out value="${missatge.dataCreacio}"/></p>
+                            <p class="blog-user"><c:out value="${missatge.idUsuari}"/></p>
                         </div>
                         <div class="col-sm-6">
-                            <a class="button button-blog" id="response-button">Responder</a>  
-                            <a class="button button-blog deleteMessage">Eliminar</a>  
+                        	<form action="botonsMissatge" method="post">
+	                            <input type="submit" class="button button-blog" id="response-button" value="Responder"/>  
+	                            <input type="submit" class="button button-blog deleteMessage" name="deleteMessage" value="Eliminar"/> 
+                          	</form>  
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         
-    <!--RESPONDER -->    
+    <!--RESPONDER -->
+    	<form action="responderMensaje" method="post">    
         <section id="response-message" class="travels-section">
             <div class="wishList">
                 <div class="title-message">
@@ -63,15 +66,16 @@
             <div class="travelContainer">
                 <div class="travel">
                     <div class="travel-info">    
-                        <textarea placeholder="Escribe aquÃ­ tu respuesta..." class="form-control response" required="true" value=""></textarea>    
+                        <textarea placeholder="Escribe aquí tu respuesta..." class="form-control response" required="true" value=""></textarea>    
                     </div>
                     <div class="form-group" id="botons">
-                        <input id="send-button" type="submit" class="button button-blog" value="Enviar mensaje">
-                        <input id="cancel-button" type="submit" class="button button-blog" id="cancelMessage" value="Cancelar">
+                        <input id="send-button" name="enviarMissatge" type="submit" class="button button-blog" value="Enviar mensaje">
+                        <input id="cancel-button" name="cancelarMissatge" type="submit" class="button button-blog" value="Cancelar">
                     </div>           
              </div>
             </div>
         </section>
+        </form>
     
     <!--RESPUESTAS USUARIO -->  
         <section class="travels-section">
@@ -85,15 +89,17 @@
                 <div class="travelContainer">
                     <div class="travel">
                         <div class="travel-info">
-                            <p class="descrip-travel">${mensaje.descripcion}</p>
+                            <p class="descrip-travel">${mensaje.cos}</p>
                         </div>
                         <div class="row">
                             <div class="col-sm-5">
-                                <p class="blog-user">${mensaje.fechaRespuesta}</p>
-                                <p class="blog-user">${mensaje.nombreUsuario}</p>
+                                <p class="blog-user">${mensaje.dataCreacio}</p>
+                                <p class="blog-user">${mensaje.idUsuari}</p>
                             </div>
-                            <div class="col-sm-6">  
-                                <a class="button button-blog deleteMessage">Eliminar</a>  
+                            <div class="col-sm-6">
+                            	<form action="eliminarMensaje" method="post">  
+                                <input type="submit" class="button button-blog deleteMessage" value="Eliminar" name="deleteMessage"/>
+                                </form>  
                             </div>
                         </div>
                     </div>

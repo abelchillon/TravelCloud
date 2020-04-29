@@ -85,7 +85,22 @@ public class DAOViatgeImpl implements DAOViatge{
 	
 	@Override
 	public void eliminarViatge(Viatge viatge) throws Exception{
+		String sql = "DELETE FROM viatge  WHERE id = ?";
 		
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, viatge.getId());
+			pStatement.executeUpdate();
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
 	}
 	
 	//LISTAR TODOS LOS VIAJES
@@ -522,6 +537,30 @@ public class DAOViatgeImpl implements DAOViatge{
 		
 		return viatges;
 	
+	}
+	
+	@Override
+	public int totalViatgesUsuari(int idUsuari) throws Exception {
+		String sql = "SELECT idViatge FROM viatges WHERE idUsuari = ?";
+		Connection connection = null;
+		int totalViatges = 0;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			ResultSet rs = pStatement.executeQuery();
+			pStatement.setInt(1, idUsuari);
+			while(rs.next()) {
+				totalViatges++;
+			}
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		return totalViatges;
 	}
 }
 

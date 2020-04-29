@@ -20,6 +20,7 @@ import com.travelcloud.repository.DAOMissatge;
 public class DAOMissatgeImpl implements DAOMissatge{
 	
 	List<Missatge> llistatMissatges;
+	List<Missatge> llistatCadenaMissatgesUsuari;
 	List<Missatge> llistatMissatgesUsuari;
 	
 	@Autowired
@@ -96,13 +97,52 @@ public class DAOMissatgeImpl implements DAOMissatge{
 	}
 	
 	@Override
-	public List<Missatge> llistatMissatgesUsuari(int idUsuariEmisor, int idUsuariReceptor) throws Exception{
+	public List<Missatge> llistatCadenaMissatgesUsuari(int idUsuariEmisor, int idUsuariReceptor) throws Exception{
 		String sql = "SELECT * FROM missatge WHERE idUsuari = ? AND idAssessor = ?";
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
 			pStatement.setInt(1, idUsuariEmisor);
+			pStatement.setInt(2, idUsuariReceptor);
+			ResultSet rs = pStatement.executeQuery();
+			while(rs.next()) {
+				Missatge missatge = makeMissatge(rs);
+				llistatCadenaMissatgesUsuari.add(missatge);
+			}
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		return llistatCadenaMissatgesUsuari;
+	}
+	
+	private Missatge makeMissatge(ResultSet rs) throws SQLException {
+		int id = rs.getInt("id");
+		String titol = rs.getString("titol");
+		String cos = rs.getString("cos");		
+		int idUsuari = rs.getInt("idUsuari");
+		int idAssessorament = rs.getInt("idAssessorament");
+		int idAssessor = rs.getInt("idAssessor");		
+		Date dataCreacio = rs.getDate("dataCreacio");
+		
+		Missatge missatge = new Missatge(id, titol, cos, idUsuari, idAssessorament, idAssessor, dataCreacio);
+		
+		return missatge;
+		
+	}
+	
+	@Override
+	public List<Missatge> llistatMissatgeUsuari(int idUsuariReceptor) throws Exception {
+		String sql = "SELECT * FROM missatge WHERE idUsuari = ?";
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
 			pStatement.setInt(1, idUsuariReceptor);
 			ResultSet rs = pStatement.executeQuery();
 			while(rs.next()) {
@@ -118,20 +158,6 @@ public class DAOMissatgeImpl implements DAOMissatge{
 			}
 		}
 		return llistatMissatgesUsuari;
-	}
-	
-	private Missatge makeMissatge(ResultSet rs) throws SQLException {
-		int id = rs.getInt("id");
-		String titol = rs.getString("titol");
-		String cos = rs.getString("cos");		
-		int idUsuari = rs.getInt("idUsuari");
-		int idAssessorament = rs.getInt("idAssessorament");
-		int idAssessor = rs.getInt("idAssessor");		
-		Date dataCreacio = rs.getDate("dataCreacio");
-		
-		Missatge missatge = new Missatge(id, titol, cos, idUsuari, idAssessorament, idAssessor, dataCreacio);
-		
-		return missatge;
 		
 	}
 }

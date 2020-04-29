@@ -37,16 +37,18 @@
                 <div class="travelContainer">
                     <div class="travel">
                         <div class="travel-info">
-                            <p class="blog-title">${mensaje.titulo}</p>
-                            <p class="descrip-travel">${mensaje.descripcion}</p>
+                            <p class="blog-title">${mensaje.titol}</p>
+                            <p class="descrip-travel">${mensaje.cos}</p>
                         </div>
                         <div class="row">
                             <div class="col-sm-5">
-                                <p class="blog-user">${mensaje.descripcion.fecha}</p>
-                                <p class="blog-user">${mensaje.descripcion.nomUsuari}</p>
+                                <p class="blog-user">${mensaje.dataCreacio}</p>
+                                <p class="blog-user">${mensaje.idUsuari}</p>
                             </div>
                             <div class="col-sm-6">
-                                <a class="button button-blog" href="/TravelCloud/userMessageView">Ver mensaje</a>  
+                            	<form action="veureMissatge" method="post">
+                                	<input type="submit" class="button button-blog" value="Ver mensaje" name="veureMissatge"/>  
+                                </form>
                             </div>
                         </div>
                     </div>

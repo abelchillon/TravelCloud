@@ -46,10 +46,21 @@ public class MissatgeServiceImpl implements IMissatgeService{
 	}
 	
 	@Override
-	public List<Missatge> llistatMissatgesUsuari(int idUsuariEmisor, int idUsuariReceptor) throws Exception{
+	public List<Missatge> llistatCadenaMissatgesUsuari(int idUsuariEmisor, int idUsuariReceptor) throws Exception{
+		List<Missatge> missatgesCadenaUsuari;
+		try {
+			missatgesCadenaUsuari = daoMissatge.llistatCadenaMissatgesUsuari(idUsuariEmisor, idUsuariReceptor);
+		} catch (Exception e) {
+			throw e;
+		}
+		return missatgesCadenaUsuari;
+	}
+	
+	@Override
+	public List<Missatge> llistatMissatgeUsuari(int idUsuariReceptor) throws Exception{
 		List<Missatge> missatgesUsuari;
 		try {
-			missatgesUsuari = daoMissatge.llistatMissatgesUsuari(idUsuariEmisor, idUsuariReceptor);
+			missatgesUsuari = daoMissatge.llistatMissatgeUsuari(idUsuariReceptor);
 		} catch (Exception e) {
 			throw e;
 		}

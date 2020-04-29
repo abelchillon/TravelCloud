@@ -57,20 +57,23 @@
                     </div>
                     <div class="travel">
                         <div class="travel-info">
-                            <p class="blog-title">${travel.nomViatge}</p>
+                            <p class="blog-title">${travel.titol}</p>
                             <p class="descrip-travel">${travel.descripcio}</p>
                         </div>
                         <div class="row">
                             <div class="col-sm-5">
-                                <p class="blog-user">${travel.fechaViaje}</p>
-                                <p class="blog-user">${travel.Valoracion}</p>
+                                <p class="blog-user">${travel.dataCreacio}</p>
+                                <p class="blog-user">${travel.puntuacio}</p>
 
                             </div>
                             <div class="col-sm-6">
-                                <a class="button button-blog" href="/TravelCloud/travelView">Ver viaje</a>  
-                                <c:if test="${tipusUser == 'USER'}">
-                                    <a class="button button-blog" id="deleteTravelWishList">Elimintar de la lista</a>
+                            <form action="botonsWishList" method="post">
+                            
+                                <input type="submit" class="button button-blog" value="Ver viaje" name="verViaje"/>  
+                                <c:if test="${tipusUser == 'USER'}"> <!-- YSM- falta comparar id usuario -->
+                                    <a class="button button-blog" name="deleteTravelWishList" value="Eliminar de la lista"/>
                                 </c:if>
+                            </form>
                             </div>
                         </div>
                     </div>

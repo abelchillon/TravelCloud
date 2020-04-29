@@ -35,7 +35,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal" action="/addUser" method="POST">
+                            <form class="well form-horizontal" action="addUser" method="POST">
                                 <fieldset>
                                     <div class="td-head">
                                         <p>Datos de acceso</p>
@@ -96,11 +96,9 @@
                                                     <i class="glyphicon glyphicon-map-marker"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="NoValid">Selecciona una Comunidad Autónoma ...</option> 
-                                                    <option value="Andalucia">Andalucia</option> 
-                                                    <option value="Galicia">Galicia</option> 
-                                                    <option value="CataluÃ±a">Cataluña</option>
-                                                    <option value="Asturias">Asturias</option> 
+                                                    <c:forEach items="${viatges}" var="v">
+	                        							<option value="${v.comunitat}">${v.comunitat}</option>
+													</c:forEach>
                                                 </select>
                                             </div>
                                         </div>
@@ -111,7 +109,7 @@
                                     </div>
 
                                     <div class="form-group" id="botons">
-                                        <input type="submit" class="btn btn-secondary" value="Darse de alta">
+                                        <input type="submit" class="btn btn-secondary" value="Darse de alta" name="registrarUser">
                                     </div>
                                 </fieldset>
                             </form>

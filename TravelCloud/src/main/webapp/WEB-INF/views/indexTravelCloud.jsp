@@ -28,65 +28,6 @@
         <%@include file="headerLogin.jsp" %>
         <%@include file="filterSearch.jsp" %>
         
-        <!-- CREACION APARTADO BUSQUEDA DESTINO-->
-<!--         <section> -->
-<!--             <div class="hero">  -->
-<!--                 <div class="content"> -->
-                
-<!--                     <div class="hero-inner"> -->
-<!--                         <h2>Busca tu destino</h2> -->
-<!--                     </div> -->
-                    
-<!--                     FILTRO DE DESTINOS -->
-<%--                     <form:form name="busquedaDestino" method="post" action="searchViatge"> --%>
-<!--                         <div class="forms"> -->
-<!--                         	<select name="caDespl" class="selectpicker">   -->
-<!--                         		<option value="noValid" disabled selected>Comunidad Autónoma...</option>                        		                       -->
-<%-- 	                        	<c:forEach items="${viatges}" var="v"> --%>
-<%-- 	                        			<option value="${v.comunitat}">${v.comunitat}</option> --%>
-<%-- 								</c:forEach>	 --%>
-<!-- 							</select> -->
-<!-- 							<select name="provincia" class="selectpicker">   -->
-<!--                                 <option value="noValid" disabled selected>Provincia...</option> -->
-<%-- 	                        	<c:forEach items="${viatges}" var="v"> --%>
-<%-- 	                        			<option value="${v.provincia}">${v.provincia}</option> --%>
-<%-- 								</c:forEach>	 --%>
-<!-- 							</select> -->
-<!-- 							<select name="tipoViaje" class="selectpicker">   -->
-<!--                                 <option value="noValid" disabled selected>Tipo viaje...</option> -->
-<%-- 	                        	<c:forEach items="${viatges}" var="v"> --%>
-<%-- 	                        			<option value="${v.tipus}">${v.tipus}</option> --%>
-<%-- 								</c:forEach>	 --%>
-<!-- 							</select> -->
-<!--                         </div> -->
-<!--                         <div class="forms"> -->
-<!--                         	<select name="ubicacion" class="selectpicker">   -->
-<!--                                 <option value="noValid" disabled selected>Ubicación...</option> -->
-<%-- 	                        	<c:forEach items="${viatges}" var="v"> --%>
-<%-- 	                        			<option value="${v.entorn}">${v.entorn}</option> --%>
-<%-- 								</c:forEach>	 --%>
-<!-- 							</select> -->
-<!-- 							<select name="duracion" class="selectpicker">   -->
-<!--                                 <option value="noValid" disabled selected>Duracion...</option> -->
-<%-- 	                        	<c:forEach items="${viatges}" var="v"> --%>
-<%-- 	                        			<option value="${v.durada}">${v.durada}</option> --%>
-<%-- 								</c:forEach>	 --%>
-<!-- 							</select> -->
-<!-- 							<select name="valoracion" class="selectpicker">   -->
-<!--                                 <option value="noValid" disabled selected>Valoracion...</option> -->
-<%-- 	                        	<c:forEach items="${valoracions}" var="val"> --%>
-<%-- 	                        			<option value="${val.puntuacio}">${val.puntuacio}</option> --%>
-<%-- 								</c:forEach>	 --%>
-<!-- 							</select> -->
-<!--                         </div> -->
-<!--                         <div class="button-search"> -->
-<!--                             <input type="submit" class="button log-button" value="Buscar" /> -->
-<!--                         </div> -->
-<%--                     </form:form> --%>
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </section> -->
-        
         <!-- Seccion descubre lugares-->
         <section class="features">
             <div class="row">
@@ -98,7 +39,7 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card" style="width: 30rem;">
-                            <img class="card-img-top" src="https://unsplash.it/300/200?image=1006" alt="Imatge 1">
+                            <img class="card-img-top" src="https://unsplash.it/300/200?image=1006" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
                                 <h4>Catalunya</h4>    
                             </div>
@@ -108,7 +49,7 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card" style="width: 30rem;">
-                            <img class="card-img-top" src="https://unsplash.it/300/200?image=740" alt="Imatge 2">
+                            <img class="card-img-top" src="https://unsplash.it/300/200?image=740" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
                                 <h4>Madrid</h4>
                             </div>
@@ -118,7 +59,7 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card" style="width: 30rem;">
-                            <img class="card-img-top" src="https://picsum.photos/300/200?random=1" alt="Imatge 3">
+                            <img class="card-img-top" src="https://picsum.photos/300/200?random=1" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
                                 <h4>Andalucia</h4>
                           </div>
@@ -128,7 +69,7 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card" style="width: 30rem;">
-                            <img class="card-img-top" src="https://picsum.photos/id/1018/300/200" alt="Imatge 3">
+                            <img class="card-img-top" src="https://picsum.photos/id/1018/300/200" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
                                 <h4>Cantabria</h4>
                           </div>

@@ -28,16 +28,16 @@
         <!-- VISTA VIAJE -->
         <section>
             <div class="title-travel">
-                <h2><c:out value="${nomViatge}"/></h2>
+                <h2><c:out value="${viatge.titol}"/></h2>
             </div>
             <div class="filters-travel">
                 <div>
-                    <p><c:out value="${comunidadAutonoma}"/></p>
-                    <p><c:out value="${Provincia}"/></p>
-                    <p><c:out value="${TipoViaje}"/></p>
-                    <p><c:out value="${ubicacion}"/></p>
-                    <p><c:out value="${duracion}"/></p>
-                    <p><c:out value="${valoracion}"/></p>  
+                    <p><c:out value="${viatge.comunitat}"/></p>
+                    <p><c:out value="${viatge.provincia}"/></p>
+                    <p><c:out value="${viatge.tipus}"/></p>
+                    <p><c:out value="${viatge.entorn}"/></p>
+                    <p><c:out value="${viatge.durada}"/></p>
+                    <p><c:out value="${viatge.puntuacions/valoracions}"/></p>  
                 </div>
             </div>
         
@@ -45,18 +45,18 @@
                 <div class="col-sm-6">
                     <div class="descrip-travel">
                         <p class="blog-title">Descripción</p>
-                        <p class="descrip"><c:out value="${descripcionViaje}"/></p>
+                        <p class="descrip"><c:out value="${viatge.descripcio}"/></p>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="descrip-travel">
-                        <p class="blog-title">Lugares i monumentos visitados</p>
+                        <p class="blog-title">Lugares i monumentos visitados</p>  <!-- YSM - ESTO NO LO USAMOS ENTONCES? ERA POR AÑADIR MAS INFO DEL VIAJE QUE NO SOLO UNA DESCRIPCION -->
                         <p class="descrip"><c:out value="${lugaresViaje}"/></p>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="descrip-travel">
-                        <p class="blog-title">Restaurantes y bares</p>
+                        <p class="blog-title">Restaurantes y bares</p> <!-- YSM - Y ESTO TAMPOCO NO?  -->
                         <p class="descrip"><c:out value="${restaurantesViaje}"/></p>
                     </div>
                 </div>
@@ -65,44 +65,52 @@
             <div class="imgs-travel">
                 <c:forEach var="imagen" items="${travelImgs}" varStatus="status">
                     <div>
-                        <img alt="imagen viaje 1" src="${imagen}" />
+                        <img alt="Imagen Viaje" src="${imagen}" />
                     </div>
                 </c:forEach>
             </div>
             
             <div class="opinions">
                 <c:choose>
+                <form action="botonesTravelView" method="post">
                     <!-- USUARIO QUE VISITA UN VIAJE DE OTRO USUARIO -->
-                    <c:when test="${tipusUser == 'USER'}">
+                    <c:when test="${tipusUser == 'USER'}"> <!-- YSM - COMPARAR ID USURIO LOGIN CON EL ID DEL USUARIO QUE HA CREADO EL VIAJE, SI NO ES NUESTRO VIAJE:  --> 
+                    
                         <div class="opinions-button">
-                            <a class="button button-blog" href="/TravelCloud/opiniones">VALORAR Y COMENTAR</a>   
+                            <input type="submit" class="button button-blog" value="VALORAR Y COMENTAR" name="addValoracio"/>   <!-- aqui tiene que redirigir a opiniones.jsp -->
                         </div>
                         <div class="opinions-button">
-                            <a class="button button-blog" href="#">AÑADIR A LA LISTA DE DESEOS</a>   
+                            <input type="submit" class="button button-blog" value="AÑADIR A LA LISTA DE DESEOS" name="addWishList"/>    
                         </div>
                         <div class="opinions-button">
-                            <a class="button button-blog" href="/TravelCloud/travelSearch">VOLVER A LA BÚSQUEDA</a>   
+                            <input type="submit" class="button button-blog" value="VOLVER A LA BÚSQUEDA" name="returnSearch"/>   
                         </div>
+                    
                     </c:when>
-                    <!-- PARA CUANDO UN USUARIO VISITA SU PROPIO VIAJE   (hay que comparar si el id del usuario coincide con el id de usuario guardado en el viaje) -->
-                    <c:when test="${tipusUser == 'USER-PROPIO VIAJE'}">
+                    <!-- PARA CUANDO UN USUARIO VISITA SU PROPIO VIAJE  -->
+                    <c:when test="${usuari.id == session.getAttribute("id")}">
+                    
                         <div class="opinions-button">
-                            <a class="button button-blog" href="/TravelCloud/travelPush">MODIFICAR VIAJE</a>   
+                            <input type="submit" class="button button-blog" value="MODIFICAR VIAJE" name="editTravel"/> 
                         </div>
                         <div class="opinions-button">
-                            <a class="button button-blog" href="#">ELIMINAR VIAJE</a>   
+                            <input type="submit" class="button button-blog" value="ELIMINAR VIAJE" name="deleteTravel"/>
                         </div>
                         <div class="opinions-button">
-                            <a class="button button-blog" href="">VOLVER</a>   
+                            <input type="submit" class="button button-blog" value="VOLVER" name="returnPage"/> 
                         </div>
                     </c:when>
                     
-                    <!--Si es ADMIN o ASESOR -->
+                    <!--Si quien visita el viaje es ADMIN o ASESOR -->
                     <c:otherwise>
+                     	<div class="opinions-button">
+                            <input type="submit" class="button button-blog" value="ELIMINAR VIAJE" name="deleteTravelAdmin"/>
+                        </div>
                         <div class="opinions-button">
-                            <a class="button button-blog" href="/TravelCloud/travelSearch">VOLVER A LA BÚSQUEDA</a>   
+                            <input type="submit" class="button button-blog" value="VOLVER" name="returnPage"/>    
                         </div>
                     </c:otherwise>
+                    </form>
                 </c:choose>
             </div>
         </section>  
@@ -117,15 +125,19 @@
                 <div class="row opinion-travel">
                     <div class="col-sm-6 opinion">
                         <div class="blog-image">
-                            <img src="${userImg}"/>
+                            <img src="${userImg}" alt="Imagen de Perfil Usuario"/>
                         </div>
                         <div class="blog-text">
                             <p class="blog-title">Valoración</p>
-                            <p class="blog-summary">Comentario: ${valoracion.comentario}</p>
-                            <p class="blog-user">${valoracion.nomUsuari}</p>
-                            <p class="blog-user">${valoracion.dataValoracio}</p>
+                            <p class="blog-summary">Comentario: ${valoracion.comentari}</p>
+                            <p class="blog-user">${valoracion.puntuacio}</p>
+                            <p class="blog-user">${valoracion.idUsuari}</p>
+                            <p class="blog-user">${valoracion.dataCreacio}</p>
                             <c:if test="${tipusUser = 'ADMIN'}">
-                                <a class="button" href="#">Eliminar valoración</a>
+                           		<form action="deleteValoracioAdmin" method="post">
+                           			<input type="submit" class="button" value="Eliminar valoración" name="deleteValoracioAdmin"/>
+                           		</form>
+                                
                             </c:if>
                         </div>
                     </div>

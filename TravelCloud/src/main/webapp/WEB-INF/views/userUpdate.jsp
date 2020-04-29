@@ -37,7 +37,7 @@
                     <tbody>
                         <tr>
                             <td colspan="1">
-                            <form class="well form-horizontal" action="/updateUser" method="POST">
+                            <form class="well form-horizontal" action="updateUser" method="POST">
                                 <fieldset>
                                     <div class="td-head">
                                         <p>Datos de acceso</p>
@@ -97,11 +97,9 @@
                                                     <i class="glyphicon glyphicon-map-marker"></i>
                                                 </span>
                                                 <select class="selectpicker form-control" name="provincia">
-                                                    <option value="NoValid">Selecciona una Comunidad Autónoma ...</option> 
-                                                    <option value="Andalucia">Andalucia</option> 
-                                                    <option value="Galicia">Galicia</option> 
-                                                    <option value="CataluÃ±a">CataluÃnya</option>
-                                                    <option value="Asturias">Asturias</option> 
+                                                    <c:forEach items="${viatges}" var="v">
+					                        			<option value="${v.comunitat}">${v.comunitat}</option>
+													</c:forEach>
                                                 </select>
                                             </div>
                                         </div>
@@ -118,7 +116,7 @@
                                         </div>
                                     </div>
                                     <div class="i-button">
-                                        <input type="button" value="Cambiar imagen de perfil" class="button img-button" />
+                                        <input type="button" value="Cambiar imagen de perfil" class="button img-button" id="cambiarImgPerfil"/>
                                     </div>
                                     
                                     <!-- imagenes viaje-->
@@ -127,11 +125,10 @@
                                             <img alt="imagen perfil usuario" src="https://picsum.photos/300/300?random=1" />
                                         </div>
                                     </div>
-
-                                    <div class="form-group" id="botons">
-                                        <input type="submit" id="savePage" class="btn btn-secondary" value="Guardar cambios">
-                                        <input type="submit" id="cancelUpdate" class="btn btn-secondary" value="Cancelar">
-                                        <input type="submit" id="deleteUserPage" class="btn btn-secondary" value="Eliminar cuenta">
+                                    <div class="form-group" id="botons">		
+                                        <input type="submit" name="savePage" class="btn btn-secondary" value="Guardar cambios" id="guardarCambiosUser">
+                                        <input type="submit" name="cancelUpdate" class="btn btn-secondary" value="Cancelar" id="cancelarCambiosUser">
+                                        <input type="submit" name="deleteUserPage" class="btn btn-secondary" value="Eliminar cuenta" id="eliminarCuenta">
                                     </div>  
                                 </fieldset>
                             </form>
