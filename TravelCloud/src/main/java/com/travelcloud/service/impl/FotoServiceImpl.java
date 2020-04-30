@@ -17,9 +17,18 @@ public class FotoServiceImpl implements IFotoService{
 	private DAOFoto daoFoto;
 	
 	@Override
-	public void insertarFoto(Foto foto) throws Exception{
+	public void insertarFotoUsuari(Foto foto) throws Exception{
 		try {
-			daoFoto.insertarFoto(foto);
+			daoFoto.insertarFotoUsuari(foto);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	@Override
+	public void insertarFotoViatge(Foto foto) throws Exception{
+		try {
+			daoFoto.insertarFotoViatge(foto);
 		} catch (Exception e) {
 			throw e;
 		}

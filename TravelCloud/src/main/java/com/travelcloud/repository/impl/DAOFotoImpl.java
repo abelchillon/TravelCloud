@@ -27,17 +27,16 @@ public class DAOFotoImpl implements DAOFoto{
 	Foto foto;
 
 	@Override
-	public void insertarFoto(Foto foto) throws Exception {
-		String sql = "INSERT INTO foto (idUsuari, idViatge, src, dataCreacio) "
-				+ "values (?, ?, ?, ?)";
+	public void insertarFotoUsuari(Foto foto) throws Exception {
+		String sql = "INSERT INTO foto (idUsuari, src, dataCreacio) "
+				+ "values (?, ?, ?)";
 		Connection connection = null;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
 			pStatement.setInt(1, foto.getIdUsuari());
-			pStatement.setInt(2, foto.getIdViatge());
-			pStatement.setString(3, foto.getSrc());
-			pStatement.setDate(4, new Date(Calendar.getInstance().getTime().getTime()));	
+			pStatement.setString(2, foto.getSrc());
+			pStatement.setDate(3, new Date(Calendar.getInstance().getTime().getTime()));	
 			pStatement.executeUpdate();
 			pStatement.close();
 		} catch (Exception e) {
@@ -48,6 +47,30 @@ public class DAOFotoImpl implements DAOFoto{
 			}
 		}
 	}
+	
+	@Override
+	public void insertarFotoViatge(Foto foto) throws Exception {
+		String sql = "INSERT INTO foto (idViatge, src, dataCreacio) "
+				+ "values (?, ?, ?)";
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, foto.getIdViatge()());
+			pStatement.setString(2, foto.getSrc());
+			pStatement.setDate(3, new Date(Calendar.getInstance().getTime().getTime()));	
+			pStatement.executeUpdate();
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+	}
+	
+	
 	
 	@Override
 	public void modificarFoto(Foto foto) throws Exception {
@@ -115,7 +138,7 @@ public class DAOFotoImpl implements DAOFoto{
 	}
 	
 	@Override
-	public Foto llistarFotoUsuari(int idUsuari) throws Exception{
+	public Foto llistarFotoUsuari(int idUsuari, int tipus) throws Exception{
 		String sql = "SELECT * FROM foto WHERE idUsuari = ?";
 		Connection connection = null;
 		
