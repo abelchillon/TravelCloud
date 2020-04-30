@@ -83,4 +83,10 @@ public class ViatgeServiceImpl implements IViatgeService{
 	public List<Viatge> obtenirViatgesPerFiltre(Viatge viatge) throws Exception {
 		return daoViatge.obtenirViatgesPerFiltre(viatge);
 	}
+	
+	@Override
+	public int totalViatgesUsuari(int idUsuari) throws Exception {
+		return daoViatge.totalViatgesUsuari(idUsuari);
+	}
+	
 }
