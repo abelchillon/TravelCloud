@@ -21,13 +21,15 @@
         <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
         <!--Icono ico-->
         <link href="<c:url value="/resources/img/favicon.ico" />" rel="shortcut icon">
+        <script src="/resources/js/filterSearch.js"></script>
+        
     </head>
     <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
     <body>
         <!-- Navegació/Header--> 
         <%@include file="headerLogin.jsp" %>
         <%@include file="filterSearch.jsp" %>
-        
+     
         <!-- Seccion descubre lugares-->
         <section class="features">
             <div class="row">

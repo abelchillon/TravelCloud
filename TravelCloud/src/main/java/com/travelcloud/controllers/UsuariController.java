@@ -220,13 +220,6 @@ public class UsuariController {
 	    return "redirect:/userMessageView";
 	}
 
-
-	//wishList
-	//ACTION FORMULARIO - botonsWishList
-	@RequestMapping(params = "verViaje", method = RequestMethod.POST)
-	public String verViaje3() {
-	    return "redirect:/travelView";
-	}
 	@RequestMapping(params = "deleteTravelWishList", method = RequestMethod.POST)
 	public ModelAndView deleteTravelWishList(@ModelAttribute Desitjos desitjos) {
 	    System.out.println(desitjos.toString());
@@ -240,27 +233,6 @@ public class UsuariController {
 	    }
 	    return mav;
 	}
-
-	//sendMessage
-	//ACTION FORMULARIO - sendMessage  (es el mismo que para el form action responderMensaje de userMessageView)
-	@RequestMapping(params = "enviarMissatge", method = RequestMethod.POST)
-	public ModelAndView enviarMissatge2(@ModelAttribute Missatge missatge) {
-	    System.out.println(missatge.toString());
-	    ModelAndView mav = new ModelAndView(" ");
-	    mav.addObject("missatge", missatge);
-	    try {
-	        missatgeService.insertarMissatge(missatge);
-	    } catch (Exception e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	    return mav;
-	}
-	@RequestMapping(params = "cancelarMissatge", method = RequestMethod.POST)
-	public String cancelarMissatge2() {
-	    return "redirect:/userMessageView";
-	}
-
 	//opiniones
 	//ACTION FORMULARIO - addValoracio
 	@RequestMapping(params = "guardarValoracion", method = RequestMethod.POST)
@@ -322,76 +294,11 @@ public class UsuariController {
 	    }
 	    return mav;
 	}
-	@RequestMapping(params = "addWishList", method = RequestMethod.POST)
-	public ModelAndView addWishList4(@ModelAttribute Desitjos desitjos) {
-	    System.out.println(desitjos.toString());
-	        ModelAndView mav = new ModelAndView(" ");
-	    mav.addObject("desitjos", desitjos);
-	    try {
-	        desitjosService.insertarDesitjos(desitjos);
-	    } catch (Exception e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	    return mav;
-	}
-
-	
-	//index
-	//ACTION FORMULARIO - botonesIndex
-	@RequestMapping(params = "verViaje", method = RequestMethod.POST)
-	public String verViaje2() {
-	    return "redirect:/travelView";
-	}
-
-	@RequestMapping(params = "addWishList", method = RequestMethod.POST)
-	public ModelAndView addWishList5(@ModelAttribute Desitjos desitjos) {
-	    System.out.println(desitjos.toString());
-	        ModelAndView mav = new ModelAndView(" ");
-	    mav.addObject("desitjos", desitjos);
-	    try {
-	        desitjosService.insertarDesitjos(desitjos);
-	    } catch (Exception e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	    return mav;
-	}
-
-	//userList
-	//ACTION FORMULARIO - botonesUserList
-	@RequestMapping(params = "verViaje", method = RequestMethod.POST)
-	public String verViaje4() {
-	    return "redirect:/travelView";
-	}
-	@RequestMapping(params = "eliminarViaje", method = RequestMethod.POST)
-	public ModelAndView eliminarViaje1(@ModelAttribute Viatge viatge) {
-	    System.out.println(viatge.toString());
-	        ModelAndView mav = new ModelAndView(" ");
-	    mav.addObject("viatge", viatge);
-	    try {
-	        viatgeService.insertarViatge(viatge);
-	    } catch (Exception e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	    return mav;
-	}
-	@RequestMapping(params = "enviarMissatge", method = RequestMethod.POST)
-	public ModelAndView enviarMissatge3(@ModelAttribute Missatge missatge) {
-	    System.out.println(missatge.toString());
-	    ModelAndView mav = new ModelAndView(" ");
-	    mav.addObject("missatge", missatge);
-	    try {
-	        missatgeService.insertarMissatge(missatge);
-	    } catch (Exception e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	    return mav;
-	}
 	
 	
 	
 	
 }
+
+	
+

@@ -56,7 +56,7 @@ public class DAOFotoImpl implements DAOFoto{
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			pStatement.setInt(1, foto.getIdViatge()());
+			pStatement.setInt(1, foto.getIdViatge());
 			pStatement.setString(2, foto.getSrc());
 			pStatement.setDate(3, new Date(Calendar.getInstance().getTime().getTime()));	
 			pStatement.executeUpdate();
