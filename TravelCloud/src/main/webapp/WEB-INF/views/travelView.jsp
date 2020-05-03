@@ -77,13 +77,13 @@
                     <c:when test="${tipusUser == 'USER'}"> <!-- YSM - COMPARAR ID USURIO LOGIN CON EL ID DEL USUARIO QUE HA CREADO EL VIAJE, SI NO ES NUESTRO VIAJE:  --> 
                     
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="VALORAR Y COMENTAR" name="addValoracio"/>   <!-- aqui tiene que redirigir a opiniones.jsp -->
+                            <button type="button" class="button button-blog" id="valorar">VALORAR Y COMENTAR</button>   
                         </div>
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="AÑADIR A LA LISTA DE DESEOS" name="addWishList"/>    
+                            <button type="button" class="button button-blog" id="addListaDeseos">AÑADIR LISTA DESEOS</button>  
                         </div>
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="VOLVER A LA BÚSQUEDA" name="returnSearch"/>   
+                            <button type="button" class="button button-blog" id="volverBusqueda">VOLVER A LA BÚSQUEDA</button>   
                         </div>
                     
                     </c:when>
@@ -91,23 +91,44 @@
                     <c:when test="${usuari.id == session.getAttribute("id")}">
                     
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="MODIFICAR VIAJE" name="editTravel"/> 
+                            <button type="button" class="button button-blog" id="valorar">MODIFICAR VIAJE</button> 
                         </div>
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="ELIMINAR VIAJE" name="deleteTravel"/>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="deleteTravel">ELIMINAR VIAJE</button>
                         </div>
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="VOLVER" name="returnPage"/> 
+                            <button type="button" class="button button-blog" id="returnPage">VOLVER</button>  
                         </div>
                     </c:when>
+                    
+                    
+                    <!-- Modal Eliminar Viaje -->
+		
+                                    <div class="modal fade" id="deleteTravel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		                              <div class="modal-dialog" role="document">
+		                                  <div class="modal-content">
+		                                      <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
+                                              </div>
+                                            <div class="modal-body">
+                                            Esta seguro que quiere eliminar el viaje? No podrá ser recuperado.
+                                            </div>
+                                              <div class="modal-footer">
+                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
                     
                     <!--Si quien visita el viaje es ADMIN o ASESOR -->
                     <c:otherwise>
                      	<div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="ELIMINAR VIAJE" name="deleteTravelAdmin"/>
+                            <button type="button" class="button button-blog" data-toggle="modal" data-target="deleteTravel">ELIMINAR VIAJE</button>
                         </div>
                         <div class="opinions-button">
-                            <input type="submit" class="button button-blog" value="VOLVER" name="returnPage"/>    
+                            <button type="button" class="button button-blog" id="returnPage">VOLVER</button>    
                         </div>
                     </c:otherwise>
                     </form>
@@ -135,7 +156,28 @@
                             <p class="blog-user">${valoracion.dataCreacio}</p>
                             <c:if test="${tipusUser = 'ADMIN'}">
                            		<form action="deleteValoracioAdmin" method="post">
-                           			<input type="submit" class="button" value="Eliminar valoración" name="deleteValoracioAdmin"/>
+                           		<button type="button" class="button" data-toggle="modal" data-target="deleteOpinion">Eliminar valoración</button>
+                           		
+                           		<!-- Modal Eliminar Opinion -->
+		
+                                    <div class="modal fade" id="deleteOpinion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		                              <div class="modal-dialog" role="document">
+		                                  <div class="modal-content">
+		                                      <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
+                                              </div>
+                                            <div class="modal-body">
+                                            Esta seguro que quiere eliminar esta valoración? No podrá ser recuperada.
+                                            </div>
+                                              <div class="modal-footer">
+                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                           		
                            		</form>
                                 
                             </c:if>

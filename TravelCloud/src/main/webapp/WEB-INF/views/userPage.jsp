@@ -124,7 +124,28 @@
 				                <form action="/botonesViajesUserPage" method="post">
 				                    <input type="submit" class="button button-blog" value="Ver" id="verTravelusers"/>
 				                    <c:if test="${tipusUser == 'ADMIN' }">	<!--  solo admin puede borrar viajes de los usuarios, lo suyo seria enviar un mensaje al usuario de que el viaje ha sido borrado -->
-				                    	<input type="submit" class="button button-blog" value="Borrar" id="borrarTravelAdmin"/>
+				                    	<button type="button" class="button button-blog" data-toggle="modal" data-target="deleteMessage">Borrar</button>
+				                    	
+				                    	<!-- Modal Eliminar Usuario -->
+		
+                                    <div class="modal fade" id=""deleteMessage"" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		                              <div class="modal-dialog" role="document">
+		                                  <div class="modal-content">
+		                                      <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
+                                              </div>
+                                            <div class="modal-body">
+                                            Esta seguro que quiere eliminar este usuario? Sus datos y viajes también serán eliminados.
+                                            </div>
+                                              <div class="modal-footer">
+                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+				                    	
 				                    </c:if>
 			                    </form>
 			                </div>

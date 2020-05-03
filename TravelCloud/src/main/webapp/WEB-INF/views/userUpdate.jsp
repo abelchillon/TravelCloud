@@ -126,10 +126,53 @@
                                         </div>
                                     </div>
                                     <div class="form-group" id="botons">		
-                                        <input type="submit" name="savePage" class="btn btn-secondary" value="Guardar cambios" id="guardarCambiosUser">
-                                        <input type="submit" name="cancelUpdate" class="btn btn-secondary" value="Cancelar" id="cancelarCambiosUser">
-                                        <input type="submit" name="deleteUserPage" class="btn btn-secondary" value="Eliminar cuenta" id="eliminarCuenta">
-                                    </div>  
+                                        <button type="button" class="btn btn-secondary">Guardar cambios</button>
+                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#cancel">Cancelar</button>
+                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteUser">Eliminar cuenta</button>
+                                    </div> 
+                                    
+                                    
+                                    
+                                    <!-- Modal Eliminar Cuenta -->
+		
+                                    <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		                              <div class="modal-dialog" role="document">
+		                                  <div class="modal-content">
+		                                      <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
+                                              </div>
+                                            <div class="modal-body">
+                                            Esta seguro que quiere eliminar su cuenta? Sus datos y viajes se perderán y no podrán ser recuperados.
+                                            </div>
+                                              <div class="modal-footer">
+                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Modal Cancelar Cambios-->
+		
+                                    <div class="modal fade" id="cancel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		                              <div class="modal-dialog" role="document">
+		                                  <div class="modal-content">
+		                                      <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
+                                              </div>
+                                            <div class="modal-body">
+                                            Esta seguro que quiere cancelar? Los cambios realizados no se guardaran.
+                                            </div>
+                                              <div class="modal-footer">
+                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     
                                 </fieldset>
                             </form>
                             </td>

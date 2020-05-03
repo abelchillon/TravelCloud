@@ -46,8 +46,28 @@
                         </div>
                         <div class="col-sm-6">
                         	<form action="botonsMissatge" method="post">
-	                            <input type="submit" class="button button-blog" id="response-button" value="Responder"/>  
-	                            <input type="submit" class="button button-blog deleteMessage" name="deleteMessage" value="Eliminar"/> 
+	                            <input type="submit" class="button button-blog" id="response-button" value="Responder"/> 
+	                            <button type="button" class="button button-blog deleteMessage" data-toggle="modal" data-target="deleteMessage">Eliminar</button> 
+	                            
+	                             <!-- Modal Eliminar Mensaje -->
+		
+                                    <div class="modal fade" id=""deleteMessage"" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		                              <div class="modal-dialog" role="document">
+		                                  <div class="modal-content">
+		                                      <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
+                                              </div>
+                                            <div class="modal-body">
+                                            Esta seguro que quiere eliminar el mensaje? No podrá ser recuperado.
+                                            </div>
+                                              <div class="modal-footer">
+                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
                           	</form>  
                         </div>
                     </div>
@@ -70,7 +90,27 @@
                     </div>
                     <div class="form-group" id="botons">
                         <input id="send-button" name="enviarMissatge" type="submit" class="button button-blog" value="Enviar mensaje">
-                        <input id="cancel-button" name="cancelarMissatge" type="submit" class="button button-blog" value="Cancelar">
+                        <button type="button" class="button button-blog" data-toggle="modal" data-target="cancelMessage">Cancelar</button>
+                        
+                        <!-- Modal Cancelar Mensaje -->
+		
+                                    <div class="modal fade" id=""cancelMessage"" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		                              <div class="modal-dialog" role="document">
+		                                  <div class="modal-content">
+		                                      <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
+                                              </div>
+                                            <div class="modal-body">
+                                            Esta seguro que quiere cancelar el mensaje? El mensaje no será enviado.
+                                            </div>
+                                              <div class="modal-footer">
+                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
                     </div>           
              </div>
             </div>
@@ -98,7 +138,28 @@
                             </div>
                             <div class="col-sm-6">
                             	<form action="eliminarMensaje" method="post">  
-                                <input type="submit" class="button button-blog deleteMessage" value="Eliminar" name="deleteMessage"/>
+                                 <button type="button" class="button button-blog deleteMessage" data-toggle="modal" data-target="deleteMessage">Eliminar</button>
+                                
+                                <!-- Modal Eliminar Mensaje -->
+		
+                                    <div class="modal fade" id=""deleteMessage"" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		                              <div class="modal-dialog" role="document">
+		                                  <div class="modal-content">
+		                                      <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
+                                              </div>
+                                            <div class="modal-body">
+                                            Esta seguro que quiere eliminar el mensaje? No podrá ser recuperado.
+                                            </div>
+                                              <div class="modal-footer">
+                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
                                 </form>  
                             </div>
                         </div>

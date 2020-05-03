@@ -41,9 +41,32 @@
                         <p class="blog-title">${usuari.nomUsuari}</p>
                         <p class="blog-user">${usuari.fechaRegistro}</p>
                         <form action="botonesUserList" method="post">
-	                        <input type="submit" class="button button-blog" value="Ver" name="verViaje"/>
-	                        <input type="submit" class="button button-blog" value="Eliminar" name="eliminarViaje"/>
-	                        <input type="submit" class="button button-blog" value="Enviar Mensaje" name="enviarMissatge"/>
+                        	<button type="button" class="button button-blog" id="verView">Ver</button>
+	                        <button type="button" class="button button-blog" data-toggle="modal" data-target="deleteTravel">Eliminar</button>
+	                        <button type="button" class="button button-blog" id="sendMessage">Enviar Mensaje</button>
+	                        
+	                        
+	                        
+	                        
+	                         <!-- Modal Eliminar Viaje -->
+		
+                                    <div class="modal fade" id="deleteTravel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		                              <div class="modal-dialog" role="document">
+		                                  <div class="modal-content">
+		                                      <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
+                                              </div>
+                                            <div class="modal-body">
+                                            Esta seguro que quiere eliminar el viaje? No podrá ser recuperado.
+                                            </div>
+                                              <div class="modal-footer">
+                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
                         </form>
                     </div>
                 </div>    
