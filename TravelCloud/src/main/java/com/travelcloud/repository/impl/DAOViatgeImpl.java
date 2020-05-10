@@ -330,8 +330,9 @@ public class DAOViatgeImpl implements DAOViatge{
 		boolean hasPuntuacio = false;
 		if (viatge.getPuntuacio()!=0) {
 			hasPuntuacio = true;
-			if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
-					&& viatge.getEntorn() != null && viatge.getDurada()!=null && viatge.getTipus()!=null) {
+			if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("") && viatge.getProvincia()!=null && !viatge.getProvincia().equals("")
+					&& viatge.getLocalitat() != null && !viatge.getLocalitat().equals("") && viatge.getEntorn() != null && !viatge.getEntorn().equals("")
+					&& viatge.getDurada()!=null && !viatge.getDurada().equals("") && viatge.getTipus()!=null && !viatge.getTipus().equals("")) {
 				sql = "SELECT vi.*, va.puntuacio, f.src FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
 						+ "JOIN foto f ON f.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
@@ -351,8 +352,9 @@ public class DAOViatgeImpl implements DAOViatge{
 				pStatement.setInt(6, Integer.parseInt(viatge.getTipus()));
 				pStatement.setInt(7, viatge.getPuntuacio());			
 				rs = pStatement.executeQuery();
-			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
-					&& viatge.getEntorn() != null && viatge.getDurada()!=null) {
+			} else if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("") && viatge.getProvincia()!=null && !viatge.getProvincia().equals("")
+					&& viatge.getLocalitat() != null && !viatge.getLocalitat().equals("") && viatge.getEntorn() != null && !viatge.getEntorn().equals("")
+					&& viatge.getDurada()!=null && !viatge.getDurada().equals("")) {
 				sql = "SELECT vi.*, va.puntuacio, f.src FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
 						+ "JOIN foto f ON f.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
@@ -370,8 +372,8 @@ public class DAOViatgeImpl implements DAOViatge{
 				pStatement.setInt(5, Integer.parseInt(viatge.getDurada()));
 				pStatement.setInt(6, viatge.getPuntuacio());
 				rs = pStatement.executeQuery();
-			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
-					&& viatge.getEntorn() != null) {
+			} else if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("") && viatge.getProvincia()!=null && !viatge.getProvincia().equals("")
+					&& viatge.getLocalitat() != null && !viatge.getLocalitat().equals("") && viatge.getEntorn() != null && !viatge.getEntorn().equals("")) {
 				sql = "SELECT vi.*, va.puntuacio, f.src FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
 						+ "JOIN foto f ON f.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
@@ -387,7 +389,8 @@ public class DAOViatgeImpl implements DAOViatge{
 				pStatement.setInt(4, Integer.parseInt(viatge.getEntorn()));
 				pStatement.setInt(5, viatge.getPuntuacio());
 				rs = pStatement.executeQuery();
-			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null) {
+			} else if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("") && viatge.getProvincia()!=null && !viatge.getProvincia().equals("")
+					&& viatge.getLocalitat() != null && !viatge.getLocalitat().equals("")) {
 				sql = "SELECT vi.*, va.puntuacio, f.src FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
 						+ "JOIN foto f ON f.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
@@ -401,7 +404,7 @@ public class DAOViatgeImpl implements DAOViatge{
 				pStatement.setInt(3, Integer.parseInt(viatge.getLocalitat()));
 				pStatement.setInt(4, viatge.getPuntuacio());
 				rs = pStatement.executeQuery();
-			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null) {
+			} else if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("") && viatge.getProvincia()!=null && !viatge.getProvincia().equals("")) {
 				sql = "SELECT vi.*, va.puntuacio, f.src FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
 						+ "JOIN foto f ON f.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
@@ -413,7 +416,7 @@ public class DAOViatgeImpl implements DAOViatge{
 				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
 				pStatement.setInt(3, viatge.getPuntuacio());	
 				rs = pStatement.executeQuery();
-			} else if (viatge.getComunitat()!=null) {
+			} else if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("")) {
 				sql = "SELECT vi.*, va.puntuacio, f.src FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id "
 						+ "JOIN foto f ON f.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
@@ -424,7 +427,7 @@ public class DAOViatgeImpl implements DAOViatge{
 				pStatement.setInt(2, viatge.getPuntuacio());
 				rs = pStatement.executeQuery();
 			} else {
-				sql = "SELECT vi.*, va.puntuacio, f.src FROM viatge vi JOIN valoracio va ON va.idViatge = vi.id where va.puntuacio = ? "
+				sql = "SELECT vi.*, va.puntuacio, f.src FROM viatge vi JOIN valoracio va ON va.idViatge in (select va.idViatge from valoracio where va.puntuacio = ?) "
 						+ "JOIN foto f ON f.idViatge = vi.id ";
 				pStatement = connection.prepareStatement(sql);
 				pStatement.setInt(1, viatge.getPuntuacio());
@@ -432,9 +435,11 @@ public class DAOViatgeImpl implements DAOViatge{
 			}
 			
 		} else {
-			if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
-					&& viatge.getEntorn() != null && viatge.getDurada()!=null && viatge.getTipus()!=null) {
-				sql = "SELECT vi.*, f.src FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+			if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("") && viatge.getProvincia()!=null && !viatge.getProvincia().equals("")
+					&& viatge.getLocalitat() != null && !viatge.getLocalitat().equals("") && viatge.getEntorn() != null && !viatge.getEntorn().equals("")
+					&& viatge.getDurada()!=null && !viatge.getDurada().equals("") && viatge.getTipus()!=null && !viatge.getTipus().equals("")) {
+				sql = "SELECT vi.*, f.src, va.puntuacio FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+						+ "JOIN valoracio va ON va.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
 						+ "and vi.provincia = (select provincia from viatge where id = ?) "
 						+ "and vi.localitat = (select localitat from viatge where id = ?) "
@@ -450,9 +455,11 @@ public class DAOViatgeImpl implements DAOViatge{
 				pStatement.setInt(5, Integer.parseInt(viatge.getDurada()));
 				pStatement.setInt(6, Integer.parseInt(viatge.getTipus()));
 				rs = pStatement.executeQuery();
-			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
-					&& viatge.getEntorn() != null && viatge.getDurada()!=null) {
-				sql = "SELECT vi.*, f.src FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+			} else if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("") && viatge.getProvincia()!=null && !viatge.getProvincia().equals("")
+					&& viatge.getLocalitat() != null && !viatge.getLocalitat().equals("") && viatge.getEntorn() != null && !viatge.getEntorn().equals("")
+					&& viatge.getDurada()!=null && !viatge.getDurada().equals("")) {
+				sql = "SELECT vi.*, f.src, va.puntuacio FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+						+ "JOIN valoracio va ON va.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
 						+ "and vi.provincia = (select provincia from viatge where id = ?) "
 						+ "and vi.localitat = (select localitat from viatge where id = ?) "
@@ -466,9 +473,10 @@ public class DAOViatgeImpl implements DAOViatge{
 				pStatement.setInt(4, Integer.parseInt(viatge.getEntorn()));
 				pStatement.setInt(5, Integer.parseInt(viatge.getDurada()));
 				rs = pStatement.executeQuery();
-			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null 
-					&& viatge.getEntorn() != null) {
-				sql = "SELECT vi.*, f.src FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+			} else if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("") && viatge.getProvincia()!=null && !viatge.getProvincia().equals("")
+					&& viatge.getLocalitat() != null && !viatge.getLocalitat().equals("") && viatge.getEntorn() != null && !viatge.getEntorn().equals("")) {
+				sql = "SELECT vi.*, f.src, va.puntuacio FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+						+ "JOIN valoracio va ON va.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
 						+ "and vi.provincia = (select provincia from viatge where id = ?) "
 						+ "and vi.localitat = (select localitat from viatge where id = ?) "
@@ -480,8 +488,10 @@ public class DAOViatgeImpl implements DAOViatge{
 				pStatement.setInt(3, Integer.parseInt(viatge.getLocalitat()));
 				pStatement.setInt(4, Integer.parseInt(viatge.getEntorn()));
 				rs = pStatement.executeQuery();
-			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null && viatge.getLocalitat() != null) {
-				sql = "SELECT vi.*, f.src FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+			} else if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("") && viatge.getProvincia()!=null && !viatge.getProvincia().equals("")
+					&& viatge.getLocalitat() != null && !viatge.getLocalitat().equals("")) {
+				sql = "SELECT vi.*, f.src, va.puntuacio FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+						+ "JOIN valoracio va ON va.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
 						+ "and vi.provincia = (select provincia from viatge where id = ?) "
 				 		+ "and vi.localitat = (select localitat from viatge where id = ?) ";
@@ -491,8 +501,9 @@ public class DAOViatgeImpl implements DAOViatge{
 				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
 				pStatement.setInt(3, Integer.parseInt(viatge.getLocalitat()));
 				rs = pStatement.executeQuery();
-			} else if (viatge.getComunitat()!=null && viatge.getProvincia()!=null) {
-				sql = "SELECT vi.*, f.src FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+			} else if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("") && viatge.getProvincia()!=null && !viatge.getProvincia().equals("")) {
+				sql = "SELECT vi.*, f.src, va.puntuacio FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+						+ "JOIN valoracio va ON va.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?) "
 						+ "and vi.provincia = (select provincia from viatge where id = ?)";
 				
@@ -500,12 +511,53 @@ public class DAOViatgeImpl implements DAOViatge{
 				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
 				pStatement.setInt(2, Integer.parseInt(viatge.getProvincia()));
 				rs = pStatement.executeQuery();
-			} else if (viatge.getComunitat()!=null) {
-				sql = "SELECT vi.*, f.src FROM viatge JOIN foto f ON f.idViatge = vi.id "
+			} 	else if (viatge.getComunitat()!=null && !viatge.getComunitat().equals("")) {
+				sql = "SELECT vi.*, f.src, va.puntuacio FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+						+ "JOIN valoracio va ON va.idViatge = vi.id "
 						+ "where vi.comunitat = (select comunitat from viatge where id = ?)";
 				
 				pStatement = connection.prepareStatement(sql);
 				pStatement.setInt(1, Integer.parseInt(viatge.getComunitat()));
+				rs = pStatement.executeQuery();
+			} else if (viatge.getProvincia()!=null && !viatge.getProvincia().equals("")) {
+				sql = "SELECT vi.*, f.src, va.puntuacio FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+						+ "JOIN valoracio va ON va.idViatge = vi.id "
+						+ "where vi.provincia = (select provincia from viatge where id = ?)";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getProvincia()));
+				rs = pStatement.executeQuery();
+			} else if (viatge.getLocalitat() != null && !viatge.getLocalitat().equals("")) {
+				sql = "SELECT vi.*, f.src, va.puntuacio FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+						+ "JOIN valoracio va ON va.idViatge = vi.id "
+						+ "where vi.localitat = (select localitat from viatge where id = ?)";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getLocalitat()));
+				rs = pStatement.executeQuery();
+			} else if (viatge.getTipus()!=null && !viatge.getTipus().equals("")) {
+				sql = "SELECT vi.*, f.src, va.puntuacio FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+						+ "JOIN valoracio va ON va.idViatge = vi.id "
+						+ "where vi.tipus = (select tipus from viatge where id = ?)";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getTipus()));
+				rs = pStatement.executeQuery();
+			} else if (viatge.getEntorn() != null && !viatge.getEntorn().equals("")) {
+				sql = "SELECT vi.*, f.src, va.puntuacio FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+						+ "JOIN valoracio va ON va.idViatge = vi.id "
+						+ "where vi.entorn = (select entorn from viatge where id = ?)";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getEntorn()));
+				rs = pStatement.executeQuery();
+			} else if (viatge.getDurada()!=null && !viatge.getDurada().equals("")) {
+				sql = "SELECT vi.*, f.src, va.puntuacio FROM viatge vi JOIN foto f ON f.idViatge = vi.id "
+						+ "JOIN valoracio va ON va.idViatge = vi.id "
+						+ "where vi.durada = (select durada from viatge where id = ?)";
+				
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setInt(1, Integer.parseInt(viatge.getDurada()));
 				rs = pStatement.executeQuery();
 			}
 		}
@@ -529,7 +581,8 @@ public class DAOViatgeImpl implements DAOViatge{
 				if (rs.getString("src")!=null) {
 					viatgeResult.setFotoPortada(rs.getString("src"));
 				}
-				if (hasPuntuacio) {
+				if (rs.getString("puntuacio")!=null
+						|| hasPuntuacio) {
 					viatgeResult.setPuntuacio(rs.getInt("puntuacio"));					
 				}
 				viatges.add(viatgeResult);

@@ -16,7 +16,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <!--Full estils propi-->
         <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-        <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
+        <link href="<c:url value="/resources/css/travelSearch.css" />" rel="stylesheet">
         <!--Icono ico-->
         <link href="<c:url value="/resources/img/favicon.ico" />" rel="shortcut icon">
     </head>
@@ -24,7 +24,7 @@
     <body>
         <!-- Navegació/Header-->
         <%@include file="headerLogin.jsp" %>
-        <%@include file="filterSearch.jsp" %>
+        <%@include file="filterSearchTravel.jsp" %>
         
         <!--VISTAS VIAJES-->
         <section class="travels-section">
@@ -40,8 +40,8 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-5">
-                                <p class="blog-user"><c:out value="${travel.idUsuari}"/></p>
-                                <p class="blog-user"><c:out value="${travel.puntuacio}"/></p>
+                                <p class="blog-user">Id usuari: <c:out value="${travel.idUsuari}"/></p>
+                                <p class="blog-user">Puntuació: <c:out value="${travel.puntuacio}"/></p>
 
                             </div>
                             <div class="col-sm-6">
