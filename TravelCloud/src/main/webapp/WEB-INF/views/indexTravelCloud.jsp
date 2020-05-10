@@ -26,6 +26,7 @@
     </head>
     <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
     <body>
+		
         <!-- Navegació/Header--> 
         <%@include file="headerLogin.jsp" %>
         <%@include file="filterSearch.jsp" %>

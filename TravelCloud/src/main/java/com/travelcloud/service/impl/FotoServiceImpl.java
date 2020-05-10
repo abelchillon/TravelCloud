@@ -74,4 +74,9 @@ public class FotoServiceImpl implements IFotoService{
 		return fotoUsuari;
 	}
 
+	@Override
+	public String obtenirFotoPerViatge(int idViatge) throws Exception {
+		return daoFoto.obtenirFotoPerViatge(idViatge);
+	}
+
 }

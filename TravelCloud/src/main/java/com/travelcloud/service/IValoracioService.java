@@ -12,4 +12,5 @@ public interface IValoracioService {
 	
 	public List<Valoracio> llistarValoracionsPerViatge(int idViatgeValoracio) throws Exception;
 	public List<Valoracio> obtenirPuntuacions() throws Exception;
+	public int obtenirPuntuacioPerViatge(int idPuntuacio) throws Exception;
 }

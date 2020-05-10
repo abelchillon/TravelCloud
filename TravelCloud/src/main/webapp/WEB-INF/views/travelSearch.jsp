@@ -25,12 +25,13 @@
         <!-- Navegació/Header-->
         <%@include file="headerLogin.jsp" %>
         <%@include file="filterSearch.jsp" %>
+        
         <!--VISTAS VIAJES-->
         <section class="travels-section">
             <c:forEach var="travel" items="${travelList}" varStatus="status">
                 <div class="travelContainer">
                     <div class="travel-img">
-                        <img alt="Imagen Principal Viaje" src="${travel.travelFoto}" />
+                        <img alt="Imagen Principal Viaje" src="${travel.fotoPortada}" />
                     </div>
                     <div class="travel">
                         <div class="travel-info">
@@ -40,7 +41,7 @@
                         <div class="row">
                             <div class="col-sm-5">
                                 <p class="blog-user"><c:out value="${travel.idUsuari}"/></p>
-                                <p class="blog-user"><c:out value="${travel.valoracio}"/></p>
+                                <p class="blog-user"><c:out value="${travel.puntuacio}"/></p>
 
                             </div>
                             <div class="col-sm-6">

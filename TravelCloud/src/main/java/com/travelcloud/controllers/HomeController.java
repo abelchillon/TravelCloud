@@ -23,6 +23,7 @@ import com.travelcloud.model.Missatge;
 import com.travelcloud.model.Usuari;
 import com.travelcloud.model.Valoracio;
 import com.travelcloud.model.Viatge;
+import com.travelcloud.service.IFotoService;
 import com.travelcloud.service.IMissatgeService;
 import com.travelcloud.service.IUsuariService;
 import com.travelcloud.service.IValoracioService;
@@ -47,6 +48,10 @@ public class HomeController {
 	@Autowired
 	@Qualifier("missatgeService")
 	private IMissatgeService missatgeService;
+	
+	@Autowired
+	@Qualifier("fotoService")
+	private IFotoService fotoService;
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public RedirectView redirect() {
@@ -105,17 +110,23 @@ public class HomeController {
 	    return null;
 	 }
 	
-	@RequestMapping(value="/searchViatge", method=RequestMethod.POST)
-	public ModelAndView resultados(@ModelAttribute("viatges") Viatge viatge,
+	@RequestMapping(value="searchViatge", method=RequestMethod.POST)
+	public String resultados(@ModelAttribute("viatges") Viatge viatge,
 			HttpSession session, ModelMap model) {
 		try {
 			List<Viatge> viatges = viatgeService.obtenirViatges();
+			int puntuacio = 0;
+			if (viatge.getPuntuacio() != 0) {
+				puntuacio = valoracioService.obtenirPuntuacioPerViatge(viatge.getPuntuacio());
+				viatge.setPuntuacio(puntuacio);
+			}
+			
 			if (viatges != null) {
 				model.addAttribute("viatges",viatges);
 				model.addAttribute("viatge", new Viatge());
 				List<Viatge> travels = viatgeService.obtenirViatgesPerFiltre(viatge);
 				if (travels!=null && travels.size()>0) {
-					model.addAttribute("travels",travels);
+					model.addAttribute("travelList",travels);
 				}
 			}
 		} catch (Exception e) {
@@ -123,10 +134,8 @@ public class HomeController {
 			e.printStackTrace();
 		}
 		System.out.println(viatge.toString());
-		ModelAndView mav = new ModelAndView("travelSearch");
-		mav.addObject("viatge", viatge);
 		
-		return mav;
+		return "travelSearch";
 	}
 	
 	@RequestMapping(value="userPage", method=RequestMethod.GET)	

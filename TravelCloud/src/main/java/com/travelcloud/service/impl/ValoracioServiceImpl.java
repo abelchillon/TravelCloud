@@ -54,4 +54,8 @@ public class ValoracioServiceImpl implements IValoracioService{
 	public List<Valoracio> obtenirPuntuacions() throws Exception {
 		return daoValoracio.obtenirPuntuacions();
 	}
+	@Override
+	public int obtenirPuntuacioPerViatge(int idPuntuacio) throws Exception {
+		return daoValoracio.obtenirPuntuacioPerViatge(idPuntuacio);
+	}
 }

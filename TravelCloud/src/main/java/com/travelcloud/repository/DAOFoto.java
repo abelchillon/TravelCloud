@@ -12,4 +12,6 @@ public interface DAOFoto{
 	
 	public List<Foto> llistarFotosViatge(int idViatge) throws Exception;
 	public Foto llistarFotoUsuari(int idUsuari, int tipus) throws Exception;
+	public String obtenirFotoPerViatge(int idViatge) throws Exception;
+
 }

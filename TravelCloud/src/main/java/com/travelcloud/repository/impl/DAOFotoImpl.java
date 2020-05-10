@@ -174,6 +174,31 @@ public class DAOFotoImpl implements DAOFoto{
 		return foto; 
 		
 	}
+
+	@Override
+	public String obtenirFotoPerViatge(int idViatge) throws Exception {
+		String sql = "SELECT * FROM foto WHERE idViatge = ?";
+		Connection connection = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, idViatge);
+			ResultSet rs = pStatement.executeQuery();
+			while(rs.next()) {
+				foto = makeFoto(rs);
+			}
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		return foto.getSrc();
+		
+	}
 	
 	
 	

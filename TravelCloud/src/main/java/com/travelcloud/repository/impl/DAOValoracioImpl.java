@@ -14,9 +14,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.travelcloud.model.Usuari;
 import com.travelcloud.model.Valoracio;
-import com.travelcloud.model.Viatge;
 import com.travelcloud.repository.DAOValoracio;
 
 @Repository
@@ -173,8 +171,33 @@ public class DAOValoracioImpl implements DAOValoracio{
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			ResultSet rs = pStatement.executeQuery();
 			pStatement.setInt(1, idViatge);
+			ResultSet rs = pStatement.executeQuery();
+			while(rs.next()) {
+				puntuacio = rs.getInt("puntuacio");
+				puntuacioTotal = puntuacioTotal + puntuacio;
+			}
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		return puntuacioTotal;
+	}
+	@Override
+	public int obtenirPuntuacioPerViatge(int idPuntuacio) throws Exception {
+		String sql = "SELECT puntuacio FROM valoracio WHERE idViatge = ?";
+		Connection connection = null;
+		int puntuacio;
+		int puntuacioTotal = 0;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, idPuntuacio);
+			ResultSet rs = pStatement.executeQuery();
 			while(rs.next()) {
 				puntuacio = rs.getInt("puntuacio");
 				puntuacioTotal = puntuacioTotal + puntuacio;

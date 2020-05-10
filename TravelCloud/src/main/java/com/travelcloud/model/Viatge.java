@@ -15,6 +15,7 @@ public class Viatge {
 	private int idUsuari;	
 	private Date dataCreacio;
 	private int puntuacio;
+	private String fotoPortada;
 	
 	public Viatge() {
 		super();
@@ -130,6 +131,14 @@ public class Viatge {
 
 	public void setPuntuacio(int puntuacio) {
 		this.puntuacio = puntuacio;
+	}
+
+	public String getFotoPortada() {
+		return fotoPortada;
+	}
+
+	public void setFotoPortada(String fotoPortada) {
+		this.fotoPortada = fotoPortada;
 	}
 
 	@Override

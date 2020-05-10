@@ -70,7 +70,7 @@
                         </div>
                         <div class="button-search">
                             <input type="submit" class="button log-button" value="Buscar" />
-                        </div>
+                        </div>    
                     </form:form>
                 </div>
             </div>
