@@ -23,9 +23,9 @@
                 </div>
                 <div class="footer-links">
                     <ul>
-                        <li> <a href="${contextPath}/content">Sobre nosotros</a></li>
-                        <li> <a href="${contextPath}/content">Condiciones uso página</a></li>
-                        <li> <a href="${contextPath}/content">Tratamiento datos</a></li>
+                        <li> <a href="${contextPath}/sobrenosotros">Sobre nosotros</a></li>
+                        <li> <a href="${contextPath}/condicionesUsoPagina">Condiciones Sitio Web</a></li>
+                        <li> <a href="${contextPath}/politicaPrivacidad">Política privacidad</a></li>
                     </ul>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     <ul>
                         <li> <a href="${contextPath}/travelSearch">Buscar viaje</a></li>
                         <li> <a href="${contextPath}/comunidades">Comunidades Autónomas</a></li>
-                        <li> <a href="${contextPath}/content">Condiciones publicación viajes</a></li>
+                        <li> <a href="${contextPath}/condicionesPublicacion">Condiciones publicación viajes</a></li>
                     </ul>
                 </div>
             </div>

@@ -36,12 +36,12 @@
             <div class="travelContainer container-content">
                 <div class="travel">
                     <div class="travel-info">
-                        <h4>PROTECCIÓN DE DATOS</h4>
+                        <h4>PROTECCIӓN DE DATOS</h4>
                          <p class="descrip-content">a) En cumplimiento de la Ley 15/99 LOPD, le informamos que sus datos personales y demás información facilitada mediante el formulario de inscripción, así como la procedente de las transacciones realizadas, será incluida y conservada en un fichero para su tratamiento, propiedad de TravelCloud, mientras no se solicite su cancelación. El tratamiento se destinará a la atención personalizada de nuestro equipo de asesores para ayudarle con la elección de su próximo destino, así como a la promoción de servicios propios y de terceras empresas vinculadas a TravelCloud.  Asimismo, se le informa que sus datos serán puestos a disposición de las empresas para las finalidades indicadas., ESPAÑA tratará estos datos con la máxima confidencialidad siendo el destinatario único y exclusivo de los mismos, y no efectuando cesiones o comunicaciones a terceros al margen de las señaladas por la normativa vigente. El usuario autoriza expresamente a TravelCloud  la remisión, incluso a través de medios electrónicos, de comunicaciones comerciales y ofertas y concursos promocionales. </p>
                         <p class="descrip-content">b) El Usuario podrá ejercer en cualquier momento los derechos de acceso, rectificación, oposición o cancelación dirigiéndose a TravelCloud mediante correo electrónico dirigido a info@travelcloud.es, adjuntando copia de su N.I.F. o documento identificativo sustitutorio. </p>
                         <p class="descrip-content">c) Las respuestas marcadas con * en el formulario de inscripción tienen carácter obligatorio. Su no contestación impedirá que se pueda realizar el registro o envió de mensajes.</p>
                         
-                        <h4>CONTRASEÑAS</h4>
+                        <h4>CONTRASEёAS</h4>
                         <p class="descrip-content">a) El usuario podrá elegir su propia contraseña en el proceso de registro. Dicha contraseña servirá para el acceso a los servicios prestados por medio del Sitio Web. El usuario deberá mantener bajo su exclusiva responsabilidad la contraseña en la más estricta y absoluta confidencialidad, asumiendo, por tanto, cuantos daños o consecuencias de todo tipo se deriven del quebrantamiento o revelación del secreto. Por razones de seguridad, la contraseña de acceso telemático a los servicios vinculados al Sitio Web podrá ser modificada en todo momento por el usuario. El Usuario se compromete a notificar a TravelCloud de forma inmediata cualquier uso no autorizado de su contraseña, así como el acceso por terceros no autorizados a la misma.</p>
                         
                         <h4>COOKIES</h4>

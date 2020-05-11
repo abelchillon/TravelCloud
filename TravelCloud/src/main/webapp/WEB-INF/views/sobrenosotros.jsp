@@ -36,12 +36,12 @@
             <div class="travelContainer container-content">
                 <div class="travel">
                     <div class="travel-info">
-                         <p class="descrip-content">Â¿Imaginas poder guardar todos los recuerdos de tus viajes en su solo lugar?</p>
+                         <p class="descrip-content">¿Imaginas poder guardar todos los recuerdos de tus viajes en su solo lugar?</p>
                          <p class="descrip-content">Nosotros lo hacemos posible!</p>
-                         <p class="descrip-content">Te ofrecemos esta aplicaciÃ³n para que puedas guardar de forma fÃ¡cil y cÃ³moda todas las experiencias de tus viajes, para que puedas consultarlos desde cualquier lugar en cualquier momento y recordar esos buenos momentos.</p>
-                         <p class="descrip-content">AdemÃ¡s, puedes buscar, ver y comentar viajes de otros usuarios y aÃ±adirlos a una lista de deseos para guardarlos y que te ayuden a decidir tu prÃ³xima aventura!</p>
-                         <p class="descrip-content">Te ofrecemos un amplio sistema de filtraje, para que la bÃºsqueda se adapte lo mÃ¡ximo posible a todas tus necesidades.</p>
-                         <p class="descrip-content">A parte, si te surgen dudas o necesitas asesoramiento sobre tus viajes guardados, puedes consultar con nuestro grupo de asesores, que estarÃ¡ encantado de ayudarte en todo lo que necesites.</p>
+                         <p class="descrip-content">Te ofrecemos esta aplicación para que puedas guardar de forma fácil y cómoda todas las experiencias de tus viajes, para que puedas consultarlos desde cualquier lugar en cualquier momento y recordar esos buenos momentos.</p>
+                         <p class="descrip-content">Además, puedes buscar, ver y comentar viajes de otros usuarios y añadirlos a una lista de deseos para guardarlos y que te ayuden a decidir tu próxima aventura!</p>
+                         <p class="descrip-content">Te ofrecemos un amplio sistema de filtraje, para que la búsqueda se adapte lo máximo posible a todas tus necesidades.</p>
+                         <p class="descrip-content">A parte, si te surgen dudas o necesitas asesoramiento sobre tus viajes guardados, puedes consultar con nuestro grupo de asesores, que estará encantado de ayudarte en todo lo que necesites.</p>
                         <p class="descrip-content">Disfruta de la experiencia!</p>
                     </div>
                 </div>
