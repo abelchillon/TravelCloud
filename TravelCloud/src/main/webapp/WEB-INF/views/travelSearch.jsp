@@ -47,7 +47,7 @@
                             <div class="col-sm-6">
                             	<form action="botonesTravelSearch" method="post">
                             	
-                                <input type="submit" class="button button-blog" value="Ver viaje" name="verViaje"/>
+                                <input type="submit" class="button-blog" value="Ver viaje" name="verViaje"/>
                                 <c:choose>
                                     <c:when test="${tipusUser = 'ADMIN'}">
                                         <input type="submit" class="button button-blog" value="Eliminar" name="eliminarViaje"/>

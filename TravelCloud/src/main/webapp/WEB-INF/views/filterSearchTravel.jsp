@@ -19,6 +19,7 @@
         <!--Full estils propi-->
         <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
         <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
+        <link href="<c:url value="/resources/css/filterSearch.css" />" rel="stylesheet">
         <!--Icono ico-->
         <link href="<c:url value="/resources/img/favicon.ico" />" rel="shortcut icon">
         <script src="/resources/js/filterSearch.js"></script>
@@ -30,7 +31,7 @@
             <div class="row"> 
                 <div class="col-sm-12 formViaje">
                 
-                    <div class="hero-inner">
+                    <div class="hero-inner search">
                         <h2>Busca tu destino</h2>
                     </div>
                     

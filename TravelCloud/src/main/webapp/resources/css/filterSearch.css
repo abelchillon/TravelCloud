@@ -1,0 +1,31 @@
+.search h2 {
+	text-align:center;
+}
+
+
+
+#viatge {
+	background-color: #333E4F;
+	height: auto;
+}
+
+#viatge .forms {
+	padding-bottom: 0;
+}
+
+.button-search {
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+}
+
+.button-search .log-button {
+	background-color: #c5e6e1;
+	border: 3px solid #c5e6e1;
+	color: #333E4F;
+	padding: 1rem 2rem;
+}
+
+.button-search .log-button:hover {
+	background-color: #333E4F;
+	color: #c5e6e1;
+}
