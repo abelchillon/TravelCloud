@@ -10,4 +10,5 @@ public interface IUsuariService {
 	public void eliminarUsuari(Usuari usuari) throws Exception;
 	
 	public List<Usuari> llistarUsuaris() throws Exception;
+	public Usuari obtenirUsuariPerMail(String email, String password) throws Exception;
 }

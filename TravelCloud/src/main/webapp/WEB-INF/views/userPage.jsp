@@ -43,24 +43,24 @@
         </section>
 
         <!-- BOTONES GESTION USUARIO -->
-        <form action="botonesUserPage" method="post"> 
+        <form action="botonesUserPage" method="get"> 
         <c:choose>
-            <c:when test="${usuari.id == session.getAttribute("id") }">   <!-- YSM si el id del usuario que queremos visitar, es el mismo que nuestro id, se mostraran los botones, sino no. -->
+            <c:when test="${sameUser == true}">   <!-- YSM si el id del usuario que queremos visitar, es el mismo que nuestro id, se mostraran los botones, sino no. -->
             	
 	                <section id="userButtons">
 	                    <div class="user-buttons">
-	                        <input type="submit" class="button button-user" value="Editar Perfil"/>
+	                        <input type="submit" class="button button-user" value="Editar Perfil" name="action"/>
 	                        <c:choose>
 	                            <c:when test="${tipusUser == 'USER'}">
-	                                <input type="submit" class="button button-user" value="Subir Viaje" name="subirViaje"/>
-	                                <input type="submit" class="button button-user" value="Lista de deseos" name="listaDeseos"/>
+	                                <input type="submit" class="button button-user" value="Subir Viaje" name="action"/><!-- subirViaje -->
+	                                <input type="submit" class="button button-user" value="Lista de deseos" name="action"/>
 	                            </c:when>
 	                            <c:when test="${tipusUser == 'ADMIN'}">
-	                            	<input type="submit" class="button button-user" value="Gestión usuarios" name="gestionUsuarios"/>
-	                            	<input type="submit" class="button button-user" value="Gestión viajes" name="gestionViajes"/>
+	                            	<input type="submit" class="button button-user" value="Gestión usuarios" name="action"/>
+	                            	<input type="submit" class="button button-user" value="Gestión viajes" name="action"/>
 	                            </c:when>
 	                        </c:choose>
-	                        <input type="submit" class="button button-user" value="Mensajes" name="mensajes"/>
+	                        <input type="submit" class="button button-user" value="Mensajes" name="action"/>
 	                    </div>
 	                </section>
             	
@@ -69,7 +69,7 @@
             	<c:if test="${tipusUser == 'ADMIN' || tipusUser == 'ASSESSOR' }">
 	                <section id="userButtons">
 	                    <div class="user-buttons">
-	                        <input type="submit" class="button button-user" value="Enviar mensaje" name="enviarMensaje"/>
+	                        <input type="submit" class="button button-user" value="Enviar mensaje" name="action"/>
 	                    </div>
 	                </section>
                 </c:if>
@@ -79,20 +79,20 @@
         
         <!-- VIAJES USUARIO -->
        	<c:choose>
-       		<c:when test="${usuari.id == session.getAttribute("id")}">	<!-- YSM si el usuario tiene el mismo id, esta visitando su propio perfil -->
-       			<c:if test="${tipusUsuari == 'USER' }"> <!-- admin y asesor no tienen viajes, asi que no tienen este apartado -->
+       		<c:when test="${sameUser == true}">	<!-- YSM si el usuario tiene el mismo id, esta visitando su propio perfil -->
+       			<c:if test="${tipusUser == 'USER' }"> <!-- admin y asesor no tienen viajes, asi que no tienen este apartado -->
        				<section id="travels-user">
 		            <div class="travUs">
 		                <h3>Mis Viajes</h3>
 		            </div>
-			        <c:forEach var="travelUser" items="${travelUserList}" varStatus="status">
+			        <c:forEach var="travel" items="${travels}" varStatus="status">
 			        	<div class="container-viaje">
 			        		<div class="img-viaje">
-			                	<img src="${travelUser.imagen}"/>
+			                	<img src="${travel.fotoPortada}"/>
 			                </div>
 			                <div class="content-viaje">
-				                <p class="blog-title">${travelUser.nom}</p>
-				                <p class="blog-user">${travelUser.dataCreacio}</p>
+				                <p class="blog-title">${travel.localitat}</p>
+				                <p class="blog-user">${travel.dataCreacio}</p>
 				                <p class="blog-user">${travelUser.totalPuntuacio}: </p>
 				                
 				                <form action="botonesViajesUserPage" method="post">
@@ -112,15 +112,15 @@
 		    	<div class="travUs">
 		    		<h3>Viajes</h3>
 		    	</div>
-			        <c:forEach var="travelUser" items="${travelUserList}" varStatus="status">
+			        <c:forEach var="travel" items="${travels}" varStatus="status">
 			        	<div class="container-viaje">
 			        		<div class="img-viaje">
-			                	<img src="${travelUser.imagen}"/>
+			                	<img src="${travel.fotoPortada}"/>
 			                </div>
 			                <div class="content-viaje">
-				                <p class="blog-title">${travelUser.nom}</p>
-				                <p class="blog-user">${travelUser.dataCreacio}</p>
-				                <p class="blog-user">${travelUser.totalPuntuacio}: </p>
+				                <p class="blog-title">${travel.localitat}</p>
+				                <p class="blog-user">${travel.dataCreacio}</p>
+				                <p class="blog-user">${travel.totalPuntuacio}: </p>
 				                <form action="/botonesViajesUserPage" method="post">
 				                    <input type="submit" class="button button-blog" value="Ver" id="verTravelusers"/>
 				                    <c:if test="${tipusUser == 'ADMIN' }">	<!--  solo admin puede borrar viajes de los usuarios, lo suyo seria enviar un mensaje al usuario de que el viaje ha sido borrado -->
@@ -128,23 +128,23 @@
 				                    	
 				                    	<!-- Modal Eliminar Usuario -->
 		
-                                    <div class="modal fade" id=""deleteMessage"" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		                              <div class="modal-dialog" role="document">
-		                                  <div class="modal-content">
-		                                      <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
-                                              </div>
-                                            <div class="modal-body">
-                                            Esta seguro que quiere eliminar este usuario? Sus datos y viajes también serán eliminados.
-                                            </div>
-                                              <div class="modal-footer">
-                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
-                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
+	                                    <div class="modal fade" id=""deleteMessage"" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			                              <div class="modal-dialog" role="document">
+			                                  <div class="modal-content">
+			                                      <div class="modal-header">
+	                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
+	                                              </div>
+	                                            <div class="modal-body">
+	                                            Está seguro que quiere eliminar este usuario? Sus datos y viajes también serán eliminados.
+	                                            </div>
+	                                              <div class="modal-footer">
+	                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+	                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
+	                                              </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
 				                    	
 				                    </c:if>
 			                    </form>

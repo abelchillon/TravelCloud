@@ -45,7 +45,7 @@
 
                             </div>
                             <div class="col-sm-6">
-                            	<form action="botonesTravelSearch" method="post">
+                            	<form action="verViaje" method="get">
                             	
                                 <input type="submit" class="button-blog" value="Ver viaje" name="verViaje"/>
                                 <c:choose>

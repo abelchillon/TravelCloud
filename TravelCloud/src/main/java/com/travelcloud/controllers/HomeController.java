@@ -1,8 +1,10 @@
 package com.travelcloud.controllers;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -111,8 +113,7 @@ public class HomeController {
 	 }
 	
 	@RequestMapping(value="searchViatge", method=RequestMethod.POST)
-	public String resultados(@ModelAttribute("viatges") Viatge viatge,
-			HttpSession session, ModelMap model) {
+	public String resultados(@ModelAttribute("viatges") Viatge viatge, ModelMap model) {
 		try {
 			List<Viatge> viatges = viatgeService.obtenirViatges();
 			int puntuacio = 0;
@@ -138,13 +139,50 @@ public class HomeController {
 		return "travelSearch";
 	}
 	
+	@RequestMapping(value = "travelSearch", method = RequestMethod.GET)
+	public String travelSearch2(ModelMap model, HttpServletRequest request) {
+		try {
+			List<Viatge> viatges = viatgeService.obtenirViatges();
+			if (viatges != null) {
+				model.addAttribute("viatges",viatges);
+				model.addAttribute("viatge", new Viatge());
+			}
+		} catch (Exception e) {
+			System.out.println("No s'ha pogut obtenir els viatges.");
+			e.printStackTrace();
+		}
+		
+		return "travelSearch";
+	}	
+	
 	@RequestMapping(value="userPage", method=RequestMethod.GET)	
-	public String userSearch() {
-		return "userPage";
+	public ModelAndView userSearch(HttpServletRequest request) throws Exception {
+		Usuari usuari = (Usuari) request.getSession().getAttribute("user");
+		usuari.setTotalViatges(viatgeService.totalViatgesUsuari(usuari.getId()));
+		ModelAndView mav = new ModelAndView("userPage");
+		mav.addObject("usuari",usuari);
+		
+		request.getSession().setAttribute("tipusUser",usuari.getRol());
+
+		if(usuari.getTotalViatges()!=0) {
+			mav.addObject("travels",viatgeService.llistarViatgesUsuari(usuari.getId())); 
+		}
+		return mav;
 	}
 	
-	@RequestMapping(value = "travelSearch", method = RequestMethod.GET)
-	public String travelSearch() {
+	@RequestMapping(value = "travelSearchHeader", method = RequestMethod.GET)
+	public String travelSearch(ModelMap model, HttpServletRequest request) {
+		try {
+			List<Viatge> viatges = viatgeService.obtenirViatges();
+			if (viatges != null) {
+				model.addAttribute("viatges",viatges);
+				model.addAttribute("viatge", new Viatge());
+			}
+		} catch (Exception e) {
+			System.out.println("No s'ha pogut obtenir els viatges.");
+			e.printStackTrace();
+		}
+		
 		return "travelSearch";
 	}	
 	
@@ -152,9 +190,107 @@ public class HomeController {
 	public String userLogin() {
 		return "userLogin";
 	}
+
+	@RequestMapping(value = "comunidades", method = RequestMethod.GET)
+	public String comunidades() {
+		return "comunidades";
+	}
+
+	@RequestMapping(value = "listadoComunidadesAutonomas", method = RequestMethod.GET)
+	public ModelAndView comunidades1(@RequestParam String action) throws Exception{
+		switch(action) {
+        case "Andalucia":
+        	System.out.println();
+//        	mav = new ModelAndView("travelPush");
+        	break;
+        case "Aragon":
+            break;
+        case "Asturias":
+            break;
+        case "Baleares":
+            break;
+        case "Canarias":
+            break;
+        case "Cantabria":
+            break;
+        case "Castilla-La Mancha":
+            break;
+        case "Castilla y Leon":
+            break;
+        case "Comunidad Valenciana":
+            break;
+        case "Extremadura":
+            break;
+        case "Galicia":
+            break;
+        case "Madrid":
+            break;
+        case "Murcia":
+            break;
+        case "Navarra":
+            break;
+        case "Pais Vasco":
+            break;
+        case "La Rioja":
+            break;
+        default:
+            break;
+		}
+		return new ModelAndView("comunidades");
+	}
+	
+	@RequestMapping(value = "userLogged", method = RequestMethod.GET)
+	public ModelAndView userLogged(HttpServletRequest request,
+			@ModelAttribute("newUser") Usuari usuari, ModelMap model) {
+		Usuari user = null;
+		ModelAndView mav = null;
+		
+		try {
+			user = usuariService.obtenirUsuariPerMail(usuari.getEmail(), usuari.getPassword());
+			request.getSession().setAttribute("id", user.getId());
+			request.getSession().setAttribute("user", user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (user != null) {
+			mav = new ModelAndView("indexTravelCloud");
+			mav.addObject("loginIncorrect","FALSE");
+			request.getSession().setAttribute("tipusUser",user.getRol());
+			mav.addObject("tipusUser",user.getRol());
+
+			try {
+				List<Viatge> viatges = viatgeService.obtenirViatges();
+				if (viatges != null) {
+					model.addAttribute("viatges",viatges);
+					model.addAttribute("viatge", new Viatge());
+				}
+			} catch (Exception e) {
+				System.out.println("No s'ha pogut obtenir els viatges.");
+				e.printStackTrace();
+			}
+		} else {
+			mav = new ModelAndView("userLogin");
+			mav.addObject("loginIncorrect","TRUE");
+
+//			model.addAttribute("loginIncorrect", "TRUE");
+//			return new RedirectView("userLogin");
+		}
+		return mav;
+	}
 	
 	@RequestMapping(value = "userRegister", method = RequestMethod.GET)
-	public String userRegister() {
+	public String userRegister(Model model) {
+		model.addAttribute("usuari", new Usuari());
+//		List<Viatge> viatges;
+//		try {
+//			viatges = viatgeService.obtenirViatges();
+//			if (viatges != null) {
+//				model.addAttribute("viatges",viatges);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
 		return "userRegister";
 	}
 	
@@ -169,8 +305,17 @@ public class HomeController {
 	
 	// PROCESAR FORMULARIO REGISTRO USUARIO
 	@RequestMapping(value="/addUser", method= RequestMethod.POST)
-	public String processFormUserRegister(@ModelAttribute("newUser") Usuari usuari) throws Exception {
+	public String processFormUserRegister(@ModelAttribute("newUser") Usuari usuari,
+			HttpServletRequest request) throws Exception {
 		usuariService.insertarUsuari(usuari);
+		usuari.setRol("USER");
+		request.getSession().setAttribute("id", usuari.getId());
+		request.getSession().setAttribute("user", usuari);
+		if (request.getSession().getAttribute("id").equals(usuari.getId())) {
+			request.getSession().setAttribute("sameUser",true);
+		} else {
+			request.getSession().setAttribute("sameUser",false);
+		}
 		return "redirect:/userPage";
 	}
 	
@@ -195,6 +340,31 @@ public class HomeController {
 		return "redirect:/  ";
 	}
 	
+	@RequestMapping(value = "sobrenosotros", method = RequestMethod.GET)
+	public String sobrenosotros() {
+		return "sobrenosotros";
+	}	
+	
+	@RequestMapping(value = "condicionesUsoPagina", method = RequestMethod.GET)
+	public String condicionesUsoPagina() {
+		return "condicionesUsoPagina";
+	}
+	
+	@RequestMapping(value = "politicaPrivacidad", method = RequestMethod.GET)
+	public String politicaPrivacidad() {
+		return "politicaPrivacidad";
+	}
+	
+	// YSM - lo he añadido porque no me da acceso a esta pagina, pero sigue sin funcionarme y no he querido tocar nada mas por miedo a liarla
+	@RequestMapping(value = "condicionesPublicacion", method = RequestMethod.GET)
+	public String condicionesPublicacion() {
+		return "condicionesPublicacion";
+	}
 
+	@RequestMapping(value = "verViaje", method = RequestMethod.GET)
+	public String verViaje(){
+		return "travelView";
+	
+	}
 	
 }

@@ -71,68 +71,65 @@
             </div>
             
             <div class="opinions">
-                <c:choose>
-                <form action="botonesTravelView" method="post">
-                    <!-- USUARIO QUE VISITA UN VIAJE DE OTRO USUARIO -->
-                    <c:when test="${tipusUser == 'USER'}"> <!-- YSM - COMPARAR ID USURIO LOGIN CON EL ID DEL USUARIO QUE HA CREADO EL VIAJE, SI NO ES NUESTRO VIAJE:  --> 
+                <form action="botonesTravelView" method="post">            
+<%--                 	<c:choose> --%>
+<!--                     USUARIO QUE VISITA UN VIAJE DE OTRO USUARIO -->
+<%--                     <c:when test="${tipusUser == 'USER'}"> <!-- YSM - COMPARAR ID USURIO LOGIN CON EL ID DEL USUARIO QUE HA CREADO EL VIAJE, SI NO ES NUESTRO VIAJE:  -->                      --%>
+<!--                         <div class="opinions-button"> -->
+<!--                             <button type="button" class="button button-blog" id="valorar">VALORAR Y COMENTAR</button>    -->
+<!--                         </div> -->
+<!--                         <div class="opinions-button"> -->
+<!--                             <button type="button" class="button button-blog" id="addListaDeseos">AÑADIR LISTA DESEOS</button>   -->
+<!--                         </div> -->
+<!--                         <div class="opinions-button"> -->
+<!--                             <button type="button" class="button button-blog" id="volverBusqueda">VOLVER A LA BÚSQUEDA</button>    -->
+<!--                         </div>                     -->
+<%--                     </c:when> --%>
+<!--                     PARA CUANDO UN USUARIO VISITA SU PROPIO VIAJE  -->
+<%--                     <c:when test="${sameUser == true}"> --%>
                     
-                        <div class="opinions-button">
-                            <button type="button" class="button button-blog" id="valorar">VALORAR Y COMENTAR</button>   
-                        </div>
-                        <div class="opinions-button">
-                            <button type="button" class="button button-blog" id="addListaDeseos">AÑADIR LISTA DESEOS</button>  
-                        </div>
-                        <div class="opinions-button">
-                            <button type="button" class="button button-blog" id="volverBusqueda">VOLVER A LA BÚSQUEDA</button>   
-                        </div>
+<!--                         <div class="opinions-button"> -->
+<!--                             <button type="button" class="button button-blog" id="valorar">MODIFICAR VIAJE</button>  -->
+<!--                         </div> -->
+<!--                         <div class="opinions-button"> -->
+<!--                             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="deleteTravel">ELIMINAR VIAJE</button> -->
+<!--                         </div> -->
+<!--                         <div class="opinions-button"> -->
+<!--                             <button type="button" class="button button-blog" id="returnPage">VOLVER</button>   -->
+<!--                         </div> -->
+<%--                     </c:when>                 --%>
+                    		                                   
                     
-                    </c:when>
-                    <!-- PARA CUANDO UN USUARIO VISITA SU PROPIO VIAJE  -->
-                    <c:when test="${usuari.id == session.getAttribute("id")}">
+<!--                     Si quien visita el viaje es ADMIN o ASESOR -->
+<%--                     <c:otherwise> --%>
+<!--                      	<div class="opinions-button"> -->
+<!--                             <button type="button" class="button button-blog" data-toggle="modal" data-target="deleteTravel">ELIMINAR VIAJE</button> -->
+<!--                         </div> -->
+<!--                         <div class="opinions-button"> -->
+<!--                             <button type="button" class="button button-blog" id="returnPage">VOLVER</button>     -->
+<!--                         </div> -->
+<%--                     </c:otherwise> --%>
+<!--                    Modal Eliminar Viaje -->
                     
-                        <div class="opinions-button">
-                            <button type="button" class="button button-blog" id="valorar">MODIFICAR VIAJE</button> 
-                        </div>
-                        <div class="opinions-button">
-                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="deleteTravel">ELIMINAR VIAJE</button>
-                        </div>
-                        <div class="opinions-button">
-                            <button type="button" class="button button-blog" id="returnPage">VOLVER</button>  
-                        </div>
-                    </c:when>
-                    
-                    
-                    <!-- Modal Eliminar Viaje -->
-		
-                                    <div class="modal fade" id="deleteTravel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		                              <div class="modal-dialog" role="document">
-		                                  <div class="modal-content">
-		                                      <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel">Aviso!</h4>
-                                              </div>
-                                            <div class="modal-body">
-                                            Esta seguro que quiere eliminar el viaje? No podrá ser recuperado.
-                                            </div>
-                                              <div class="modal-footer">
-                                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
-                                                <input type="submit" class="btn btn-primary" value="Aceptar"/>
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                    
-                    <!--Si quien visita el viaje es ADMIN o ASESOR -->
-                    <c:otherwise>
-                     	<div class="opinions-button">
-                            <button type="button" class="button button-blog" data-toggle="modal" data-target="deleteTravel">ELIMINAR VIAJE</button>
-                        </div>
-                        <div class="opinions-button">
-                            <button type="button" class="button button-blog" id="returnPage">VOLVER</button>    
-                        </div>
-                    </c:otherwise>
-                    </form>
-                </c:choose>
+                    <div class="modal fade" id="deleteTravel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		            	<div class="modal-dialog" role="document">
+		                	<div class="modal-content">
+		                    	<div class="modal-header">
+                                	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    	<h4 class="modal-title" id="myModalLabel">Aviso!</h4>
+                                </div>
+                                <div class="modal-body">
+                                     Esta seguro que quiere eliminar el viaje? No podrá ser recuperado.
+                                </div>
+                                <div class="modal-footer">
+                                	<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+                                    <input type="submit" class="btn btn-primary" value="Aceptar"/>
+                                </div>
+                             </div>
+                       </div>
+	             </div>
+<%--                 </c:choose> --%>
+               </form>                
             </div>
         </section>  
         

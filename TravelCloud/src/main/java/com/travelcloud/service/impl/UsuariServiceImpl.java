@@ -54,6 +54,11 @@ public class UsuariServiceImpl implements IUsuariService{
 		}
 		return usauris;
 	}
+
+	@Override
+	public Usuari obtenirUsuariPerMail(String email, String password) throws Exception {
+		return daoUsuari.obtenirUsuariPerMail(email, password);
+	}
 	
 
 }

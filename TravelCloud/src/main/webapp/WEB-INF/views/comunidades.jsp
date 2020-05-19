@@ -27,7 +27,7 @@
         <%@include file="headerLogin.jsp" %>
 
         <!-- LISTADO COMUNIDADES AUTONOMAS -->
-        <form action="listadoComunidadesAutonomas" method="post">
+        <form action="listadoComunidadesAutonomas" method="get">
         <section class="features">
             <div class="row">
                 <div class="col-md-12">
@@ -40,7 +40,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/610/300/200.jpg" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Andalucia" name="Andalucia"/>   
+                                <input type="submit" class="button button-blog" value="Andalucia" name="action"/>   
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=1" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Aragon" name="Aragon"/>
+                                <input type="submit" class="button button-blog" value="Aragon" name="action"/>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=2" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Asturias" name="Asturias"/>
+                                <input type="submit" class="button button-blog" value="Asturias" name="action"/>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/154/300/200.jpg" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Baleares" name="Baleares"/>
+                                <input type="submit" class="button button-blog" value="Baleares" name="action"/>
                           </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/658/300/200.jpg" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Canarias" name="Canarias"/>  
+                                <input type="submit" class="button button-blog" value="Canarias" name="action"/>  
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/231/300/200.jpg" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Cantabria" name="Cantabria"/>
+                                <input type="submit" class="button button-blog" value="Cantabria" name="action"/>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=6" name="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Castilla-La Mancha" id="Castilla-La Mancha"/>
+                                <input type="submit" class="button button-blog" value="Castilla-La Mancha" id="action"/>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=7" name="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Castilla y Leon" id="Castilla y Leon"/>
+                                <input type="submit" class="button button-blog" value="Castilla y Leon" id="action"/>
                           </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/961/300/200.jpg" name="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Catalunya" id="Catalunya"/>    
+                                <input type="submit" class="button button-blog" value="Catalunya" id="action"/>    
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=9" name="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Comunidad Valenciana" id="Comunidad Valenciana"/>
+                                <input type="submit" class="button button-blog" value="Comunidad Valenciana" id="action"/>
                             </div>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://i.picsum.photos/id/190/300/200.jpg" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Extremadura" name="Extremadura"/>
+                                <input type="submit" class="button button-blog" value="Extremadura" name="action"/>
                             </div>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=11" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Galicia" name="Galicia"/>
+                                <input type="submit" class="button button-blog" value="Galicia" name="action"/>
                           </div>
                         </div>
                     </div>
@@ -166,7 +166,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=12" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Madrid" name="Madrid"/>    
+                                <input type="submit" class="button button-blog" value="Madrid" name="action"/>    
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=13" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Murcia" name="Murcia"/>
+                                <input type="submit" class="button button-blog" value="Murcia" name="action"/>
                             </div>
                         </div>
                     </div>
@@ -186,7 +186,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=14" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Navarra" name="Navarra"/>
+                                <input type="submit" class="button button-blog" value="Navarra" name="action"/>
                             </div>
                         </div>
                     </div>
@@ -196,7 +196,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=15" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="Pais Vasco" name="Pais Vasco"/>
+                                <input type="submit" class="button button-blog" value="Pais Vasco" name="action"/>
                           </div>
                         </div>
                     </div>
@@ -208,7 +208,7 @@
                         <div class="card" style="width: 30rem;">
                             <img class="card-img-top" src="https://picsum.photos/300/200?random=16" alt="Imagen Comunidad Autonoma">
                             <div class="card-body">
-                                <input type="submit" class="button button-blog" value="La Rioja" name="La Rioja"/>    
+                                <input type="submit" class="button button-blog" value="La Rioja" name="action"/>    
                             </div>
                         </div>
                     </div>

@@ -88,5 +88,6 @@ public class ViatgeServiceImpl implements IViatgeService{
 	public int totalViatgesUsuari(int idUsuari) throws Exception {
 		return daoViatge.totalViatgesUsuari(idUsuari);
 	}
+
 	
 }

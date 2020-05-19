@@ -1,11 +1,14 @@
 package com.travelcloud.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.travelcloud.model.Desitjos;
@@ -20,7 +23,7 @@ import com.travelcloud.service.IDesitjosService;
 import com.travelcloud.service.IMissatgeService;
 
 @Controller
-@RequestMapping(value="/userPage")
+@RequestMapping(value="/")
 public class UsuariController {
 	
 	@Autowired
@@ -45,6 +48,43 @@ public class UsuariController {
 	
 	//userPage 
 	//ACTION FORMULARIO - botonesUserPage
+	@RequestMapping(value="botonesUserPage", method=RequestMethod.GET)	
+	public ModelAndView userSearch(@RequestParam String action) throws Exception {
+		ModelAndView mav = null;
+		switch(action) {
+        case "Subir Viaje":
+        	mav = new ModelAndView("travelPush");
+        	break;
+        case "Editar Perfil":
+        	mav = new ModelAndView("userUpdate");
+            break;
+        case "Lista de deseos":
+        	mav = new ModelAndView("wishList");
+            break;
+        case "Mensajes":
+        	mav = new ModelAndView("userMessages");
+            break;
+        case "Gestión usuarios":
+        	mav = new ModelAndView("userMessages");
+            break;
+        case "Gestión viajes":
+        	mav = new ModelAndView("userMessages");
+            break;
+        case "Enviar mensaje":
+        	mav = new ModelAndView("sendMessage");
+            break;
+        default:
+            // do stuff
+            break;
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "sendMessage", method = RequestMethod.GET)
+	public String sendMessages() {
+	    return "sendMessage";
+	}
+	
 	@RequestMapping(params = "subirViaje", method = RequestMethod.POST)
 	public String subirViaje() {
 	    return "redirect:/travelPush";
@@ -281,6 +321,7 @@ public class UsuariController {
 	public String verViaje1() {
 	    return "redirect:/travelView";
 	}
+	
 	@RequestMapping(params = "eliminarViaje", method = RequestMethod.POST)
 	public ModelAndView eliminarViaje(@ModelAttribute Viatge viatge) {
 	    System.out.println(viatge.toString());

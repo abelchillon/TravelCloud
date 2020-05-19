@@ -18,12 +18,12 @@
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="${contextPath}/travelSearch" class="glyphicon glyphicon-search"></a>
+                                <a href="${contextPath}/travelSearchHeader" class="glyphicon glyphicon-search"></a>
                             </li>
                             
                             <c:choose>
                             
-                                <c:when test="${tipusUser == 'USER_LOGIN'}">
+                                <c:when test="${loginIncorrect == 'FALSE'}">
                                     <li class="dropdown">
                                         <a class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" href="/TravelCloud/userPage" id="themes"><span class="caret"></span></a>
                                         <ul class="dropdown-menu" aria-labelledby="themes">
@@ -31,11 +31,11 @@
                                                 <a href="${contextPath}/userPage">Perfil usuario</a>
                                             </li>
                                             <c:choose>
-                                                <c:when test="${tipusUsuari == 'USER'}">
+                                                <c:when test="${tipusUser == 'USER'}">
                                                     <li><a href="${contextPath}/travelPush">Publicar viaje</a></li>
                                                     <li><a href="${contextPath}/wishList">Lista de deseos</a></li>
                                                 </c:when>
-                                                <c:when test="${tipusUsuari == 'ADMIN'}">
+                                                <c:when test="${tipusUser == 'ADMIN'}">
                                                     <li><a href="">Gestión usuarios</a></li>
                                                     <li><a href="">Gestión viajes</a></li>
                                                 </c:when>                                

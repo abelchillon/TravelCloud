@@ -26,10 +26,10 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<!-- LOCALHOST -->
 		<beans:property name="url" value="jdbc:mysql://localhost:3306/travelcloud?serverTimezone=UTC" />
+<!-- 		<beans:property name="url" value="jdbc:mysql://node28099-env-4395003:3306/travelcloud" /> -->
    		<!-- HOSTING -->
-<!--    		<beans:property name="url" value="jdbc:mysql://node27871-travelcloud.es-1.axarnet.cloud:3306/travelcloud"?serverTimezone=UTC /> -->
    		<beans:property name="username" value="root" />
-   		<beans:property name="password" value="root" />
-<!--    		<beans:property name="password" value="iBhDuPLNut" /> -->
+   		<beans:property name="password" value="123abel" />
+<!--    		<beans:property name="password" value="ZbkiYPNCQR" /> -->
    	</beans:bean>
 </beans:beans>

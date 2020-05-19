@@ -1,6 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -33,7 +35,7 @@
             </div>
             <div class="container">
                 <div class="form">
-                    <form class="well form-horizontal" method="post" action="userLogin">
+                    <form:form class="well form-horizontal" method="get" modelAttribute="usuari" action="userLogged">
                         <fieldset>
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Correo electrónico</label>
@@ -53,7 +55,7 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-eye-open"></i>
                                         </span>
-                                        <input id="pasword" name="pasword" class="form-control" value="" type="password" placeholder="contraseña (8 caracteres mínimo)" minlength="8" required>
+                                        <input id="password" name="password" class="form-control" value="" type="password" placeholder="contraseña (8 caracteres mínimo)" minlength="8" required>
                                     </div>
                                 </div>
                             </div>
@@ -64,8 +66,13 @@
                             <div class="form-group" id="botons">
                                 <input type="submit" class="btn btn-secondary" value="Iniciar sesión" name="login">
                             </div>
+                            <c:if test="${loginIncorrect == 'TRUE'}">
+	                            <div class="loginIncorret">
+                                	<label>Email o contraseña incorrecta.</label>
+	                            </div>
+                            </c:if>
                         </fieldset>
-                    </form>
+                    </form:form>
                 </div>
             </div>    
         </section>

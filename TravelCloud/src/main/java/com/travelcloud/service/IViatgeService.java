@@ -18,5 +18,4 @@ public interface IViatgeService {
 	public List<Viatge> obtenirViatgesPerFiltre(Viatge viatge) throws Exception;
 	
 	public int totalViatgesUsuari(int idUsuari) throws Exception;
-	
 }

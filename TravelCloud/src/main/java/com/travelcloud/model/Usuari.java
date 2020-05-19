@@ -12,6 +12,7 @@ public class Usuari {
 	private String telefon;
 	private String rol;
 	private Date dataCreacio;
+	private int totalViatges;
 	
 	public Usuari() {
 		super();
@@ -101,6 +102,14 @@ public class Usuari {
 
 	public void setDataCreacio(Date dataCreacio) {
 		this.dataCreacio = dataCreacio;
+	}
+
+	public int getTotalViatges() {
+		return totalViatges;
+	}
+
+	public void setTotalViatges(int totalViatges) {
+		this.totalViatges = totalViatges;
 	}
 
 	@Override

@@ -21,6 +21,7 @@
         <!--Icono ico-->
         <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico" />">
     </head>
+    <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
     
     <body>
         <!-- Navegació/Header-->
@@ -36,7 +37,7 @@
                         </div>
                     </div>
                     <div class="asesor">
-                        <a class="button button-asesor" href="/TravelCloud/sendMessage">CONTACTA CON NUESTRO ASESOR</a>   
+                        <a class="button button-asesor" href="${contextPath}/sendMessage">CONTACTA CON NUESTRO ASESOR</a>   
                     </div>
                 </div>   
             </section>

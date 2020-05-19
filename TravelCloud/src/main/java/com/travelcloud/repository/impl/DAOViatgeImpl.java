@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.travelcloud.model.Foto;
 import com.travelcloud.model.Viatge;
 import com.travelcloud.repository.DAOViatge;
 
@@ -138,7 +139,11 @@ public class DAOViatgeImpl implements DAOViatge{
 			pStatement.setInt(1, idUsuari);
 			ResultSet rs = pStatement.executeQuery();
 			while(rs.next()) {
+				int puntuacioTotal = this.obtenirPuntuacioTotal(rs.getInt("id"));
+				String src = this.llistarFotoUsuari(idUsuari);
 				Viatge viatge = makeViatge(rs);
+				viatge.setTotalPuntuacio(puntuacioTotal);
+				viatge.setFotoPortada(src);
 				llistatViatgesUsuari.add(viatge);
 			}
 			pStatement.close();
@@ -153,6 +158,31 @@ public class DAOViatgeImpl implements DAOViatge{
 		return llistatViatgesUsuari;
 	}
 	
+	private int obtenirPuntuacioTotal(int idViatge) throws Exception {
+		String sql = "SELECT puntuacio FROM valoracio WHERE idViatge = ?";
+		Connection connection = null;
+		int puntuacio;
+		int puntuacioTotal = 0;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, idViatge);
+			ResultSet rs = pStatement.executeQuery();
+			while(rs.next()) {
+				puntuacio = rs.getInt("puntuacio");
+				puntuacioTotal = puntuacioTotal + puntuacio;
+			}
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		return puntuacioTotal;
+	}
+	
 	private Viatge makeViatge(ResultSet rs) throws SQLException {
 		int id = rs.getInt("id");
 		String comunitat = rs.getString("comunitat");
@@ -165,7 +195,7 @@ public class DAOViatgeImpl implements DAOViatge{
 		String titol = rs.getString("titol");
 		int idUsuari = rs.getInt("idUsuari");
 		Date dataCreacio = rs.getDate("dataCreacio");
-		
+	
 		Viatge viatge = new Viatge(id, comunitat, provincia, localitat, entorn, durada, tipus, descripcio, titol, idUsuari, dataCreacio); 
 		return viatge; 
 		
@@ -603,14 +633,15 @@ public class DAOViatgeImpl implements DAOViatge{
 	
 	@Override
 	public int totalViatgesUsuari(int idUsuari) throws Exception {
-		String sql = "SELECT idViatge FROM viatges WHERE idUsuari = ?";
+		String sql = "SELECT * FROM viatge WHERE idUsuari = ?";
 		Connection connection = null;
 		int totalViatges = 0;
 		try {
 			connection = dataSource.getConnection();
 			PreparedStatement pStatement = connection.prepareStatement(sql);
-			ResultSet rs = pStatement.executeQuery();
 			pStatement.setInt(1, idUsuari);
+
+			ResultSet rs = pStatement.executeQuery();
 			while(rs.next()) {
 				totalViatges++;
 			}
@@ -623,6 +654,37 @@ public class DAOViatgeImpl implements DAOViatge{
 			}
 		}
 		return totalViatges;
+	}
+
+	
+	private String llistarFotoUsuari(int idUsuari) throws Exception{
+		String sql = "SELECT * FROM foto WHERE idUsuari = ?";
+		Connection connection = null;
+		
+		Foto foto = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setInt(1, idUsuari);
+			ResultSet rs = pStatement.executeQuery();			
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				int idUser = rs.getInt("idUsuari");
+				int idViatge = rs.getInt("idViatge");
+				String source = rs.getString("src");
+				Date dataCreacio = rs.getDate("dataCreacio");				
+				foto = new Foto(id, idUser, idViatge, source, dataCreacio); 
+			}
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		return foto.getSrc();
+		
 	}
 }
 

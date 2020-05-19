@@ -36,22 +36,29 @@
 #botons {
 	margin-top:2rem;
 }
-#botons button {
-	display: block;
-	font-size: 1.5rem;
-	text-align: center;
-	margin: auto;
-	background-color: #333E4F;
-	color:#c5e6e1;
-	border-radius: 3px;
-	transition: background-color 200ms ease, color 200ms ease;
-}
-#botons button:hover {
+/* #botons .btn { */
+/* 	display: block; */
+/* 	font-size: 1.5rem; */
+/* 	text-align: center; */
+/* 	margin: auto; */
+/* 	background-color: #333E4F; */
+/* 	color:#c5e6e1; */
+/* 	border-radius: 3px; */
+/* 	transition: background-color 200ms ease, color 200ms ease; */
+/* } */
+
+.btn:hover {
 	background-color: rgba(197,230,224,0.5);
 	color: #333e4f;
 	border: 0.2rem solid #333e4f;
 	
 }
 
-
+.btn {
+	background-color: rgb(51,62,79);
+	color:#c5e6e1;
+	float:none;
+	text-align:center;
+	
+}
 

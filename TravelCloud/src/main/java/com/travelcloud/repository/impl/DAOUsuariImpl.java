@@ -38,7 +38,7 @@ public class DAOUsuariImpl implements DAOUsuari{
 			pStatement.setString(4, usuari.getPassword());
 			pStatement.setString(5, usuari.getEmail());
 			pStatement.setString(6, usuari.getTelefon());
-			pStatement.setString(7, usuari.getRol());
+			pStatement.setString(7, "USER");
 			pStatement.setDate(8, new Date(Calendar.getInstance().getTime().getTime()));
 
 			pStatement.executeUpdate();
@@ -136,6 +136,32 @@ public class DAOUsuariImpl implements DAOUsuari{
 		Usuari usuari = new Usuari(id, nom, cognom1, cognom2, password, email, telefon, rol, dataCreacio);
 		return usuari;
 		
+	}
+
+
+	@Override
+	public Usuari obtenirUsuariPerMail(String email, String password) throws Exception {
+		String sql = "SELECT * FROM usuari WHERE email = ? AND password = ?";
+		Connection connection = null;
+		Usuari usuari = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pStatement = connection.prepareStatement(sql);
+			pStatement.setString(1, email);
+			pStatement.setString(2, password);
+			ResultSet rs = pStatement.executeQuery();
+			while(rs.next()) {
+				usuari = makeUser(rs);
+			}
+			pStatement.close();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();				
+			}
+		}
+		return usuari;
 	}
 	
 	

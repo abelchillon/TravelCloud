@@ -118,7 +118,7 @@
 	                        <p class="blog-title">${viaje.titulo}</p>
 	                        <p class="blog-summary">${viaje.descripcion}</p>
 	                        <a class="button button-blog" href="${contextPath}/travelView">Ver viaje</a>
-	                        <c:if test="${tipusUsuari == USER_LOGIN }">
+	                        <c:if test="${loginIncorrect == 'FALSE'}">
 	                        	<a class="button button-blog" href="#">Añadir a la lista deseos</a>
 	                        </c:if>
 	                    </div>  
